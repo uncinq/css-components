@@ -1,0 +1,16 @@
+/* css/index.css */
+@import 'component/alert.css';
+@import 'component/badge.css';
+@import 'component/banner.css';
+@import 'component/breadcrumb.css';
+@import 'component/button.css';
+@import 'component/card.css';
+@import 'component/dropdown.css';
+@import 'component/embed.css';
+@import 'component/list.css';
+@import 'component/map.css';
+@import 'component/media.css';
+@import 'component/nav.css';
+@import 'component/nav-accessibility.css';
+@import 'component/offcanvas.css';
+@import 'component/pagination.css';

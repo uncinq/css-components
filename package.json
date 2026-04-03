@@ -1,0 +1,37 @@
+{
+  "name": "@uncinq/css-components",
+  "version": "0.1.0",
+  "description": "Framework-agnostic CSS component implementations for Un Cinq projects.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uncinq/css-components.git"
+  },
+  "homepage": "https://github.com/uncinq/css-components#readme",
+  "author": {
+    "name": "Un Cinq",
+    "url": "https://uncinq.dev/"
+  },
+  "keywords": [
+    "css",
+    "components",
+    "design-system",
+    "cascade-layers"
+  ],
+  "files": [
+    "css/"
+  ],
+  "exports": {
+    ".": "./css/index.css",
+    "./css/index.css": "./css/index.css",
+    "./css/component/*": "./css/component/*"
+  },
+  "style": "./css/index.css",
+  "peerDependencies": {
+    "@uncinq/design-tokens": "*",
+    "@uncinq/component-tokens": "*"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
