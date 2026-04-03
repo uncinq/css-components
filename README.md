@@ -1,12 +1,12 @@
 # @uncinq/css-components
 
-> Framework-agnostic CSS component implementations for Un Cinq projects — actual styles built on top of design and component tokens.
+> Framework-agnostic CSS component implementations — actual styles built on top of design and component tokens.
 
 <img width="1280" height="640" alt="share-css-components" src="https://github.com/user-attachments/assets/3d74df8a-e7bf-4ba5-8529-99cfef0bc176" />
 
 ## What is this?
 
-`@uncinq/css-components` provides the CSS implementations of common UI components. It sits at the top of the Un Cinq CSS stack:
+`@uncinq/css-components` provides the CSS implementations of common UI components. It sits at the top of the CSS stack:
 
 ```text
 @uncinq/design-tokens      ← primitive + semantic CSS custom properties

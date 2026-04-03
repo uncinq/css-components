@@ -1,7 +1,7 @@
 {
   "name": "@uncinq/css-components",
-  "version": "0.1.0",
-  "description": "Framework-agnostic CSS component implementations for Un Cinq projects.",
+  "version": "0.0.0",
+  "description": "Framework-agnostic CSS component implementations.",
   "license": "MIT",
   "repository": {
     "type": "git",
