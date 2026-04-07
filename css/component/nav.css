@@ -2,33 +2,23 @@
 /*
  * .nav — base navigation list, vertical by default.
  *
- * Variants:
- *   .nav-title     — bold group heading (not a link)
- *   .nav-social    — icon-only social links
- *   .nav-language  — compact language switcher
- *
  * Structure:
- *   <nav>
- *     <ul>
- *       <li>
- *         <a href="...">...</a>
- *       </li>
- *     </ul>
- *   </nav>
+ *   <ul|ol class="nav">
+ *     <li>
+ *       <a href="...">...</a>
+ *     </li>
+ *   </ul>
  *
  * Direction is set by context (e.g. header sets flex-direction: row).
  */
 @layer components {
   .nav {
-    ul,
-    ol {
-      display: flex;
-      flex-direction: column;
-      gap: var(--nav-gap);
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
+    display: flex;
+    flex-direction: column;
+    gap: var(--nav-gap);
+    list-style: none;
+    margin: 0;
+    padding: 0;
 
     /* ── Nav item ────────────────────────────────────────────────── */
 
@@ -66,6 +56,8 @@
     margin: 0;
     padding: var(--nav-padding-y) var(--nav-padding-x);
   }
+
+  /* ── Item highlighted ───────────────────────────────────────────────────── */
 
   .nav-item-highlighted {
     line-height: 1.2;
