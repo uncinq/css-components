@@ -1,0 +1,12 @@
+/* components/nav-title.css */
+/*
+ * .nav-title — navigation title.
+ */
+@layer components {
+  .nav-title {
+    font-size: var(--nav-font-size-title);
+    font-weight: var(--nav-font-weight-title);
+    margin: 0;
+    padding: var(--nav-padding-y) var(--nav-padding-x);
+  }
+}

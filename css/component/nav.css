@@ -13,12 +13,15 @@
  */
 @layer components {
   .nav {
-    display: flex;
-    flex-direction: column;
-    gap: var(--nav-gap);
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    &,
+    ul,
+    ol {
+      display: flex;
+      flex-direction: var(--nav-direction, column);
+      gap: var(--nav-gap);
+      list-style: none;
+      margin: 0;
+    }
 
     /* ── Nav item ────────────────────────────────────────────────── */
 
@@ -46,27 +49,18 @@
       display: block;
       padding: var(--nav-padding-y) var(--nav-padding-x);
     }
-  }
 
-  /* ── Nav title ───────────────────────────────────────────────────── */
+    /* ── Item highlighted ───────────────────────────────────────────────────── */
 
-  .nav-title {
-    font-size: var(--nav-font-size-title);
-    font-weight: var(--nav-font-weight-title);
-    margin: 0;
-    padding: var(--nav-padding-y) var(--nav-padding-x);
-  }
-
-  /* ── Item highlighted ───────────────────────────────────────────────────── */
-
-  .nav-item-highlighted {
-    line-height: 1.2;
-    margin-inline: var(--nav-padding-x);
-    &:first-child {
-      margin-inline-start: 0;
-    }
-    &:last-child {
-      margin-inline-end: 0;
+    .nav-item-highlighted {
+      line-height: 1.2;
+      margin-inline: var(--nav-padding-x);
+      &:first-child {
+        margin-inline-start: 0;
+      }
+      &:last-child {
+        margin-inline-end: 0;
+      }
     }
   }
 }
