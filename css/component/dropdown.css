@@ -34,9 +34,11 @@
   .dropdown-toggle {
     align-items: center;
     appearance: none;
+    background: transparent;
     border: 0;
     cursor: pointer;
     display: inline-flex;
+    margin-inline-start: calc(var(--spacing-xs) * -1);
     padding: var(--spacing-xs);
 
     &::before {
@@ -45,18 +47,18 @@
       position: absolute;
     }
 
-    /* Chevron via CSS — rotate when open */
     &::after {
-      border-left: 0.3em solid transparent;
-      border-right: 0.3em solid transparent;
-      border-top: 0.3em solid currentColor;
-      content: "";
-      display: inline-block;
-      transition: transform var(--dropdown-transition-duration) var(--dropdown-transition-easing);
+      background-color: currentColor;
+      content: '';
+      flex-shrink: 0;
+      height: var(--dropdown-icon-size);
+      mask: var(--dropdown-icon) center / var(--dropdown-icon-size) no-repeat;
+      transition: rotate var(--dropdown-transition-duration) var(--dropdown-transition-easing);
+      width: var(--dropdown-icon-size);
     }
 
     &[aria-expanded="true"]::after {
-      transform: rotate(180deg);
+      rotate: 180deg;
     }
   }
 
