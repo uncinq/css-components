@@ -5,6 +5,7 @@
 @import 'component/breadcrumb.css';
 @import 'component/button.css';
 @import 'component/card.css';
+@import 'component/drawer.css';
 @import 'component/dropdown.css';
 @import 'component/embed.css';
 @import 'component/list.css';
@@ -13,5 +14,4 @@
 @import 'component/nav.css';
 @import 'component/nav-accessibility.css';
 @import 'component/nav-title.css';
-@import 'component/offcanvas.css';
 @import 'component/pagination.css';

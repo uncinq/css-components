@@ -104,6 +104,7 @@ css/
     breadcrumb.css        ← breadcrumb navigation
     button.css            ← button (all variants)
     card.css              ← card container
+    drawer.css            ← off-canvas panel / drawer
     dropdown.css          ← dropdown menu
     embed.css             ← video / iframe embed wrapper
     list.css              ← styled list
@@ -111,7 +112,7 @@ css/
     media.css             ← media object (image + text)
     nav.css               ← navigation bar
     nav-accessibility.css ← accessibility skip links / focus helpers
-    offcanvas.css         ← off-canvas panel / drawer
+    nav-title.css         ← navigation bar title
     pagination.css        ← pagination control
 ```
 
