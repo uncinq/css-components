@@ -13,7 +13,7 @@
     font-weight: var(--btn-font-weight);
     gap: var(--btn-gap);
     justify-content: center;
-    padding: var(--btn-padding);
+    padding: var(--btn-padding-y) var(--btn-padding-x);
     text-decoration-color: var(--btn-color-text-decoration);
     text-decoration-line: var(--btn-text-decoration-line);
     text-decoration-thickness: var(--text-decoration-thickness);
@@ -78,26 +78,31 @@
   /* Sizes */
   .btn-xs {
     --btn-font-size: var(--font-size-xs);
-    --btn-padding: var(--spacing-xs);
+    --btn-padding-x: var(--spacing-xs);
+    --btn-padding-y: var(--spacing-xs);
   }
 
   .btn-sm {
     --btn-font-size: var(--font-size-sm);
-    --btn-padding: var(--spacing-sm);
+    --btn-padding-x: var(--spacing-sm);
+    --btn-padding-y: var(--spacing-sm);
   }
 
   .btn-md {
     --btn-font-size: var(--font-size-md);
-    --btn-padding: var(--spacing-md);
+    --btn-padding-x: var(--spacing-md);
+    --btn-padding-y: var(--spacing-md);
   }
 
   .btn-lg {
     --btn-font-size: var(--font-size-lg);
-    --btn-padding: var(--spacing-lg);
+    --btn-padding-x: var(--spacing-lg);
+    --btn-padding-y: var(--spacing-lg);
   }
 
   .btn-xl {
     --btn-font-size: var(--font-size-xl);
-    --btn-padding: var(--spacing-xl);
+    --btn-padding-x: var(--spacing-xl);
+    --btn-padding-y: var(--spacing-xl);
   }
 }
