@@ -1,0 +1,44 @@
+/* component/btn-close.css */
+/* Close button */
+@layer components {
+  .btn-close {
+    align-items: center;
+    appearance: none;
+    background-color: var(--btn-close-color-bg, var(--btn-color-bg));
+    border: var(--btn-close-border-width, var(--btn-border-width)) var(--btn-close-border-style, var(--btn-border-style)) var(--btn-close-color-border, var(--btn-color-border));
+    border-radius: var(--btn-close-border-radius, var(--btn-border-radius));
+    color: var(--btn-close-color-text, var(--btn-color-text));
+    cursor: pointer;
+    display: inline-flex;
+    font-size: var(--btn-close-font-size, var(--btn-font-size));
+    font-weight: var(--btn-close-font-weight, var(--btn-font-weight));
+    gap: var(--btn-close-gap, var(--btn-gap));
+    padding: var(--btn-close-padding-y, var(--btn-padding-y)) var(--btn-close-padding-x, var(--btn-padding-x));
+    text-decoration-color: var(--btn-close-color-text-decoration, var(--btn-color-text-decoration));
+    text-decoration-line: var(--btn-text-decoration-line);
+    text-decoration-thickness: var(--text-decoration-thickness);
+    text-transform: var(--btn-text-transform);
+    text-underline-offset: var(--text-decoration-offset);
+
+    &::before {
+      background-color: currentColor;
+      content: '';
+      flex-shrink: 0;
+      height: var(--icon-size);
+      mask: var(--icon-close) center / var(--icon-size) no-repeat;
+      width: var(--icon-size);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background-color: var(--btn-close-color-bg-hover, var(--btn-color-bg-hover));
+        color: var(--btn-close-color-text-hover, var(--btn-color-text-hover));
+        text-decoration-color: var(--btn-close-color-text-decoration-hover, var(--btn-color-text-decoration-hover));
+      }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: var(--btn-transition);
+    }
+  }
+}

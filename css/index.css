@@ -3,6 +3,9 @@
 @import 'component/badge.css';
 @import 'component/banner.css';
 @import 'component/breadcrumb.css';
+@import 'component/btn-close.css';
+@import 'component/btn-menu.css';
+@import 'component/btn-search.css';
 @import 'component/button.css';
 @import 'component/card.css';
 @import 'component/drawer.css';
