@@ -14,8 +14,7 @@
 @layer components {
   .nav {
     &,
-    ul,
-    ol {
+    :is(ul, ol) {
       display: flex;
       flex-direction: var(--nav-direction, column);
       gap: var(--nav-gap);
@@ -26,6 +25,8 @@
     /* ── Nav item ────────────────────────────────────────────────── */
 
     li {
+      margin-block: var(--nav-margin-y, 0);
+      margin-inline: var(--nav-margin-x, 0);
       position: relative;
     }
 
@@ -53,14 +54,8 @@
     /* ── Item highlighted ───────────────────────────────────────────────────── */
 
     .nav-item-highlighted {
-      line-height: 1.2;
+      line-height: var(--line-height-snug);
       margin-inline: var(--nav-padding-x);
-      &:first-child {
-        margin-inline-start: 0;
-      }
-      &:last-child {
-        margin-inline-end: 0;
-      }
     }
   }
 }
