@@ -17,6 +17,7 @@
 
     .alert-heading {
       align-items: center;
+      color: var(--alert-color-text);
       display: flex;
       font-weight: var(--font-weight-semibold);
       gap: var(--alert-gap);

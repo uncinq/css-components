@@ -19,6 +19,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: var(--pagination-gap);
+    justify-content: center;
     list-style: none;
     margin-block: 0;
     padding-inline-start: 0;
@@ -59,6 +60,34 @@
     .disabled a {
       opacity: var(--pagination-disabled-opacity);
       pointer-events: none;
+    }
+
+    :is(.first, .previous, .next, .last) {
+      &::after {
+        background-color: currentColor;
+        content: '';
+        flex-shrink: 0;
+        height: var(--pagination-icon-size);
+        width: var(--pagination-icon-size);
+      }
+    }
+
+    .first::after {
+      mask: var(--pagination-icon-first) center / var(--pagination-icon-size) no-repeat;
+      rotate: 180deg;
+    }
+
+    .previous::after {
+      mask: var(--pagination-icon-previous) center / var(--pagination-icon-size) no-repeat;
+      rotate: 180deg;
+    }
+
+    .next::after {
+      mask: var(--pagination-icon-next) center / var(--pagination-icon-size) no-repeat;
+    }
+
+    .last::after {
+      mask: var(--pagination-icon-last) center / var(--pagination-icon-size) no-repeat;
     }
 
     /* On small screens: hide first/last controls and non-adjacent page numbers */
