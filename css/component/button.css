@@ -6,6 +6,7 @@
     background-color: var(--btn-color-bg);
     border: var(--btn-border-width) var(--btn-border-style) var(--btn-color-border);
     border-radius: var(--btn-border-radius);
+    box-shadow: var(--btn-shadow);
     color: var(--btn-color-text);
     cursor: pointer;
     display: inline-flex;
@@ -35,6 +36,7 @@
       &:hover {
         background-color: var(--btn-color-bg-hover);
         border-color: var(--btn-color-border-hover);
+        box-shadow: var(--btn-shadow-hover);
         color: var(--btn-color-text-hover);
         text-decoration-color: var(--btn-color-text-decoration-hover);
       }
@@ -46,6 +48,15 @@
   }
 
   /* Variants */
+  .btn-control {
+    --btn-color-bg: var(--btn-control-color-bg);
+    --btn-color-bg-hover: var(--btn-control-color-bg-hover);
+    --btn-color-border: var(--btn-control-color-border);
+    --btn-color-border-hover: var(--btn-control-color-border-hover);
+    --btn-color-text: var(--btn-control-color-text);
+    --btn-color-text-hover: var(--btn-control-color-text-hover);
+  }
+
   .btn-danger {
     --btn-color-bg: var(--color-danger);
     --btn-color-bg-hover: var(--color-danger-strong);

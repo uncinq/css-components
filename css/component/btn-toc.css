@@ -1,0 +1,22 @@
+/* component/btn-toc.css */
+/* Table of contents toggle button — requires .btn base class */
+@layer components {
+  .btn-toc {
+    /* Scope --btn-color-* to control values, allow per-button overrides */
+    --btn-color-bg:           var(--btn-toc-color-bg, var(--btn-control-color-bg));
+    --btn-color-bg-hover:     var(--btn-toc-color-bg-hover, var(--btn-control-color-bg-hover));
+    --btn-color-border:       var(--btn-toc-color-border, var(--btn-control-color-border));
+    --btn-color-border-hover: var(--btn-toc-color-border-hover, var(--btn-control-color-border-hover));
+    --btn-color-text:         var(--btn-toc-color-text, var(--btn-control-color-text));
+    --btn-color-text-hover:   var(--btn-toc-color-text-hover, var(--btn-control-color-text-hover));
+
+    &::before {
+      background-color: currentColor;
+      content: '';
+      flex-shrink: 0;
+      height: var(--icon-size);
+      mask: var(--icon-toc) center / var(--icon-size) no-repeat;
+      width: var(--icon-size);
+    }
+  }
+}
