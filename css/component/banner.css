@@ -1,6 +1,7 @@
 /* components/banner.css */
 @layer components {
   .banner {
+    --color-link: var(--alert-color-text);
     background-color: var(--alert-color-bg);
     border-radius: var(--alert-border-radius);
     color: var(--alert-color-text);

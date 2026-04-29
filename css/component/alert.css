@@ -1,6 +1,7 @@
 /* components/alert.css */
 @layer components {
   .alert {
+    --color-link: var(--alert-color-text);
     background-color: var(--alert-color-bg);
     border-radius: var(--alert-border-radius);
     color: var(--alert-color-text);
