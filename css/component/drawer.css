@@ -34,19 +34,22 @@
     color: var(--drawer-color-text);
     display: flex;
     flex-direction: column;
-    inset-inline-start: var(--drawer-start);
-    inset-inline-end: var(--drawer-end);
+    inset-inline-start: var(--drawer-start, auto);
+    inset-inline-end: var(--drawer-end, 0);
     max-width: 100%;
     overflow: hidden;
     position: fixed;
     top: var(--drawer-top, 0);
-    transform: var(--drawer-translate);
-    transition-duration: var(--drawer-transition-duration);
-    transition-property: transform, visibility;
-    transition-timing-function: var(--drawer-transition-easing);
+    transform: var(--drawer-translate, translateX(100%));
     visibility: hidden;
     width: var(--drawer-width);
     z-index: var(--drawer-z-index);
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition-duration: var(--drawer-transition-duration);
+      transition-property: transform, visibility;
+      transition-timing-function: var(--drawer-transition-easing);
+    }
 
     /* Visible during transitions and when open */
     &.show,
@@ -154,6 +157,7 @@
   /* ── Backdrop ────────────────────────────────────────────────────── */
 
   .drawer-backdrop {
+    backdrop-filter: blur(var(--drawer-backdrop-blur));
     background-color: var(--drawer-backdrop-color);
     inset: 0;
     position: fixed;
@@ -161,7 +165,10 @@
 
     &.fade {
       opacity: 0;
-      transition: opacity var(--drawer-transition-duration) var(--drawer-transition-easing);
+
+      @media (prefers-reduced-motion: no-preference) {
+        transition: opacity var(--drawer-transition-duration) var(--drawer-transition-easing);
+      }
     }
 
     &.show {

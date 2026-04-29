@@ -78,11 +78,14 @@
     position: absolute;
     top: 100%;
     transform: translateY(var(--dropdown-translate-y));
-    transition-duration: var(--dropdown-transition-duration);
-    transition-property: opacity, transform, visibility;
-    transition-timing-function: var(--dropdown-transition-easing);
     visibility: hidden;
     z-index: var(--dropdown-z-index);
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition-duration: var(--dropdown-transition-duration);
+      transition-property: opacity, transform, visibility;
+      transition-timing-function: var(--dropdown-transition-easing);
+    }
 
     /* Visible during all transition phases */
     &.show,
