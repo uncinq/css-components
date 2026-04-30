@@ -69,7 +69,7 @@
 
     /* Focus */
     &:has(a.content:focus-visible) {
-      outline: var(--focus-outline-width) var(--focus-outline-style) var(--color-focus);
+      outline: var(--focus);
       outline-offset: var(--focus-outline-offset);
     }
 

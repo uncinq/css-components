@@ -1,0 +1,13 @@
+/* components/form.css */
+@layer components {
+  .form {
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns: repeat(auto-fill, minmax(max(var(--form-col-min-width, 25ch), calc(50% - var(--gap) / 2)), 1fr));
+
+    .actions,
+    .full {
+      grid-column: 1 / -1;
+    }
+  }
+}

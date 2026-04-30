@@ -11,10 +11,8 @@
     container-type: inline-size;
     container-name: items;
     display: grid;
-    grid-template-columns: repeat(
-      var(--items-cols),
-      minmax(min(var(--items-min-width), 100%), 1fr)
-    );
     gap: var(--items-gap);
+    grid-template-columns: repeat(var(--items-cols, auto-fill), minmax(var(--items-min-width, 30ch), 1fr));
+    justify-content: start;
   }
 }

@@ -57,6 +57,11 @@
       width: var(--dropdown-icon-size);
     }
 
+    &:focus-visible {
+      outline: var(--focus);
+      outline-offset: var(--focus-outline-offset);
+    }
+
     &[aria-expanded="true"]::after {
       rotate: 180deg;
     }
