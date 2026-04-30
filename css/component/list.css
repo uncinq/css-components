@@ -18,19 +18,12 @@
     &,
     ul,
     ol {
-      list-style: none;
       margin-block-end: 0;
-      padding-inline-start: 0;
     }
 
     li {
       font-size: var(--list-item-font-size);
       margin-block: var(--list-item-gap);
-
-      &::before {
-        content: var(--list-item-marker);
-        margin-inline-end: var(--list-item-marker-gap);
-      }
     }
   }
 }

@@ -5,9 +5,20 @@
     gap: var(--gap);
     grid-template-columns: repeat(auto-fill, minmax(max(var(--form-col-min-width, 25ch), calc(50% - var(--gap) / 2)), 1fr));
 
+    .help {
+      color: var(--help-color-text);
+      font-size: var(--help-font-size);
+      font-weight: var(--help-font-weight);
+      margin: var(--help-margin);
+    }
+
     .actions,
     .full {
       grid-column: 1 / -1;
     }
+  }
+
+  .form-check {
+    display: flex;
   }
 }
