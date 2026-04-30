@@ -1,0 +1,22 @@
+/* component/btn-share.css */
+/* Share button — requires .btn base class */
+@layer components {
+  .btn-share {
+    /* Scope --btn-color-* to control values, allow per-button overrides */
+    --btn-color-bg:           var(--btn-share-color-bg, var(--btn-control-color-bg));
+    --btn-color-bg-hover:     var(--btn-share-color-bg-hover, var(--btn-control-color-bg-hover));
+    --btn-color-border:       var(--btn-share-color-border, var(--btn-control-color-border));
+    --btn-color-border-hover: var(--btn-share-color-border-hover, var(--btn-control-color-border-hover));
+    --btn-color-text:         var(--btn-share-color-text, var(--btn-control-color-text));
+    --btn-color-text-hover:   var(--btn-share-color-text-hover, var(--btn-control-color-text-hover));
+
+    &::before {
+      background-color: currentColor;
+      content: '';
+      flex-shrink: 0;
+      height: var(--icon-size);
+      mask: var(--icon-share) center / var(--icon-size) no-repeat;
+      width: var(--icon-size);
+    }
+  }
+}

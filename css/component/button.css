@@ -4,7 +4,7 @@
     align-items: center;
     appearance: none;
     background-color: var(--btn-color-bg);
-    border: var(--btn-border);
+    border: var(--btn-border-width) var(--btn-border-style) var(--btn-color-border);
     border-radius: var(--btn-border-radius);
     box-shadow: var(--btn-shadow);
     color: var(--btn-color-text);

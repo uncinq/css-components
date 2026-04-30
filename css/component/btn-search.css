@@ -1,5 +1,5 @@
 /* component/btn-search.css */
-/* Search toggle button — requires .btn base class */
+/* Search button — requires .btn base class */
 @layer components {
   .btn-search {
     /* Scope --btn-color-* to control values, allow per-button overrides */
