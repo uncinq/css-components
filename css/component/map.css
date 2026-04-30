@@ -12,7 +12,7 @@
     margin-block: var(--map-margin-block);
     overflow: hidden;
 
-    @media (--mobile-only) {
+    @media not (--tablet) {
       --map-ratio: var(--map-ratio-mobile);
       .container & {
         margin-inline: calc(-1 * var(--gutter));
