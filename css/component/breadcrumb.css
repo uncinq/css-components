@@ -1,8 +1,8 @@
 /* components/breadcrumb.css */
 @layer components {
   .breadcrumb-wrapper {
-    border-bottom: var(--breadcrumb-border-width) solid var(--breadcrumb-color-border);
-    border-top: var(--breadcrumb-border-width) solid var(--breadcrumb-color-border);
+    border-bottom: var(--breadcrumb-border);
+    border-top: var(--breadcrumb-border);
     padding-block: var(--breadcrumb-padding);
 
     ol {

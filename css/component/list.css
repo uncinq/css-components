@@ -12,14 +12,14 @@
   .list {
     p {
       font-weight: var(--list-label-font-weight);
-      margin-bottom: var(--list-label-margin-bottom);
+      margin-block-end: var(--list-label-margin-bottom);
     }
 
     &,
     ul,
     ol {
       list-style: none;
-      margin-bottom: 0;
+      margin-block-end: 0;
       padding-inline-start: 0;
     }
 

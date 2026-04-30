@@ -1,0 +1,20 @@
+/* components/items.css */
+/*
+ * .items — responsive grid.
+ *
+ * Structure:
+ *   .items
+ *     .item
+ */
+@layer components {
+  .items {
+    container-type: inline-size;
+    container-name: items;
+    display: grid;
+    grid-template-columns: repeat(
+      var(--items-cols),
+      minmax(min(var(--items-min-width), 100%), 1fr)
+    );
+    gap: var(--items-gap);
+  }
+}

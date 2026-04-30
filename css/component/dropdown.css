@@ -108,7 +108,8 @@
       color: var(--dropdown-color-text);
       font-size: var(--dropdown-item-font-size);
       display: block;
-      padding: var(--dropdown-item-padding);
+      padding-block: var(--dropdown-item-padding-y);
+      padding-inline: var(--dropdown-item-padding-x);
       text-decoration: none;
       white-space: nowrap;
 

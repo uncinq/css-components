@@ -17,7 +17,7 @@
 @layer components {
   .card {
     background-color: var(--card-color-bg);
-    border: var(--card-border-width) solid var(--card-color-border);
+    border: var(--card-border);
     border-radius: var(--card-border-radius);
     box-shadow: var(--card-shadow);
     color: var(--card-color-text);
@@ -30,8 +30,24 @@
       flex-direction: column;
       flex: 1;
       gap: var(--card-gap);
-      padding: var(--card-padding);
+      padding-block: var(--card-padding-y);
+      padding-inline: var(--card-padding-x);
       text-decoration: none;
+
+      > * {
+        margin-block: 0;
+      }
+    }
+
+    a.content {
+      &::before {
+        content: '';
+        inset: 0;
+        position: absolute;
+      }
+      &:focus-visible {
+        outline: none;
+      }
     }
 
     .name {
@@ -48,7 +64,24 @@
     .media {
       --media-ratio: var(--card-media-ratio);
       --media-color-bg: var(--card-media-color-bg);
-      order: -1;
+      order: var(--card-media-order, -1);
+    }
+
+    /* Focus */
+    &:has(a.content:focus-visible) {
+      outline: var(--focus-outline-width) var(--focus-outline-style) var(--color-focus);
+      outline-offset: var(--focus-outline-offset);
+    }
+
+    /* Hover */
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        --card-shadow: var(--card-shadow-hover);
+      }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: var(--card-transition);
     }
   }
 }

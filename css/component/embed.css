@@ -10,7 +10,7 @@
 @layer components {
   .embed {
     aspect-ratio: var(--embed-ratio);
-    border: var(--embed-border-width) var(--embed-border-style) var(--embed-color-border);
+    border: var(--embed-border);
     border-radius: var(--embed-border-radius);
     box-shadow: var(--embed-box-shadow);
     overflow: hidden;

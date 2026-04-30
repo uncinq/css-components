@@ -4,7 +4,7 @@
     align-items: center;
     appearance: none;
     background-color: var(--btn-color-bg);
-    border: var(--btn-border-width) var(--btn-border-style) var(--btn-color-border);
+    border: var(--btn-border);
     border-radius: var(--btn-border-radius);
     box-shadow: var(--btn-shadow);
     color: var(--btn-color-text);
@@ -14,7 +14,8 @@
     font-weight: var(--btn-font-weight);
     gap: var(--btn-gap);
     justify-content: center;
-    padding: var(--btn-padding-y) var(--btn-padding-x);
+    padding-block: var(--btn-padding-y);
+    padding-inline: var(--btn-padding-x);
     text-decoration-color: var(--btn-color-text-decoration);
     text-decoration-line: var(--btn-text-decoration-line);
     text-decoration-thickness: var(--text-decoration-thickness);
@@ -29,7 +30,7 @@
     &:disabled,
     &[aria-disabled='true'] {
       cursor: not-allowed;
-      opacity: 0.5;
+      opacity: var(--opacity-disabled);
     }
 
     @media (hover: hover) and (pointer: fine) {

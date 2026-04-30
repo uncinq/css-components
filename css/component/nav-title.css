@@ -7,6 +7,7 @@
     font-size: var(--nav-font-size-title);
     font-weight: var(--nav-font-weight-title);
     margin: 0;
-    padding: var(--nav-padding-y) var(--nav-padding-x);
+    padding-block: var(--nav-padding-y);
+    padding-inline: var(--nav-padding-x);
   }
 }

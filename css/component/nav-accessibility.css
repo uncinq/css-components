@@ -20,11 +20,14 @@
     overflow: hidden;
     position: absolute;
     transform: translateY(-100%);
-    transition: transform var(--duration-fast) var(--easing-out);
     z-index: 300;
 
     &:focus-within {
       transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: transform var(--duration-fast) var(--easing-out);
     }
 
     a {
