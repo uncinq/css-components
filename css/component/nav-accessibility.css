@@ -33,7 +33,7 @@
     a {
       background: var(--color-bg);
       &:focus {
-        background: var(--color-text);
+        background: var(--color-text-default);
         color: var(--color-bg);
         outline: none;
       }
