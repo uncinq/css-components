@@ -8,7 +8,7 @@
 @layer components {
   .map {
     aspect-ratio: var(--map-ratio);
-    background-color: var(--map-color-bg);
+    background-color: var(--map-color-background);
     margin-block: var(--map-margin-block);
     overflow: hidden;
 

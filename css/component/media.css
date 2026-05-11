@@ -8,7 +8,7 @@
 
   .media {
     aspect-ratio: var(--media-ratio);
-    background-color: var(--media-color-bg);
+    background-color: var(--media-color-background);
     overflow: hidden;
 
     picture,
@@ -34,7 +34,7 @@
 
   .media-icon {
     --media-ratio: none;
-    --media-color-bg: transparent;
+    --media-color-background: transparent;
   }
 
 }

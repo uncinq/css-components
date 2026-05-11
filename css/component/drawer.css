@@ -28,7 +28,7 @@
   /* ── Panel ───────────────────────────────────────────────────────── */
 
   .drawer {
-    background-color: var(--drawer-color-bg);
+    background-color: var(--drawer-color-background);
     bottom: var(--drawer-bottom, 0);
     box-shadow: var(--drawer-shadow);
     color: var(--drawer-color-text);

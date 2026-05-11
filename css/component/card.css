@@ -16,7 +16,7 @@
  */
 @layer components {
   .card {
-    background-color: var(--card-color-bg);
+    background-color: var(--card-color-background);
     border: var(--card-border);
     border-radius: var(--card-border-radius);
     box-shadow: var(--card-shadow);
@@ -51,10 +51,10 @@
     }
 
     .name {
-      color: var(--card-color-title);
-      font-size: var(--card-font-size-title);
-      font-weight: var(--card-font-weight-title);
-      line-height: var(--card-line-height-title);
+      color: var(--card-title-color);
+      font-size: var(--card-title-font-size);
+      font-weight: var(--card-title-font-weight);
+      line-height: var(--card-title-line-height);
     }
 
     .description {
@@ -63,7 +63,7 @@
 
     .media {
       --media-ratio: var(--card-media-ratio);
-      --media-color-bg: var(--card-media-color-bg);
+      --media-color-background: var(--card-media-color-background);
       order: var(--card-media-order, -1);
     }
 

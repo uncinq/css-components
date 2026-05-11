@@ -30,7 +30,7 @@
 
     a {
       align-items: center;
-      background-color: var(--pagination-item-color-bg);
+      background-color: var(--pagination-item-color-background);
       border-radius: var(--pagination-item-border-radius);
       color: var(--pagination-item-color-text);
       display: flex;
@@ -43,14 +43,14 @@
       text-decoration: none;
 
       &:hover {
-        background-color: var(--pagination-item-color-bg-hover);
+        background-color: var(--pagination-item-color-background-hover);
         color: var(--pagination-item-color-text-hover);
       }
     }
 
     /* Active page */
     .active a {
-      --pagination-item-color-bg:   var(--pagination-item-color-bg-active);
+      --pagination-item-color-background:   var(--pagination-item-color-background-active);
       --pagination-item-color-text: var(--pagination-item-color-text-active);
       cursor: default;
       pointer-events: none;

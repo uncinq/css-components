@@ -3,12 +3,12 @@
 @layer components {
   .btn-search {
     /* Scope --btn-color-* to control values, allow per-button overrides */
-    --btn-color-bg:           var(--btn-search-color-bg, var(--btn-control-color-bg));
-    --btn-color-bg-hover:     var(--btn-search-color-bg-hover, var(--btn-control-color-bg-hover));
-    --btn-color-border:       var(--btn-search-color-border, var(--btn-control-color-border));
+    --btn-color-background: var(--btn-search-color-background, var(--btn-control-color-background));
+    --btn-color-background-hover: var(--btn-search-color-background-hover, var(--btn-control-color-background-hover));
+    --btn-color-border: var(--btn-search-color-border, var(--btn-control-color-border));
     --btn-color-border-hover: var(--btn-search-color-border-hover, var(--btn-control-color-border-hover));
-    --btn-color-text:         var(--btn-search-color-text, var(--btn-control-color-text));
-    --btn-color-text-hover:   var(--btn-search-color-text-hover, var(--btn-control-color-text-hover));
+    --btn-color-text: var(--btn-search-color-text, var(--btn-control-color-text));
+    --btn-color-text-hover: var(--btn-search-color-text-hover, var(--btn-control-color-text-hover));
 
     &::before {
       background-color: currentColor;

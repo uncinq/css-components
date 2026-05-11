@@ -31,10 +31,10 @@
     }
 
     a {
-      background: var(--color-bg);
+      background: var(--color-background);
       &:focus {
-        background: var(--color-text-default);
-        color: var(--color-bg);
+        background: var(--color-text);
+        color: var(--color-background);
         outline: none;
       }
     }

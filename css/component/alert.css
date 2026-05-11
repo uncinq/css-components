@@ -2,7 +2,7 @@
 @layer components {
   .alert {
     --color-link-default: var(--alert-color-text);
-    background-color: var(--alert-color-bg);
+    background-color: var(--alert-color-background);
     border: var(--alert-border);
     border-radius: var(--alert-border-radius);
     color: var(--alert-color-text);
@@ -32,12 +32,36 @@
   }
 
   /* Variants */
-  .alert-danger    { --alert-color-bg: var(--color-danger-muted);    --alert-color-text: var(--color-danger-strong); }
-  .alert-dark      { --alert-color-bg: var(--color-dark-muted);      --alert-color-text: var(--color-dark-strong); }
-  .alert-info      { --alert-color-bg: var(--color-info-muted);      --alert-color-text: var(--color-info-strong); }
-  .alert-light     { --alert-color-bg: var(--color-light-muted);     --alert-color-text: var(--color-light-strong); }
-  .alert-primary   { --alert-color-bg: var(--color-primary-muted);   --alert-color-text: var(--color-primary-strong); }
-  .alert-secondary { --alert-color-bg: var(--color-secondary-muted); --alert-color-text: var(--color-secondary-strong); }
-  .alert-success   { --alert-color-bg: var(--color-success-muted);   --alert-color-text: var(--color-success-strong); }
-  .alert-warning   { --alert-color-bg: var(--color-warning-muted);   --alert-color-text: var(--color-warning-strong); }
+  .alert-danger {
+    --alert-color-background: var(--color-danger-muted);
+    --alert-color-text: var(--color-danger-strong);
+  }
+  .alert-dark {
+    --alert-color-background: var(--color-dark-muted);
+    --alert-color-text: var(--color-dark-strong);
+  }
+  .alert-info {
+    --alert-color-background: var(--color-info-muted);
+    --alert-color-text: var(--color-info-strong);
+  }
+  .alert-light {
+    --alert-color-background: var(--color-light-muted);
+    --alert-color-text: var(--color-light-strong);
+  }
+  .alert-primary {
+    --alert-color-background: var(--color-primary-muted);
+    --alert-color-text: var(--color-primary-strong);
+  }
+  .alert-secondary {
+    --alert-color-background: var(--color-secondary-muted);
+    --alert-color-text: var(--color-secondary-strong);
+  }
+  .alert-success {
+    --alert-color-background: var(--color-success-muted);
+    --alert-color-text: var(--color-success-strong);
+  }
+  .alert-warning {
+    --alert-color-background: var(--color-warning-muted);
+    --alert-color-text: var(--color-warning-strong);
+  }
 }

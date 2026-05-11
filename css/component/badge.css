@@ -1,7 +1,7 @@
 /* components/badge.css */
 @layer components {
   .badge {
-    background-color: var(--badge-color-bg);
+    background-color: var(--badge-color-background);
     border: var(--badge-border-width) var(--badge-border-style) var(--badge-color-border);
     border-radius: var(--badge-border-radius);
     color: var(--badge-color-text);
@@ -14,50 +14,50 @@
 
   @media (hover: hover) and (pointer: fine) {
     a.badge:hover {
-      background-color: var(--badge-color-bg-hover, var(--badge-color-bg));
+      background-color: var(--badge-color-background-hover, var(--badge-color-background));
       color: var(--badge-color-text-hover, var(--badge-color-text));
     }
   }
 
   /* Variants */
   .badge-danger    {
-    --badge-color-bg: var(--color-danger-default);
-    --badge-color-bg-hover: var(--color-danger-strong);
+    --badge-color-background: var(--color-danger);
+    --badge-color-background-hover: var(--color-danger-strong);
     --badge-color-text: var(--color-text-on-danger);
   }
   .badge-dark      {
-    --badge-color-bg: var(--color-dark-default);
-    --badge-color-bg-hover: var(--color-dark-strong);
+    --badge-color-background: var(--color-dark);
+    --badge-color-background-hover: var(--color-dark-strong);
     --badge-color-text: var(--color-text-on-dark);
   }
   .badge-info      {
-    --badge-color-bg: var(--color-info-default);
-    --badge-color-bg-hover: var(--color-info-strong);
+    --badge-color-background: var(--color-info);
+    --badge-color-background-hover: var(--color-info-strong);
     --badge-color-text: var(--color-text-on-info);
   }
   .badge-light     {
-    --badge-color-bg: var(--color-light-default);
-    --badge-color-bg-hover: var(--color-light-strong);
+    --badge-color-background: var(--color-light);
+    --badge-color-background-hover: var(--color-light-strong);
     --badge-color-text: var(--color-text-on-light);
   }
   .badge-primary   {
-    --badge-color-bg: var(--color-primary-default);
-    --badge-color-bg-hover: var(--color-primary-strong);
+    --badge-color-background: var(--color-primary);
+    --badge-color-background-hover: var(--color-primary-strong);
     --badge-color-text: var(--color-text-on-primary);
   }
   .badge-secondary {
-    --badge-color-bg: var(--color-secondary-default);
-    --badge-color-bg-hover: var(--color-secondary-strong);
+    --badge-color-background: var(--color-secondary);
+    --badge-color-background-hover: var(--color-secondary-strong);
     --badge-color-text: var(--color-text-on-secondary);
   }
   .badge-success   {
-    --badge-color-bg: var(--color-success-default);
-    --badge-color-bg-hover: var(--color-success-strong);
+    --badge-color-background: var(--color-success);
+    --badge-color-background-hover: var(--color-success-strong);
     --badge-color-text: var(--color-text-on-success);
   }
   .badge-warning   {
-    --badge-color-bg: var(--color-warning-default);
-    --badge-color-bg-hover: var(--color-warning-strong);
+    --badge-color-background: var(--color-warning);
+    --badge-color-background-hover: var(--color-warning-strong);
     --badge-color-text: var(--color-text-on-warning);
   }
 }

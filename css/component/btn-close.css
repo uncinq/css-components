@@ -4,7 +4,7 @@
   .btn-close {
     align-items: center;
     appearance: none;
-    background-color: var(--btn-close-color-bg, var(--btn-control-color-bg));
+    background-color: var(--btn-close-color-background, var(--btn-control-color-background));
     border: var(--btn-close-border-width, var(--btn-border-width)) var(--btn-close-border-style, var(--btn-border-style)) var(--btn-close-color-border, var(--btn-control-color-border));
     border-radius: var(--btn-close-border-radius, var(--btn-border-radius));
     color: var(--btn-close-color-text, var(--btn-control-color-text));
@@ -31,7 +31,7 @@
 
     @media (hover: hover) and (pointer: fine) {
       &:hover {
-        background-color: var(--btn-close-color-bg-hover, var(--btn-control-color-bg-hover));
+        background-color: var(--btn-close-color-background-hover, var(--btn-control-color-background-hover));
         color: var(--btn-close-color-text-hover, var(--btn-control-color-text-hover));
         text-decoration-color: var(--btn-close-color-text-decoration-hover, var(--btn-color-text-decoration-hover));
       }

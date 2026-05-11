@@ -1,8 +1,8 @@
 /* components/banner.css */
 @layer components {
   .banner {
-    --color-link-default: var(--alert-color-text);
-    background-color: var(--alert-color-bg);
+    --color-link: var(--alert-color-text);
+    background-color: var(--alert-color-background);
     border-radius: var(--alert-border-radius);
     color: var(--alert-color-text);
     display: flex;
@@ -19,12 +19,36 @@
   }
 
   /* Variants */
-  .banner-danger    { --alert-color-bg: var(--color-danger-muted);    --alert-color-text: var(--color-danger-strong); }
-  .banner-dark      { --alert-color-bg: var(--color-dark-muted);      --alert-color-text: var(--color-dark-strong); }
-  .banner-info      { --alert-color-bg: var(--color-info-muted);      --alert-color-text: var(--color-info-strong); }
-  .banner-light     { --alert-color-bg: var(--color-light-muted);     --alert-color-text: var(--color-light-strong); }
-  .banner-primary   { --alert-color-bg: var(--color-primary-muted);   --alert-color-text: var(--color-primary-strong); }
-  .banner-secondary { --alert-color-bg: var(--color-secondary-muted); --alert-color-text: var(--color-secondary-strong); }
-  .banner-success   { --alert-color-bg: var(--color-success-muted);   --alert-color-text: var(--color-success-strong); }
-  .banner-warning   { --alert-color-bg: var(--color-warning-muted);   --alert-color-text: var(--color-warning-strong); }
+  .banner-danger {
+    --alert-color-background: var(--color-danger-muted);
+    --alert-color-text: var(--color-danger-strong);
+  }
+  .banner-dark {
+    --alert-color-background: var(--color-dark-muted);
+    --alert-color-text: var(--color-dark-strong);
+  }
+  .banner-info {
+    --alert-color-background: var(--color-info-muted);
+    --alert-color-text: var(--color-info-strong);
+  }
+  .banner-light {
+    --alert-color-background: var(--color-light-muted);
+    --alert-color-text: var(--color-light-strong);
+  }
+  .banner-primary {
+    --alert-color-background: var(--color-primary-muted);
+    --alert-color-text: var(--color-primary-strong);
+  }
+  .banner-secondary {
+    --alert-color-background: var(--color-secondary-muted);
+    --alert-color-text: var(--color-secondary-strong);
+  }
+  .banner-success {
+    --alert-color-background: var(--color-success-muted);
+    --alert-color-text: var(--color-success-strong);
+  }
+  .banner-warning {
+    --alert-color-background: var(--color-warning-muted);
+    --alert-color-text: var(--color-warning-strong);
+  }
 }
