@@ -130,7 +130,7 @@
   /* ── Alignment variants ──────────────────────────────────────────── */
 
   .dropdown-menu-end {
-    left: auto;
-    right: 0;
+    inset-inline-start: auto;
+    inset-inline-end: 0;
   }
 }

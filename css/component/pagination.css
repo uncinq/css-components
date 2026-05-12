@@ -36,8 +36,8 @@
       display: flex;
       font-size: var(--pagination-item-font-size);
       font-weight: var(--pagination-item-font-weight);
-      height: var(--pagination-item-size);
       justify-content: center;
+      min-height: var(--pagination-item-size);
       min-width: var(--pagination-item-size);
       padding-inline: var(--spacing-2xs);
       text-decoration: none;
