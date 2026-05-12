@@ -12,7 +12,7 @@
   .list {
     p {
       font-weight: var(--list-label-font-weight);
-      margin-block: var(--list-label-margin-y);
+      margin-block: var(--list-label-margin-block);
     }
 
     &,

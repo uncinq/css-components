@@ -30,8 +30,8 @@
     /* ── Nav item ────────────────────────────────────────────────── */
 
     li {
-      margin-block: var(--nav-margin-y, 0);
-      margin-inline: var(--nav-margin-x, 0);
+      margin-block: var(--nav-margin-block, 0);
+      margin-inline: var(--nav-margin-inline, 0);
       position: relative;
     }
 
@@ -39,7 +39,7 @@
 
     a {
       display: block;
-      padding: var(--nav-padding-y) var(--nav-padding-x);
+      padding: var(--nav-padding-block) var(--nav-padding-inline);
     }
 
     a:not(.btn) {
@@ -53,14 +53,14 @@
     li > span {
       color: var(--nav-color-text);
       display: block;
-      padding: var(--nav-padding-y) var(--nav-padding-x);
+      padding: var(--nav-padding-block) var(--nav-padding-inline);
     }
 
     /* ── Item highlighted ───────────────────────────────────────────────────── */
 
     .nav-item-highlighted {
       line-height: var(--line-height-snug);
-      margin-inline: var(--nav-padding-x);
+      margin-inline: var(--nav-padding-inline);
     }
   }
 }

@@ -3,7 +3,7 @@
   .breadcrumb-wrapper {
     border-bottom: var(--breadcrumb-border);
     border-top: var(--breadcrumb-border);
-    padding-block: var(--breadcrumb-padding-y);
+    padding-block: var(--breadcrumb-padding-block);
 
     ol {
       display: flex;

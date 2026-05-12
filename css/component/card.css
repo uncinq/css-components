@@ -30,8 +30,8 @@
       flex-direction: column;
       flex: 1;
       gap: var(--card-gap);
-      padding-block: var(--card-padding-y);
-      padding-inline: var(--card-padding-x);
+      padding-block: var(--card-padding-block);
+      padding-inline: var(--card-padding-inline);
       text-decoration: none;
 
       > * {

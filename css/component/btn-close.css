@@ -13,7 +13,7 @@
     font-size: var(--btn-close-font-size, var(--btn-font-size));
     font-weight: var(--btn-close-font-weight, var(--btn-font-weight));
     gap: var(--btn-close-gap, var(--btn-gap));
-    padding: var(--btn-close-padding-y, var(--btn-padding-y)) var(--btn-close-padding-x, var(--btn-padding-x));
+    padding: var(--btn-close-padding-block, var(--btn-padding-block)) var(--btn-close-padding-inline, var(--btn-padding-inline));
     text-decoration-color: var(--btn-close-color-text-decoration, var(--btn-color-text-decoration));
     text-decoration-line: var(--btn-text-decoration-line);
     text-decoration-thickness: var(--text-decoration-thickness);

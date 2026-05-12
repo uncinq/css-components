@@ -4,10 +4,10 @@
  */
 @layer components {
   .nav-title {
-    font-size: var(--nav-font-size-title);
-    font-weight: var(--nav-font-weight-title);
+    font-size: var(--nav-title-font-size);
+    font-weight: var(--nav-title-font-weight);
     margin: 0;
-    padding-block: var(--nav-padding-y);
-    padding-inline: var(--nav-padding-x);
+    padding-block: var(--nav-padding-block);
+    padding-inline: var(--nav-padding-inline);
   }
 }
