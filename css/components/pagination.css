@@ -50,7 +50,7 @@
 
     /* Active page */
     .active a {
-      --pagination-item-color-background:   var(--pagination-item-color-background-active);
+      --pagination-item-color-background: var(--pagination-item-color-background-active);
       --pagination-item-color-text: var(--pagination-item-color-text-active);
       cursor: default;
       pointer-events: none;

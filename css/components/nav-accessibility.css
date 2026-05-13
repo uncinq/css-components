@@ -16,7 +16,7 @@
   .nav-accessibility {
     flex-direction: row;
     font-size: var(--font-size-xs);
-    left: 0;
+    inset-inline-start: 0;
     overflow: hidden;
     position: absolute;
     transform: translateY(-100%);

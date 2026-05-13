@@ -3,7 +3,7 @@
   .alert {
     --color-link-default: var(--alert-color-text);
     background-color: var(--alert-color-background);
-    border: var(--alert-border);
+    border: var(--alert-border-width) var(--alert-border-style) var(--alert-color-border);
     border-radius: var(--alert-border-radius);
     color: var(--alert-color-text);
     display: flex;
