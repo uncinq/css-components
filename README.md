@@ -24,7 +24,7 @@ Each component file contains only CSS rules, using the tokens defined in the two
 All component styles are declared inside `@layer components`:
 
 ```css
-@layer config, base, layouts, vendors, components;
+@layer reset, tokens, base, layouts, vendors, components;
 ```
 
 This means:
