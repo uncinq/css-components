@@ -13,6 +13,8 @@
  */
 @layer components {
   .nav {
+    font-size: var(--nav-font-size);
+
     &,
     :is(ul, ol) {
       display: flex;
