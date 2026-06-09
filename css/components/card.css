@@ -6,7 +6,7 @@
  * Structure:
  * <article class="card">
  *   <div class="content">
- *     <p class="name">...</p>
+ *     <p class="title">...</p>
  *     <p class="description">...</p>
  *   </div>
  *   <div class="media">
@@ -50,7 +50,7 @@
       }
     }
 
-    .name {
+    .title {
       color: var(--card-title-color);
       font-size: var(--card-title-font-size);
       font-weight: var(--card-title-font-weight);
