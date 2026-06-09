@@ -39,7 +39,8 @@
     cursor: pointer;
     display: inline-flex;
     margin-inline-start: calc(var(--spacing-xs) * -1);
-    padding: var(--spacing-xs);
+    padding-block: var(--spacing-2xs);
+    padding-inline: var(--spacing-xs);
 
     &::before {
       content: '';
