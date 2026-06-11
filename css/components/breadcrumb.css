@@ -1,8 +1,8 @@
 /* components/breadcrumb.css */
 @layer components {
   .breadcrumb-wrapper {
-    border-block-end: var(--breadcrumb-border-width) var(--breadcrumb-border-style) var(--breadcrumb-color-border);
-    border-block-start: var(--breadcrumb-border-width) var(--breadcrumb-border-style) var(--breadcrumb-color-border);
+    border-block: var(--breadcrumb-border-width) var(--breadcrumb-border-style) var(--breadcrumb-color-border);
+    overflow-x: auto;
     padding-block: var(--breadcrumb-padding-block);
 
     ol {
@@ -18,8 +18,10 @@
       align-items: center;
       color: var(--breadcrumb-color-text);
       display: flex;
+      flex-shrink: 0;
       gap: var(--breadcrumb-gap);
       margin: 0;
+      white-space: nowrap;
 
       a {
         color: inherit;
