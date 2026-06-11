@@ -11,6 +11,10 @@
     background-color: var(--media-color-background);
     overflow: hidden;
 
+    picture {
+      display: block;
+    }
+
     picture,
     img {
       height: 100%;
