@@ -62,9 +62,26 @@
     }
 
     .media {
-      --media-ratio: var(--card-media-ratio);
       --media-color-background: var(--card-media-color-background);
+      --media-ratio: var(--card-media-ratio);
+      border: var(--card-media-border-width) var(--card-media-border-style) var(--card-media-color-border);
+      border-radius: var(--card-media-border-radius);
+      margin-block: var(--card-media-margin-block);
+      margin-inline: var(--card-media-margin-inline);
       order: var(--card-media-order, -1);
+    }
+
+    .media-icon {
+      --media-border-radius: var(--card-media-icon-border-radius);
+      --media-border-style: var(--card-media-icon-border-style);
+      --media-border-width: var(--card-media-icon-border-width);
+      --media-color-background: var(--card-media-icon-color-background, var(--card-media-color-background));
+      --media-color-border: var(--card-media-icon-color-border);
+      --media-ratio: var(--card-media-icon-ratio);
+      --card-media-margin-block: var(--card-media-icon-margin-block);
+      --card-media-margin-inline: var(--card-media-icon-margin-inline);
+      --icon-color: var(--card-media-icon-color, currentColor);
+      --icon-size: var(--card-media-icon-size);
     }
 
     /* Focus */
