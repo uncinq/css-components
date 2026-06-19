@@ -50,8 +50,13 @@
       }
     }
 
+    .surtitle {
+      margin-block-end: calc(var(--card-gap) * -1);
+    }
+
     .title {
       color: var(--card-title-color);
+      font-family: var(--card-title-font-family);
       font-size: var(--card-title-font-size);
       font-weight: var(--card-title-font-weight);
       line-height: var(--card-title-line-height);
