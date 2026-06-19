@@ -63,7 +63,7 @@
     }
 
     .description {
-      color: var(--card-color-text-muted);
+      font-size: var(--card-font-size);
     }
 
     .media {
