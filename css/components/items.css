@@ -12,7 +12,7 @@
     container-name: items;
     display: grid;
     gap: var(--items-gap);
-    grid-template-columns: repeat(var(--items-cols, auto-fill), minmax(var(--items-min-width, 30ch), 1fr));
+    grid-template-columns: repeat(var(--items-cols, auto-fill), minmax(min(var(--items-min-width, 30ch), 100%), 1fr));
     justify-content: start;
   }
 }
