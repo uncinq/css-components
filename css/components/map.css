@@ -9,6 +9,7 @@
   .map {
     aspect-ratio: var(--map-ratio);
     background-color: var(--map-color-background);
+    border-radius: var(--map-border-radius);
     margin-block: var(--map-margin-block);
     overflow: hidden;
 
