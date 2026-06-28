@@ -15,7 +15,7 @@
       display: block;
     }
 
-    img
+    img,
     picture,
     video {
       height: 100%;
