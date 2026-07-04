@@ -32,6 +32,10 @@
   }
 
   /* Variants */
+  .alert-brand {
+    --alert-color-background: var(--color-brand-muted);
+    --alert-color-text: var(--color-brand-strong);
+  }
   .alert-danger {
     --alert-color-background: var(--color-danger-muted);
     --alert-color-text: var(--color-danger-strong);
@@ -48,13 +52,17 @@
     --alert-color-background: var(--color-light-muted);
     --alert-color-text: var(--color-light-strong);
   }
+  .alert-neutral {
+    --alert-color-background: var(--color-neutral-muted);
+    --alert-color-text: var(--color-neutral-strong);
+  }
   .alert-primary {
-    --alert-color-background: var(--color-primary-muted);
-    --alert-color-text: var(--color-primary-strong);
+    --alert-color-background: var(--color-brand-muted);
+    --alert-color-text: var(--color-brand-strong);
   }
   .alert-secondary {
-    --alert-color-background: var(--color-secondary-muted);
-    --alert-color-text: var(--color-secondary-strong);
+    --alert-color-background: var(--color-neutral-muted);
+    --alert-color-text: var(--color-neutral-strong);
   }
   .alert-success {
     --alert-color-background: var(--color-success-muted);

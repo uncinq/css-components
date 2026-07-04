@@ -19,6 +19,10 @@
   }
 
   /* Variants */
+  .banner-brand {
+    --alert-color-background: var(--color-brand-muted);
+    --alert-color-text: var(--color-brand-strong);
+  }
   .banner-danger {
     --alert-color-background: var(--color-danger-muted);
     --alert-color-text: var(--color-danger-strong);
@@ -35,13 +39,17 @@
     --alert-color-background: var(--color-light-muted);
     --alert-color-text: var(--color-light-strong);
   }
+  .banner-neutral {
+    --alert-color-background: var(--color-neutral-muted);
+    --alert-color-text: var(--color-neutral-strong);
+  }
   .banner-primary {
-    --alert-color-background: var(--color-primary-muted);
-    --alert-color-text: var(--color-primary-strong);
+    --alert-color-background: var(--color-brand-muted);
+    --alert-color-text: var(--color-brand-strong);
   }
   .banner-secondary {
-    --alert-color-background: var(--color-secondary-muted);
-    --alert-color-text: var(--color-secondary-strong);
+    --alert-color-background: var(--color-neutral-muted);
+    --alert-color-text: var(--color-neutral-strong);
   }
   .banner-success {
     --alert-color-background: var(--color-success-muted);

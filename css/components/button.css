@@ -50,6 +50,14 @@
   }
 
   /* Variants */
+  .btn-brand {
+    --btn-color-background: var(--color-brand);
+    --btn-color-background-hover: var(--color-brand-strong);
+    --btn-color-border: var(--color-brand);
+    --btn-color-border-hover: var(--color-brand-strong);
+    --btn-color-text: var(--color-text-on-brand);
+  }
+
   .btn-control {
     --btn-color-background: var(--btn-control-color-background);
     --btn-color-background-hover: var(--btn-control-color-background-hover);
@@ -116,6 +124,14 @@
     }
   }
 
+  .btn-neutral {
+    --btn-color-background: var(--color-neutral);
+    --btn-color-background-hover: var(--color-neutral-strong);
+    --btn-color-border: var(--color-neutral);
+    --btn-color-border-hover: var(--color-neutral-strong);
+    --btn-color-text: var(--color-text-on-neutral);
+  }
+
   .btn-primary {
     --btn-color-background: var(--color-brand);
     --btn-color-background-hover: var(--color-brand-strong);
@@ -125,11 +141,11 @@
   }
 
   .btn-secondary {
-    --btn-color-background: var(--color-secondary);
-    --btn-color-background-hover: var(--color-secondary-strong);
-    --btn-color-border: var(--color-secondary);
-    --btn-color-border-hover: var(--color-secondary-strong);
-    --btn-color-text: var(--color-text-on-secondary);
+    --btn-color-background: var(--color-neutral);
+    --btn-color-background-hover: var(--color-neutral-strong);
+    --btn-color-border: var(--color-neutral);
+    --btn-color-border-hover: var(--color-neutral-strong);
+    --btn-color-text: var(--color-text-on-neutral);
   }
 
   .btn-success {
