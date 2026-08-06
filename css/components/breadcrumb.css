@@ -1,6 +1,7 @@
 /* components/breadcrumb.css */
 @layer components {
   .breadcrumb-wrapper {
+    background: var(--breadcrumb-color-background);
     border-block: var(--breadcrumb-border-width) var(--breadcrumb-border-style) var(--breadcrumb-color-border);
     overflow-x: auto;
     padding-block: var(--breadcrumb-padding-block);
