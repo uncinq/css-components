@@ -14,9 +14,9 @@
       background-color: currentColor;
       content: '';
       flex-shrink: 0;
-      height: var(--icon-size);
-      mask: var(--icon-filter) center / var(--icon-size) no-repeat;
-      width: var(--icon-size);
+      height: var(--btn-filter-icon-size, var(--icon-size));
+      mask: var(--icon-filter) center / var(--btn-filter-icon-size, var(--icon-size)) no-repeat;
+      width: var(--btn-filter-icon-size, var(--icon-size));
     }
   }
 }

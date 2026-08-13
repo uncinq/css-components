@@ -25,9 +25,9 @@
       background-color: currentColor;
       content: '';
       flex-shrink: 0;
-      height: var(--icon-size);
-      mask: var(--icon-menu) center / var(--icon-size) no-repeat;
-      width: var(--icon-size);
+      height: var(--btn-menu-icon-size, var(--icon-size));
+      mask: var(--icon-menu) center / var(--btn-menu-icon-size, var(--icon-size)) no-repeat;
+      width: var(--btn-menu-icon-size, var(--icon-size));
     }
 
     @media (hover: hover) and (pointer: fine) {
