@@ -10,6 +10,7 @@
       font-size: var(--help-font-size);
       font-weight: var(--help-font-weight);
       margin: var(--help-margin);
+      text-align: var(--help-text-align);
     }
 
     .actions,
