@@ -8,9 +8,11 @@
     display: inline-flex;
     font-size: var(--badge-font-size);
     font-weight: var(--badge-font-weight);
+    line-height: var(--badge-line-height);
     padding-block: var(--badge-padding-block);
     padding-inline: var(--badge-padding-inline);
     text-decoration: none;
+    text-transform: var(--badge-text-transform);
   }
 
   @media (hover: hover) and (pointer: fine) {
