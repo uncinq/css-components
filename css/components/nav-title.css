@@ -6,8 +6,8 @@
   .nav-title {
     font-size: var(--nav-title-font-size);
     font-weight: var(--nav-title-font-weight);
-    margin-block: var(--nav-margin-block, 0);
-    padding-block: var(--nav-padding-block);
-    padding-inline: var(--nav-padding-inline);
+    margin-block: var(--nav-title-margin-block, 0);
+    padding-block: var(--nav-title-padding-block);
+    padding-inline: var(--nav-title-padding-inline);
   }
 }

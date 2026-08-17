@@ -29,8 +29,8 @@
     /* ── Nav item ────────────────────────────────────────────────── */
 
     li {
-      margin-block: var(--nav-margin-block, 0);
-      margin-inline: var(--nav-margin-inline, 0);
+      margin-block: var(--nav-item-margin-block, 0);
+      margin-inline: var(--nav-item-margin-inline, 0);
       position: relative;
     }
 
@@ -38,8 +38,8 @@
 
     a {
       display: block;
-      padding-block: var(--nav-padding-block);
-      padding-inline: var(--nav-padding-inline);
+      padding-block: var(--nav-link-padding-block);
+      padding-inline: var(--nav-link-padding-inline);
     }
 
     a:not(.btn) {
@@ -53,8 +53,8 @@
     li > span {
       color: var(--nav-color-text);
       display: block;
-      padding-block: var(--nav-padding-block);
-      padding-inline: var(--nav-padding-inline);
+      padding-block: var(--nav-link-padding-block);
+      padding-inline: var(--nav-link-padding-inline);
     }
 
     /* ── Item highlighted ───────────────────────────────────────────────────── */
