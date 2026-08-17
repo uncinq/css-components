@@ -6,7 +6,7 @@
   .nav-title {
     font-size: var(--nav-title-font-size);
     font-weight: var(--nav-title-font-weight);
-    margin: 0;
+    margin-block: var(--nav-margin-block, 0);
     padding-block: var(--nav-padding-block);
     padding-inline: var(--nav-padding-inline);
   }
