@@ -13,7 +13,9 @@
  */
 @layer components {
   .nav {
+    font-family: var(--nav-font-family);
     font-size: var(--nav-font-size);
+    font-weight: var(--nav-font-weight);
     line-height: var(--nav-line-height);
 
     &,
@@ -40,6 +42,7 @@
       display: block;
       padding-block: var(--nav-link-padding-block);
       padding-inline: var(--nav-link-padding-inline);
+      text-transform: var(--nav-link-text-transform);
     }
 
     a:not(.btn) {
@@ -55,6 +58,7 @@
       display: block;
       padding-block: var(--nav-link-padding-block);
       padding-inline: var(--nav-link-padding-inline);
+      text-transform: var(--nav-link-text-transform);
     }
 
     /* ── Item highlighted ───────────────────────────────────────────────────── */
