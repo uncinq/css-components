@@ -1,62 +1,61 @@
 /* components/banner.css */
 @layer components {
   .banner {
-    --color-link: var(--alert-color-text);
-    background-color: var(--alert-color-background);
-    border-radius: var(--alert-border-radius);
-    color: var(--alert-color-text);
-    display: flex;
-    flex-direction: column;
-    font-size: var(--alert-font-size);
-    gap: var(--alert-gap);
-    padding: var(--alert-padding);
-    padding-inline: 0;
-    text-align: center;
-
+    --alert-align: center;
+    
     p {
-      margin: 0 auto;
+      margin-block: 0;
+    }
+
+    /* Variants */
+    .alert-accent {
+      --alert-color-background: var(--color-accent-strong);
+      --alert-color-text: var(--color-accent-muted);
+    }
+    .alert-brand {
+      --alert-color-background: var(--color-brand-strong);
+      --alert-color-text: var(--color-brand-muted);
+    }
+    .alert-danger {
+      --alert-color-background: var(--color-danger-strong);
+      --alert-color-text: var(--color-danger-muted);
+    }
+    .alert-dark {
+      --alert-color-background: var(--color-dark-strong);
+      --alert-color-text: var(--color-dark-muted);
+    }
+    .alert-info {
+      --alert-color-background: var(--color-info-strong);
+      --alert-color-text: var(--color-info-muted);
+    }
+    .alert-highlight {
+      --alert-color-background: var(--color-highlight-muted);
+      --alert-color-text: var(--color-highlight-strong);
+    }
+    .alert-light {
+      --alert-color-background: var(--color-light-muted);
+      --alert-color-text: var(--color-light-strong);
+    }
+    .alert-neutral {
+      --alert-color-background: var(--color-neutral-strong);
+      --alert-color-text: var(--color-neutral-muted);
+    }
+    .alert-primary {
+      --alert-color-background: var(--color-brand-strong);
+      --alert-color-text: var(--color-brand-muted);
+    }
+    .alert-secondary {
+      --alert-color-background: var(--color-neutral-strong);
+      --alert-color-text: var(--color-neutral-muted);
+    }
+    .alert-success {
+      --alert-color-background: var(--color-success-strong);
+      --alert-color-text: var(--color-success-muted);
+    }
+    .alert-warning {
+      --alert-color-background: var(--color-warning-strong);
+      --alert-color-text: var(--color-warning-muted);
     }
   }
 
-  /* Variants */
-  .banner-brand {
-    --alert-color-background: var(--color-brand-muted);
-    --alert-color-text: var(--color-brand-strong);
-  }
-  .banner-danger {
-    --alert-color-background: var(--color-danger-muted);
-    --alert-color-text: var(--color-danger-strong);
-  }
-  .banner-dark {
-    --alert-color-background: var(--color-dark-muted);
-    --alert-color-text: var(--color-dark-strong);
-  }
-  .banner-info {
-    --alert-color-background: var(--color-info-muted);
-    --alert-color-text: var(--color-info-strong);
-  }
-  .banner-light {
-    --alert-color-background: var(--color-light-muted);
-    --alert-color-text: var(--color-light-strong);
-  }
-  .banner-neutral {
-    --alert-color-background: var(--color-neutral-muted);
-    --alert-color-text: var(--color-neutral-strong);
-  }
-  .banner-primary {
-    --alert-color-background: var(--color-brand-muted);
-    --alert-color-text: var(--color-brand-strong);
-  }
-  .banner-secondary {
-    --alert-color-background: var(--color-neutral-muted);
-    --alert-color-text: var(--color-neutral-strong);
-  }
-  .banner-success {
-    --alert-color-background: var(--color-success-muted);
-    --alert-color-text: var(--color-success-strong);
-  }
-  .banner-warning {
-    --alert-color-background: var(--color-warning-muted);
-    --alert-color-text: var(--color-warning-strong);
-  }
 }

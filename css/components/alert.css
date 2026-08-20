@@ -2,6 +2,7 @@
 @layer components {
   .alert {
     --color-link-default: var(--alert-color-text);
+    align-items: var(--alert-align);
     background-color: var(--alert-color-background);
     border: var(--alert-border-width) var(--alert-border-style) var(--alert-color-border);
     border-radius: var(--alert-border-radius);
@@ -11,7 +12,9 @@
     font-size: var(--alert-font-size);
     gap: var(--alert-gap);
     margin: var(--alert-margin);
-    padding: var(--alert-padding);
+    padding-block: var(--alert-padding-block);
+    padding-inline: var(--alert-padding-inline);
+    text-align: var(--alert-align);
 
     > * {
       margin: 0;
