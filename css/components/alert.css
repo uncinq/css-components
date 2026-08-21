@@ -2,22 +2,22 @@
 @layer components {
   .alert {
     --color-link-default: var(--alert-color-text);
-    align-items: var(--alert-align);
     background-color: var(--alert-color-background);
     border: var(--alert-border-width) var(--alert-border-style) var(--alert-color-border);
     border-radius: var(--alert-border-radius);
     color: var(--alert-color-text);
-    display: flex;
-    flex-direction: column;
     font-size: var(--alert-font-size);
-    gap: var(--alert-gap);
     margin: var(--alert-margin);
     padding-block: var(--alert-padding-block);
     padding-inline: var(--alert-padding-inline);
-    text-align: var(--alert-align);
 
-    > * {
-      margin: 0;
+    &,
+    .container {
+      align-items: var(--alert-align);
+      display: flex;
+      flex-direction: var(--alert-direction, column);
+      gap: var(--alert-gap);
+      text-align: var(--alert-align);
     }
 
     .alert-heading {
