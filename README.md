@@ -24,7 +24,7 @@ Each component file contains only CSS rules, using the tokens defined in the two
 All component styles are declared inside `@layer components`:
 
 ```css
-@layer reset, tokens, base, layouts, vendors, components;
+@layer reset, tokens, vendors, base, layouts, components, pages, utilities;
 ```
 
 This means:
@@ -110,6 +110,7 @@ css/
     list.css              ← styled list
     map.css               ← embedded map
     media.css             ← media object (image + text)
+    modal.css             ← centered dialog / modal
     nav.css               ← navigation bar
     nav-accessibility.css ← accessibility skip links / focus helpers
     nav-title.css         ← navigation bar title

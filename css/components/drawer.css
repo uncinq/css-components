@@ -28,6 +28,9 @@
   /* ── Panel ───────────────────────────────────────────────────────── */
 
   .drawer {
+    --color-link: var(--drawer-color-text);
+    --nav-color-text: var(--color-link);
+
     background-color: var(--drawer-color-background);
     bottom: var(--drawer-bottom, 0);
     box-shadow: var(--drawer-shadow);
@@ -67,11 +70,12 @@
 
     & > .header {
       align-items: center;
-      border-block-end: 1px solid var(--drawer-color-border);
+      border-block-end: var(--drawer-border-width) var(--drawer-border-style) var(--drawer-border-color);
       display: flex;
       flex-shrink: 0;
       justify-content: space-between;
-      padding: var(--drawer-padding);
+      padding-block: var(--drawer-header-padding-block, var(--drawer-padding-block));
+      padding-inline: var(--drawer-header-padding-inline, var(--drawer-padding-inline));
 
       & .title {
         font-size: var(--font-size-md);
@@ -85,14 +89,17 @@
     & > .content {
       flex-grow: 1;
       overflow-y: auto;
-      padding: var(--drawer-padding);
+      padding-block: var(--drawer-header-padding-block, var(--drawer-padding-block));
+      padding-inline: var(--drawer-header-padding-inline, var(--drawer-padding-inline));
     }
 
     /* ── Footer ──────────────────────────────────────────────────────── */
 
     & > .footer {
+      border-block-start: var(--drawer-border-width) var(--drawer-border-style) var(--drawer-border-color);
       flex-shrink: 0;
-      padding: var(--drawer-padding);
+      padding-block: var(--drawer-header-padding-block, var(--drawer-padding-block));
+      padding-inline: var(--drawer-header-padding-inline, var(--drawer-padding-inline));
     }
   }
 

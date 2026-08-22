@@ -1,0 +1,151 @@
+/* components/modal.css */
+/*
+ * .modal — centered dialog, native <dialog>.
+ *
+ * JS (components/modal.js) only calls showModal() / close(): [open] and
+ * ::backdrop drive the styling, and the browser handles Escape, the focus trap
+ * and making the rest of the page inert. No state class, no backdrop element.
+ *
+ * The dialog sits in the top layer, so it needs no z-index.
+ *
+ * Triggers: .js-dialog-toggle[data-target="#id"]
+ * Close:    .js-dialog-close (inside the panel), click outside the panel
+ *
+ * Per-instance sizing: override --modal-max-width on the element.
+ *
+ * Expected HTML:
+ *   <dialog id="navigation" class="modal" aria-labelledby="navigationLabel" aria-modal="true">
+ *     <div class="header">
+ *       <p class="title" id="navigationLabel">...</p>
+ *       <button class="btn-close js-dialog-close">...</button>
+ *     </div>
+ *     <div class="content">...</div>
+ *     <div class="footer">...</div>
+ *   </dialog>
+ */
+@layer components {
+
+  /* ── Panel ───────────────────────────────────────────────────────── */
+
+  .modal {
+    background-color: var(--modal-color-background);
+    border: 0;
+    border-radius: var(--modal-radius);
+    box-shadow: var(--modal-shadow);
+    color: var(--modal-color-text);
+    display: flex;
+    flex-direction: column;
+    inline-size: 100%;
+    /* min() replaces the mobile breakpoint: the panel always keeps
+       --modal-margin clear of the viewport edges, whatever the max is set to */
+    max-block-size: min(var(--modal-max-height), 100% - var(--modal-margin) * 2);
+    max-inline-size: min(var(--modal-max-width), 100% - var(--modal-margin) * 2);
+    opacity: 0;
+    /* padding lives on the sections, so a click on the dialog itself is
+       always a click on the backdrop */
+    overflow: hidden;
+    padding: 0;
+    transform: var(--modal-translate);
+
+    /* display: flex would override the UA rule that hides a closed dialog */
+    &:not([open]) {
+      display: none;
+    }
+
+    /* Fully open — settle the panel */
+    &[open] {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* allow-discrete keeps the dialog in the top layer while it fades out */
+    @media (prefers-reduced-motion: no-preference) {
+      transition-behavior: allow-discrete;
+      transition-duration: var(--modal-transition-duration);
+      transition-property: opacity, transform, display, overlay;
+      transition-timing-function: var(--modal-transition-easing);
+    }
+
+    /* ── Header ────────────────────────────────────────────────────── */
+
+    & > .header {
+      align-items: center;
+      border-block-end: var(--modal-border-width) var(--modal-border-style) var(--modal-border-color);
+      display: flex;
+      flex-shrink: 0;
+      justify-content: space-between;
+      padding-block: var(--modal-header-padding-block, var(--modal-padding-block));
+      padding-inline: var(--modal-header-padding-inline, var(--modal-padding-inline));
+
+      & .title {
+        font-size: var(--font-size-md);
+        font-weight: var(--font-weight-heading);
+        margin: 0;
+      }
+    }
+
+    /* ── Body ──────────────────────────────────────────────────────── */
+
+    & > .content {
+      flex-grow: 1;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      padding-block: var(--modal-content-padding-block, var(--modal-padding-block));
+      padding-inline: var(--modal-content-padding-inline, var(--modal-padding-inline));
+    }
+
+    /* ── Footer ────────────────────────────────────────────────────── */
+
+    & > .footer {
+      border-block-start:var(--modal-border-width) var(--modal-border-style) var(--modal-border-color);
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      gap: var(--spacing-sm);
+      padding-block: var(--modal-footer-padding-block, var(--modal-padding-block));
+      padding-inline: var(--modal-footer-padding-inline, var(--modal-padding-inline));
+
+      @media (--tablet) {
+        flex-direction: row;
+        justify-content: flex-end;
+      }
+    }
+  }
+
+  /* ── Backdrop ────────────────────────────────────────────────────── */
+
+  .modal::backdrop {
+    backdrop-filter: blur(var(--modal-backdrop-blur));
+    background-color: var(--modal-backdrop-color);
+    opacity: 0;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition-behavior: allow-discrete;
+      transition-duration: var(--modal-transition-duration);
+      transition-property: opacity, display, overlay;
+      transition-timing-function: var(--modal-transition-easing);
+    }
+  }
+
+  .modal[open]::backdrop {
+    opacity: 1;
+  }
+
+  /* Opening is a discrete display change — both need an explicit start state */
+  @starting-style {
+    .modal[open] {
+      opacity: 0;
+      transform: var(--modal-translate);
+    }
+
+    .modal[open]::backdrop {
+      opacity: 0;
+    }
+  }
+
+  /* ── Page scroll lock ────────────────────────────────────────────── */
+
+  body:has(.modal[open]) {
+    overflow: hidden;
+  }
+}
