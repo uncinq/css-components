@@ -28,6 +28,9 @@
   /* ── Panel ───────────────────────────────────────────────────────── */
 
   .modal {
+    --color-link: var(--drawer-color-text);
+    --nav-color-text: var(--color-link);
+
     background-color: var(--modal-color-background);
     border: 0;
     border-radius: var(--modal-radius);
