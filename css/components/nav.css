@@ -25,7 +25,9 @@
       gap: var(--nav-gap);
       list-style: var(--nav-list-style, none);
       margin-block: var(--nav-margin-block, 0);
-      padding-inline-start: var(--nav-padding-inline-start, 0);
+      margin-inline: var(--nav-margin-inline);
+      padding-block: var(--nav-padding-block);
+      padding-inline: var(--nav-padding-inline, 0);
     }
 
     /* ── Nav item ────────────────────────────────────────────────── */
