@@ -1,6 +1,9 @@
 /* components/button.css */
 @layer components {
   .btn {
+    --icon-margin-inline-start: 0;
+    --icon-size: var(--btn-font-size);
+
     align-items: center;
     appearance: none;
     background-color: var(--btn-color-background);
