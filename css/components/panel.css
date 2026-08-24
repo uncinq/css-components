@@ -1,0 +1,432 @@
+/* components/panel.css */
+/*
+ * Shared skeleton for .modal and .drawer.
+ *
+ * Both are the same panel — header / content / footer, same open/closed
+ * contract — and differ only in where they sit: modal.css centres them,
+ * drawer.css sticks them to an edge.
+ *
+ * The tag picks the strategy, not the class. Either variant can be:
+ * - <dialog> opened with showModal() — [open], native ::backdrop, top layer,
+ *   and the browser handles Escape, the focus trap and inertness;
+ * - any element carrying popover="auto", opened by components/dialog.js
+ *   with showPopover() — same top layer, same ::backdrop, but no role of its
+ *   own. Use this when the panel becomes a static region of the page above a
+ *   breakpoint (see .panel-inline-*): a <dialog> is exposed as role="dialog"
+ *   even when it is only styled as a sidebar, whereas dialog.js sets that
+ *   role solely while the panel is open.
+ *
+ * Most selectors here are :where()-wrapped so they carry no specificity: the
+ * variants and the host components always win without escalating. The
+ * .panel-inline-* variants are the exception — they must beat .modal and
+ * .drawer, which they do on source order, so this file is imported last.
+ *
+ * Structure reads --panel-* tokens; each variant aliases them from its own
+ * namespace, so --modal-* and --drawer-* stay the public API.
+ *
+ * Expected HTML:
+ *   <dialog class="modal" id="x" aria-labelledby="xLabel">
+ *     <div class="header">
+ *       <p class="title" id="xLabel">...</p>
+ *       <button class="btn-close js-dialog-close"></button>
+ *     </div>
+ *     <div class="content">...</div>
+ *     <div class="footer">...</div>
+ *   </dialog>
+ */
+@layer components {
+
+  /* ── Open / closed ─────────────────────────────────────────────────
+   * `display` is only ever declared on a state selector: declaring it on the
+   * panel itself would beat the UA rule that hides a closed <dialog>. Both
+   * rules carry no specificity, so .panel-inline-* can put the panel back
+   * into the flow with a single class. */
+
+  :where(.modal, .drawer):not(:where([open], :popover-open)) {
+    display: none;
+  }
+
+  /* :is() and not :where() on the state: this has to beat the base rule below,
+     which is 0,0,0 and comes later in the file. 0,1,0 wins on specificity
+     rather than on source order, and still leaves a host component — .toc
+     .drawer is 0,2,0 — room to override without escalating. */
+  :where(.modal, .drawer):is([open], :popover-open) {
+    display: flex;
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ── Panel ─────────────────────────────────────────────────────── */
+
+  :where(.modal, .drawer) {
+    --color-link: var(--panel-color-text);
+    --color-link-hover: var(--panel-color-text);
+    --nav-color-text: var(--color-link);
+
+    background-color: var(--panel-color-background);
+    border: 0;
+    border-radius: var(--panel-radius, 0);
+    box-shadow: var(--panel-shadow);
+    color: var(--panel-color-text);
+    flex-direction: column;
+    overflow: hidden;
+    /* padding lives on the sections, so a click on the panel itself is
+       always a click on the backdrop */
+    padding: 0;
+
+    /* Placement — every value comes from the variant. A modal centres itself
+       with inset 0 + margin auto; a drawer pins two edges and leaves the
+       others auto. Declaring position/inset explicitly also covers <dialog>,
+       whose UA rules would otherwise centre an edge panel. */
+    block-size: var(--panel-block-size, auto);
+    inline-size: var(--panel-inline-size, auto);
+    inset-block: var(--panel-inset-block, auto);
+    inset-inline: var(--panel-inset-inline, auto);
+    margin: var(--panel-margin, 0);
+    max-block-size: var(--panel-max-block-size, none);
+    max-inline-size: var(--panel-max-inline-size, none);
+    min-block-size: var(--panel-min-block-size, auto);
+    /* Closed state, so also the values the panel animates FROM — the
+       @starting-style block below restates these two. A drawer leaves opacity
+       alone and only slides; a modal sets 0 and fades as well. */
+    opacity: var(--panel-opacity, 1);
+    position: fixed;
+    transform: var(--panel-translate, none);
+
+    /* allow-discrete keeps the panel displayed while it transitions out, and
+       keeps a <dialog> in the top layer until the transition ends */
+    @media (prefers-reduced-motion: no-preference) {
+      transition-behavior: allow-discrete;
+      transition-duration: var(--panel-transition-duration);
+      transition-property: display, opacity, overlay, transform;
+      transition-timing-function: var(--panel-transition-easing);
+    }
+
+    /* ── Header ──────────────────────────────────────────────────── */
+
+    & > .header {
+      align-items: center;
+      border-block-end: var(--panel-border-width) var(--panel-border-style) var(--panel-color-border);
+      display: flex;
+      flex-shrink: 0;
+      justify-content: space-between;
+      padding-block: var(--panel-header-padding-block);
+      padding-inline: var(--panel-header-padding-inline);
+
+      & .title {
+        font-size: var(--font-size-md);
+        font-weight: var(--font-weight-heading);
+        margin: 0;
+      }
+    }
+
+    /* ── Body ────────────────────────────────────────────────────── */
+
+    & > .content {
+      flex-grow: 1;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      padding-block: var(--panel-content-padding-block);
+      padding-inline: var(--panel-content-padding-inline);
+    }
+
+    /* ── Footer ──────────────────────────────────────────────────── */
+
+    & > .footer {
+      border-block-start: var(--panel-border-width) var(--panel-border-style) var(--panel-color-border);
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      gap: var(--spacing-sm);
+      padding-block: var(--panel-footer-padding-block);
+      padding-inline: var(--panel-footer-padding-inline);
+
+      @media (--sm) {
+        flex-direction: row;
+        justify-content: flex-end;
+      }
+    }
+  }
+
+  /* ── Inline variants ───────────────────────────────────────────────
+   * Above the chosen breakpoint the panel stops being an overlay and becomes
+   * a region of the page: the host component then only styles what is its
+   * own (sticky behaviour, labels, nav layout). Written once here, so adding
+   * a property to .modal or .drawer means neutralising it right below rather
+   * than patching every host component.
+   *
+   * The panel must NOT be a <dialog> when one of these is used — see the
+   * strategy note at the top of this file. components/dialog.js also closes
+   * an open panel carrying one of these classes when the viewport width
+   * changes, since CSS alone cannot release the backdrop, the scroll lock
+   * and the inert background. */
+
+  .panel-inline-sm {
+    @media (--sm) {
+      /* Colours go too, not just geometry: a region of the page carries none
+         of the panel's chrome and takes the page's own text and link colours.
+         `inherit` on a custom property hands it back to the parent, which is
+         exactly what is wanted here — and it has to be done token by token.
+         Resetting --panel-color-text, which the three derive from, would make
+         them invalid at computed-value time rather than page-valued, and every
+         link would fall back to the surrounding text colour instead of the
+         site's link colour. Keep this list in step with the panel rule above. */
+      --color-link: inherit;
+      --color-link-hover: inherit;
+      --nav-color-text: inherit;
+
+      background-color: transparent;
+      block-size: auto;
+      border-radius: 0;
+      box-shadow: none;
+      color: inherit;
+      display: flex;
+      inline-size: auto;
+      inset-block: auto;
+      inset-inline: auto;
+      margin: 0;
+      max-block-size: none;
+      max-inline-size: none;
+      min-block-size: auto;
+      opacity: 1;
+      overflow: visible;
+      position: static;
+      transform: none;
+      transition: none;
+
+      > .header,
+      > .footer {
+        display: none;
+      }
+
+      > .content {
+        flex-grow: 0;
+        overflow-y: visible;
+        overscroll-behavior: auto;
+        padding: 0;
+      }
+    }
+  }
+
+  .panel-inline-md {
+    @media (--md) {
+      /* Colours go too, not just geometry: a region of the page carries none
+         of the panel's chrome and takes the page's own text and link colours.
+         `inherit` on a custom property hands it back to the parent, which is
+         exactly what is wanted here — and it has to be done token by token.
+         Resetting --panel-color-text, which the three derive from, would make
+         them invalid at computed-value time rather than page-valued, and every
+         link would fall back to the surrounding text colour instead of the
+         site's link colour. Keep this list in step with the panel rule above. */
+      --color-link: inherit;
+      --color-link-hover: inherit;
+      --nav-color-text: inherit;
+
+      background-color: transparent;
+      block-size: auto;
+      border-radius: 0;
+      box-shadow: none;
+      color: inherit;
+      display: flex;
+      inline-size: auto;
+      inset-block: auto;
+      inset-inline: auto;
+      margin: 0;
+      max-block-size: none;
+      max-inline-size: none;
+      min-block-size: auto;
+      opacity: 1;
+      overflow: visible;
+      position: static;
+      transform: none;
+      transition: none;
+
+      > .header,
+      > .footer {
+        display: none;
+      }
+
+      > .content {
+        flex-grow: 0;
+        overflow-y: visible;
+        overscroll-behavior: auto;
+        padding: 0;
+      }
+    }
+  }
+
+  .panel-inline-lg {
+    @media (--lg) {
+      /* Colours go too, not just geometry: a region of the page carries none
+         of the panel's chrome and takes the page's own text and link colours.
+         `inherit` on a custom property hands it back to the parent, which is
+         exactly what is wanted here — and it has to be done token by token.
+         Resetting --panel-color-text, which the three derive from, would make
+         them invalid at computed-value time rather than page-valued, and every
+         link would fall back to the surrounding text colour instead of the
+         site's link colour. Keep this list in step with the panel rule above. */
+      --color-link: inherit;
+      --color-link-hover: inherit;
+      --nav-color-text: inherit;
+
+      background-color: transparent;
+      block-size: auto;
+      border-radius: 0;
+      box-shadow: none;
+      color: inherit;
+      display: flex;
+      inline-size: auto;
+      inset-block: auto;
+      inset-inline: auto;
+      margin: 0;
+      max-block-size: none;
+      max-inline-size: none;
+      min-block-size: auto;
+      opacity: 1;
+      overflow: visible;
+      position: static;
+      transform: none;
+      transition: none;
+
+      > .header,
+      > .footer {
+        display: none;
+      }
+
+      > .content {
+        flex-grow: 0;
+        overflow-y: visible;
+        overscroll-behavior: auto;
+        padding: 0;
+      }
+    }
+  }
+
+  .panel-inline-xl {
+    @media (--xl) {
+      /* Colours go too, not just geometry: a region of the page carries none
+         of the panel's chrome and takes the page's own text and link colours.
+         `inherit` on a custom property hands it back to the parent, which is
+         exactly what is wanted here — and it has to be done token by token.
+         Resetting --panel-color-text, which the three derive from, would make
+         them invalid at computed-value time rather than page-valued, and every
+         link would fall back to the surrounding text colour instead of the
+         site's link colour. Keep this list in step with the panel rule above. */
+      --color-link: inherit;
+      --color-link-hover: inherit;
+      --nav-color-text: inherit;
+
+      background-color: transparent;
+      block-size: auto;
+      border-radius: 0;
+      box-shadow: none;
+      color: inherit;
+      display: flex;
+      inline-size: auto;
+      inset-block: auto;
+      inset-inline: auto;
+      margin: 0;
+      max-block-size: none;
+      max-inline-size: none;
+      min-block-size: auto;
+      opacity: 1;
+      overflow: visible;
+      position: static;
+      transform: none;
+      transition: none;
+
+      > .header,
+      > .footer {
+        display: none;
+      }
+
+      > .content {
+        flex-grow: 0;
+        overflow-y: visible;
+        overscroll-behavior: auto;
+        padding: 0;
+      }
+    }
+  }
+
+  /* ── Trigger ───────────────────────────────────────────────────────
+   * Once the panel has gone inline there is nothing left to open, so its
+   * trigger goes with it. Kept here rather than restated by every host.
+   *
+   * The trigger is either the panel's previous sibling, or sits inside the
+   * element that precedes it. Adjacency proves intent, so any button there
+   * qualifies; being somewhere in the preceding subtree proves nothing, so
+   * only .js-dialog-toggle is hidden — never a neighbouring share button. */
+
+  @media (--sm) {
+    button:has(+ .panel-inline-sm) { display: none; }
+  }
+
+  @media (--md) {
+    button:has(+ .panel-inline-md) { display: none; }
+  }
+
+  @media (--lg) {
+    button:has(+ .panel-inline-lg) { display: none; }
+  }
+
+  @media (--xl) {
+    button:has(+ .panel-inline-xl) { display: none; }
+  }
+
+  /* ── Entry transition ──────────────────────────────────────────────
+   * Opening is a discrete display change, so the start state has to be
+   * spelled out. It is exactly the closed state, which now lives in tokens —
+   * one block covers both variants, panel and ::backdrop alike. */
+
+  @starting-style {
+    :where(.modal, .drawer):is([open], :popover-open) {
+      opacity: var(--panel-opacity, 1);
+      transform: var(--panel-translate, none);
+    }
+  }
+
+  /* ── Backdrop ──────────────────────────────────────────────────────
+   * Both paths put the panel in the top layer — showModal() for a <dialog>,
+   * showPopover() for anything else — so both get the native ::backdrop, and
+   * it inherits from the panel: it reads the very --panel-* tokens the panel
+   * declares. No backdrop node is ever injected, and no z-index is involved.
+   *
+   * This is why the class-driven path uses popover rather than a plain
+   * element. A backdrop placed outside the panel sits in the root stacking
+   * context, while the panel stays confined to its nearest stacking ancestor
+   * — a sticky sidebar wrapper, a sticky header — so the veil paints over the
+   * panel and no z-index can lift it out. Placing the backdrop next to the
+   * panel only moves the problem: it then inherits the same confinement and
+   * anything painted later shows through it. The top layer removes the
+   * question entirely, which is exactly what it exists for. */
+
+  :where(.modal, .drawer)::backdrop {
+    backdrop-filter: blur(var(--panel-backdrop-blur));
+    background-color: var(--panel-backdrop-color);
+    opacity: 0;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition-behavior: allow-discrete;
+      transition-duration: var(--panel-transition-duration);
+      transition-property: display, opacity, overlay;
+      transition-timing-function: var(--panel-transition-easing);
+    }
+  }
+
+  :where(.modal, .drawer):is([open], :popover-open)::backdrop {
+    opacity: 1;
+  }
+
+  @starting-style {
+    :where(.modal, .drawer):is([open], :popover-open)::backdrop {
+      opacity: 0;
+    }
+  }
+
+  /* ── Page scroll lock ────────────────────────────────────────────── */
+
+  body:has(:where(.modal, .drawer):where([open], :popover-open)) {
+    overflow: hidden;
+  }
+}

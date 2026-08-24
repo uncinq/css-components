@@ -1,106 +1,51 @@
 /* components/drawer.css */
 /*
- * .drawer — slide-in panel, vanilla JS driven.
+ * .drawer — panel sliding in from an edge.
  *
- * JS (components/drawer.js) manages:
- *   .showing  — panel becoming visible (open transition)
- *   .show     — panel fully open
- *   .hiding   — panel becoming hidden (close transition)
- *   aria-hidden="true" when closed
- *   body.drawer-open when panel is open
+ * A variant is pure configuration: this file declares nothing but --panel-*
+ * tokens. components/panel.css owns every rule — structure, placement,
+ * open/closed contract and backdrop.
  *
- * Triggers: .js-drawer-toggle[data-target="#id"]
- * Close:    .js-drawer-close (inside panel)
+ * Works on a <dialog> opened with showModal() and on any element carrying
+ * popover="auto", opened with showPopover(). Both land in the top layer and
+ * get the native ::backdrop. Reach for the second form when the panel is not
+ * always modal: combined with .panel-inline-* it becomes a region of the
+ * page above a breakpoint, which a <dialog> cannot be without claiming
+ * role="dialog" the whole time.
  *
  * Position variants: .drawer-start | .drawer-end | .drawer-top | .drawer-bottom
+ * Inline variants:   .panel-inline-* — see components/panel.css
  *
- * Expected HTML:
- *   <div id="navigation" class="drawer drawer-start" role="dialog" aria-modal="true" aria-hidden="true">
- *     <div class="header">
- *       <span class="title">...</span>
- *       <button class="js-drawer-close btn">...</button>
- *     </div>
- *     <div class="content">...</div>
- *   </div>
+ * Triggers: .js-dialog-toggle[data-target="#id"]
+ * Close:    .js-dialog-close inside the panel, Escape, or a click outside
  */
 @layer components {
-
-  /* ── Panel ───────────────────────────────────────────────────────── */
-
   .drawer {
-    --color-link: var(--drawer-color-text);
-    --nav-color-text: var(--color-link);
+    /* Structure */
+    --panel-backdrop-blur: var(--drawer-backdrop-blur);
+    --panel-backdrop-color: var(--drawer-backdrop-color);
+    --panel-border-style: var(--drawer-border-style);
+    --panel-border-width: var(--drawer-border-width);
+    --panel-color-background: var(--drawer-color-background);
+    --panel-color-border: var(--drawer-color-border);
+    --panel-color-text: var(--drawer-color-text);
+    --panel-content-padding-block: var(--drawer-content-padding-block, var(--drawer-padding-block));
+    --panel-content-padding-inline: var(--drawer-content-padding-inline, var(--drawer-padding-inline));
+    --panel-footer-padding-block: var(--drawer-footer-padding-block, var(--drawer-padding-block));
+    --panel-footer-padding-inline: var(--drawer-footer-padding-inline, var(--drawer-padding-inline));
+    --panel-header-padding-block: var(--drawer-header-padding-block, var(--drawer-padding-block));
+    --panel-header-padding-inline: var(--drawer-header-padding-inline, var(--drawer-padding-inline));
+    --panel-shadow: var(--drawer-shadow);
+    --panel-transition-duration: var(--drawer-transition-duration);
+    --panel-transition-easing: var(--drawer-transition-easing);
 
-    background-color: var(--drawer-color-background);
-    bottom: var(--drawer-bottom, 0);
-    box-shadow: var(--drawer-shadow);
-    color: var(--drawer-color-text);
-    display: flex;
-    flex-direction: column;
-    inset-inline-start: var(--drawer-start, auto);
-    inset-inline-end: var(--drawer-end, 0);
-    max-width: 100%;
-    overflow: hidden;
-    position: fixed;
-    top: var(--drawer-top, 0);
-    transform: var(--drawer-translate, translateX(100%));
-    visibility: hidden;
-    width: var(--drawer-width);
-    z-index: var(--drawer-z-index);
-
-    @media (prefers-reduced-motion: no-preference) {
-      transition-duration: var(--drawer-transition-duration);
-      transition-property: transform, visibility;
-      transition-timing-function: var(--drawer-transition-easing);
-    }
-
-    /* Visible during transitions and when open */
-    &.show,
-    &.showing,
-    &.hiding {
-      visibility: visible;
-    }
-
-    /* Fully open — remove transform */
-    &.show {
-      transform: none;
-    }
-
-    /* ── Header ────────────────────────────────────────────────────── */
-
-    & > .header {
-      align-items: center;
-      border-block-end: var(--drawer-border-width) var(--drawer-border-style) var(--drawer-border-color);
-      display: flex;
-      flex-shrink: 0;
-      justify-content: space-between;
-      padding-block: var(--drawer-header-padding-block, var(--drawer-padding-block));
-      padding-inline: var(--drawer-header-padding-inline, var(--drawer-padding-inline));
-
-      & .title {
-        font-size: var(--font-size-md);
-        font-weight: var(--font-weight-heading);
-        margin: 0;
-      }
-    }
-
-    /* ── Body ──────────────────────────────────────────────────────── */
-
-    & > .content {
-      flex-grow: 1;
-      overflow-y: auto;
-      padding-block: var(--drawer-header-padding-block, var(--drawer-padding-block));
-      padding-inline: var(--drawer-header-padding-inline, var(--drawer-padding-inline));
-    }
-
-    /* ── Footer ──────────────────────────────────────────────────────── */
-
-    & > .footer {
-      border-block-start: var(--drawer-border-width) var(--drawer-border-style) var(--drawer-border-color);
-      flex-shrink: 0;
-      padding-block: var(--drawer-header-padding-block, var(--drawer-padding-block));
-      padding-inline: var(--drawer-header-padding-inline, var(--drawer-padding-inline));
-    }
+    /* Placement — two edges pinned, the opposite ones auto. The margin stays
+       at 0 so the UA rules that centre a modal <dialog> do not apply. */
+    --panel-inline-size: var(--drawer-width);
+    --panel-inset-block: var(--drawer-top) var(--drawer-bottom);
+    --panel-inset-inline: var(--drawer-start) var(--drawer-end);
+    --panel-max-inline-size: 100%;
+    --panel-translate: var(--drawer-translate);
   }
 
   /* ── Position variants ───────────────────────────────────────────── */
@@ -112,80 +57,28 @@
   }
 
   .drawer-end {
-    --drawer-start: auto;
     --drawer-end: 0;
+    --drawer-start: auto;
     --drawer-translate: translateX(100%);
   }
 
   .drawer-top {
+    --drawer-bottom: auto;
     --drawer-end: 0;
     --drawer-start: 0;
     --drawer-top: 0;
     --drawer-translate: translateY(-100%);
-    height: var(--drawer-height);
+    --panel-block-size: var(--drawer-height);
+    --panel-inline-size: auto;
   }
 
   .drawer-bottom {
+    --drawer-bottom: 0;
     --drawer-end: 0;
     --drawer-start: 0;
-    --drawer-bottom: 0;
+    --drawer-top: auto;
     --drawer-translate: translateY(100%);
-    height: var(--drawer-height);
-  }
-
-  /* ── Responsive variants (static above breakpoint) ──────────────── */
-
-  .drawer-tablet {
-    @media (--tablet) {
-      box-shadow: none;
-      overflow: visible;
-      position: static;
-      transform: none;
-      transition: none;
-      visibility: visible;
-      width: auto;
-      z-index: auto;
-    }
-  }
-
-  .drawer-laptop {
-    @media (--laptop) {
-      box-shadow: none;
-      overflow: visible;
-      position: static;
-      transform: none;
-      transition: none;
-      visibility: visible;
-      width: auto;
-      z-index: auto;
-    }
-  }
-
-  /* ── Backdrop ────────────────────────────────────────────────────── */
-
-  .drawer-backdrop {
-    backdrop-filter: blur(var(--drawer-backdrop-blur));
-    background-color: var(--drawer-backdrop-color);
-    inset: 0;
-    position: fixed;
-    z-index: calc(var(--drawer-z-index) - 1);
-
-    &.fade {
-      opacity: 0;
-
-      @media (prefers-reduced-motion: no-preference) {
-        transition: opacity var(--drawer-transition-duration) var(--drawer-transition-easing);
-      }
-    }
-
-    &.show {
-      opacity: 1;
-    }
-  }
-
-  /* ── Body scroll lock ────────────────────────────────────────────── */
-
-  body.drawer-open {
-    overflow: hidden;
+    --panel-block-size: var(--drawer-height);
+    --panel-inline-size: auto;
   }
 }
