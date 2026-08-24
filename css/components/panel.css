@@ -351,28 +351,19 @@
 
   /* ── Trigger ───────────────────────────────────────────────────────
    * Once the panel has gone inline there is nothing left to open, so its
-   * trigger goes with it. Kept here rather than restated by every host.
+   * trigger goes with it.
    *
-   * Only reaches a trigger that is the panel's own previous sibling: adjacency
-   * is what proves intent, so any button there qualifies. A trigger placed
-   * further away — inside the heading that precedes the panel, as the filters
-   * do — is not covered and stays visible. */
+   * The trigger carries its own breakpoint rather than being reached from the
+   * panel: the only reliable link between the two is data-target matching the
+   * id, and no selector can compare two values. Any positional rule would work
+   * only as long as nobody moves the markup — and a filter button lives in the
+   * page heading, not beside the panel. Both classes come from one site param,
+   * so the pair cannot disagree. */
 
-  @media (--sm) {
-    button:has(+ .panel-inline-sm) { display: none; }
-  }
-
-  @media (--md) {
-    button:has(+ .panel-inline-md) { display: none; }
-  }
-
-  @media (--lg) {
-    button:has(+ .panel-inline-lg) { display: none; }
-  }
-
-  @media (--xl) {
-    button:has(+ .panel-inline-xl) { display: none; }
-  }
+  @media (--sm) { .panel-trigger-sm { display: none; } }
+  @media (--md) { .panel-trigger-md { display: none; } }
+  @media (--lg) { .panel-trigger-lg { display: none; } }
+  @media (--xl) { .panel-trigger-xl { display: none; } }
 
   /* ── Entry transition ──────────────────────────────────────────────
    * Opening is a discrete display change, so the start state has to be
