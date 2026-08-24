@@ -79,6 +79,7 @@
     list-style: none;
     min-width: var(--dropdown-min-width);
     opacity: 0;
+    overflow: hidden;
     padding: var(--dropdown-padding, 0);
     pointer-events: none;
     position: absolute;

@@ -40,27 +40,22 @@
 
     /* ── Links ───────────────────────────────────────────────────── */
 
-    a {
-      display: block;
-      padding-block: var(--nav-link-padding-block);
-      padding-inline: var(--nav-link-padding-inline);
-      text-transform: var(--nav-link-text-transform);
-    }
-
-    a:not(.btn) {
-      color: var(--nav-color-text);
-      &.active {
-        --nav-color-text: var(--nav-color-text-active);
-      }
-    }
-
-    /* Non-link items (current page rendered as span) */
+    a:where(:not(.btn)),
     li > span {
       color: var(--nav-color-text);
       display: block;
       padding-block: var(--nav-link-padding-block);
       padding-inline: var(--nav-link-padding-inline);
       text-transform: var(--nav-link-text-transform);
+      &.active {
+        --nav-color-text: var(--nav-color-text-active);
+      }
+    }
+
+    /* ── Dropdown ───────────────────────────────────────────────────── */
+
+    .dropdown-toggle {
+      color: var(--nav-color-text);
     }
 
     /* ── Item highlighted ───────────────────────────────────────────────────── */
