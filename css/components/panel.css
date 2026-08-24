@@ -353,10 +353,10 @@
    * Once the panel has gone inline there is nothing left to open, so its
    * trigger goes with it. Kept here rather than restated by every host.
    *
-   * The trigger is either the panel's previous sibling, or sits inside the
-   * element that precedes it. Adjacency proves intent, so any button there
-   * qualifies; being somewhere in the preceding subtree proves nothing, so
-   * only .js-dialog-toggle is hidden — never a neighbouring share button. */
+   * Only reaches a trigger that is the panel's own previous sibling: adjacency
+   * is what proves intent, so any button there qualifies. A trigger placed
+   * further away — inside the heading that precedes the panel, as the filters
+   * do — is not covered and stays visible. */
 
   @media (--sm) {
     button:has(+ .panel-inline-sm) { display: none; }

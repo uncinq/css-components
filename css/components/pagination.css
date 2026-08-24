@@ -91,7 +91,7 @@
     }
 
     /* On small screens: hide first/last controls and non-adjacent page numbers */
-    @media not (--tablet) {
+    @media not (--sm) {
       .first,
       .last,
       li:has(.first),
