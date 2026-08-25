@@ -1,0 +1,27 @@
+/* components/surtitle.css */
+/*
+ * .surtitle — eyebrow label displayed above a heading.
+ *
+ * Expected HTML:
+ *   <p class="surtitle">Category</p>
+ *   <h2>Main title</h2>
+ */
+@layer components {
+  .surtitle {
+    background-color: var(--surtitle-color-background);
+    border-color: var(--surtitle-border-color);
+    border-radius: var(--surtitle-border-radius);
+    border-style: var(--surtitle-border-style);
+    border-width: var(--surtitle-border-width);
+    color: var(--surtitle-color-text);
+    font-size: var(--surtitle-font-size);
+    font-weight: var(--surtitle-font-weight);
+    letter-spacing: var(--surtitle-letter-spacing);
+    line-height: var(--surtitle-line-height);
+    margin-block-end: var(--surtitle-margin-block-end);
+    margin-block-start: var(--surtitle-margin-block-start);
+    padding-block: var(--surtitle-padding-block);
+    padding-inline: var(--surtitle-padding-inline);
+    text-transform: var(--surtitle-text-transform);
+  }
+}
