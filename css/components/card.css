@@ -16,6 +16,10 @@
  */
 @layer components {
   .card {
+    --media-color-background: var(--card-media-color-background);
+    --media-ratio: var(--card-media-ratio);
+    --surtitle-margin-block-end: calc(var(--card-gap) * -1);
+
     background-color: var(--card-color-background);
     border: var(--card-border-width) var(--card-border-style) var(--card-color-border);
     border-radius: var(--card-border-radius);
@@ -33,10 +37,6 @@
       padding-block: var(--card-padding-block);
       padding-inline: var(--card-padding-inline);
       text-decoration: none;
-
-      > * {
-        margin-block: 0;
-      }
     }
 
     a.content {
@@ -51,7 +51,7 @@
     }
 
     .surtitle {
-      margin-block-end: calc(var(--card-gap) * -1);
+      margin-block-start: 0;
     }
 
     .title {
@@ -60,15 +60,15 @@
       font-size: var(--card-title-font-size);
       font-weight: var(--card-title-font-weight);
       line-height: var(--card-title-line-height);
+      margin-block: 0;
     }
 
     .description {
       font-size: var(--card-font-size);
+      margin-block: 0;
     }
 
     .media {
-      --media-color-background: var(--card-media-color-background);
-      --media-ratio: var(--card-media-ratio);
       border: var(--card-media-border-width) var(--card-media-border-style) var(--card-media-color-border);
       border-radius: var(--card-media-border-radius);
       margin-block: var(--card-media-margin-block);

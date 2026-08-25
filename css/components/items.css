@@ -8,11 +8,12 @@
  */
 @layer components {
   .items {
+    column-gap: var(--items-column-gap, var(--items-gap));
     container-type: inline-size;
     container-name: items;
     display: grid;
-    gap: var(--items-gap);
     grid-template-columns: repeat(var(--items-cols, auto-fill), minmax(min(var(--items-min-width, 30ch), 100%), 1fr));
     justify-content: start;
+    row-gap: var(--items-row-gap, var(--items-gap));
   }
 }
