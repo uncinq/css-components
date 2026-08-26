@@ -13,6 +13,9 @@
  *     picture | video
  *   </div>
  * </article>
+ *
+ * Optional sizing: --card-max-width / --card-width are unset by default.
+ * Prefer ch units so the width tracks the text measure, like --items-min-width.
  */
 @layer components {
   .card {
@@ -27,7 +30,9 @@
     color: var(--card-color-text);
     display: flex;
     flex-direction: column;
+    max-width: var(--card-max-width);
     overflow: hidden;
+    width: var(--card-width);
 
     .content {
       display: flex;
