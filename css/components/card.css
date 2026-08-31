@@ -65,11 +65,15 @@
       font-size: var(--card-title-font-size);
       font-weight: var(--card-title-font-weight);
       line-height: var(--card-title-line-height);
-      margin-block: 0;
     }
 
     .description {
       font-size: var(--card-font-size);
+    }
+
+    .btn,
+    .description,
+    .title {
       margin-block: 0;
     }
 
