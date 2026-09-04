@@ -26,3 +26,6 @@
 @import 'components/pagination.css';
 @import 'components/panel.css';
 @import 'components/surtitle.css';
+
+/* Utilities — @layer utilities, last layer */
+@import 'utilities/scrollsnap.css';

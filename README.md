@@ -21,7 +21,7 @@ Each component file contains only CSS rules, using the tokens defined in the two
 
 ## CSS cascade layers
 
-All component styles are declared inside `@layer components`:
+Component styles are declared inside `@layer components`, utilities inside `@layer utilities`:
 
 ```css
 @layer reset, tokens, vendors, base, layouts, components, pages, utilities;
@@ -32,6 +32,7 @@ This means:
 - Components never bleed into base or layout styles
 - Project-level `@layer components` rules always win over these defaults
 - Vendors (e.g. Splide) sit below project components but above base
+- Utilities come last, so `.scrollsnap` wins over the grid a component declares for itself
 
 ---
 
@@ -77,8 +78,9 @@ yarn add @uncinq/css-components
 @import '@uncinq/design-tokens';
 @import '@uncinq/component-tokens';
 @import '@uncinq/css-base';
-@import '@uncinq/css-components/css/component/nav.css';
-@import '@uncinq/css-components/css/component/pagination.css';
+@import '@uncinq/css-components/css/components/nav.css';
+@import '@uncinq/css-components/css/components/pagination.css';
+@import '@uncinq/css-components/css/utilities/scrollsnap.css';
 ```
 
 ### Usage — CDN (no build step)
@@ -96,8 +98,8 @@ yarn add @uncinq/css-components
 
 ```text
 css/
-  index.css               ← imports all component files
-  component/
+  index.css               ← imports all component and utility files
+  components/
     alert.css             ← alert / notification banner
     badge.css             ← badge / pill / tag
     banner.css            ← full-width banner strip
@@ -115,6 +117,8 @@ css/
     nav-accessibility.css ← accessibility skip links / focus helpers
     nav-title.css         ← navigation bar title
     pagination.css        ← pagination control
+  utilities/
+    scrollsnap.css        ← .scrollsnap[-sm|-md|-lg|-xl] — turns a grid into a snapping carousel
 ```
 
 ---

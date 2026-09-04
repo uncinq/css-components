@@ -24,7 +24,8 @@
   "exports": {
     ".": "./css/index.css",
     "./css/index.css": "./css/index.css",
-    "./css/components/*": "./css/components/*"
+    "./css/components/*": "./css/components/*",
+    "./css/utilities/*": "./css/utilities/*"
   },
   "style": "./css/index.css",
   "peerDependencies": {
