@@ -5,6 +5,7 @@
     border-block: var(--breadcrumb-border-width) var(--breadcrumb-border-style) var(--breadcrumb-color-border);
     overflow-x: auto;
     padding-block: var(--breadcrumb-padding-block);
+    padding-inline: var(--breadcrumb-padding-inline);
 
     ol {
       display: flex;
