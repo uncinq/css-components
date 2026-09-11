@@ -24,14 +24,16 @@ Each component file contains only CSS rules, using the tokens defined in the two
 Component styles are declared inside `@layer components`, utilities inside `@layer utilities`:
 
 ```css
-@layer reset, tokens, vendors, base, layouts, components, pages, utilities;
+@layer reset, tokens, libs, vendors, base, layouts, components, pages, utilities;
 ```
 
 This means:
 
 - Components never bleed into base or layout styles
 - Project-level `@layer components` rules always win over these defaults
-- Vendors (e.g. Splide) sit below project components but above base
+- Third-party stylesheets (`libs`, e.g. Splide) sit at the bottom, and the CSS
+  that overrides them (`vendors`) right above — so a lazily loaded library
+  cannot win on source order
 - Utilities come last, so `.scrollsnap` wins over the grid a component declares for itself
 
 ---
