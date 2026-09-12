@@ -119,6 +119,7 @@ css/
     nav-accessibility.css ← accessibility skip links / focus helpers
     nav-title.css         ← navigation bar title
     pagination.css        ← pagination control
+    video.css             ← native video wrapper with its play/pause control
   utilities/
     scrollsnap.css        ← .scrollsnap[-sm|-md|-lg|-xl] — turns a grid into a snapping carousel
 ```

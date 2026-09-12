@@ -10,6 +10,7 @@
 @import 'components/btn-search.css';
 @import 'components/btn-share.css';
 @import 'components/btn-toc.css';
+@import 'components/btn-toggle-video.css';
 @import 'components/card.css';
 @import 'components/drawer.css';
 @import 'components/dropdown.css';
@@ -26,6 +27,7 @@
 @import 'components/pagination.css';
 @import 'components/panel.css';
 @import 'components/surtitle.css';
+@import 'components/video.css';
 
 /* Utilities — @layer utilities, last layer */
 @import 'utilities/scrollsnap.css';

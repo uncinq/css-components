@@ -1,0 +1,28 @@
+/* components/video.css */
+/*
+ * .video — wrapper for a native video, with an optional control overlaid on it
+ * when the video autoplays without the native ones (WCAG).
+ * Inside a .media the wrapper is stretched to fill it — see media.css.
+ *
+ * Structure:
+ *   div.video
+ *     video
+ *     button.btn.btn-toggle-video
+ */
+@layer components {
+  .video {
+    position: relative;
+
+    video {
+      aspect-ratio: var(--video-ratio, var(--ratio-video));
+      width: 100%;
+    }
+
+    .btn-toggle-video {
+      inset-block-end: 0;
+      inset-inline-end: 0;
+      position: absolute;
+      z-index: 10;
+    }
+  }
+}

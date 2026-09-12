@@ -1,0 +1,29 @@
+/* components/btn-toggle-video.css */
+/*
+ * .btn-toggle-video — play/pause control overlaid on a video that autoplays
+ * without the native controls (WCAG). It stays transparent so the video shows
+ * through it, and the `.is-playing` state, set by the script driving the
+ * video, decides which of the two icons is displayed. The .video wrapper
+ * places it — see video.css.
+ *
+ * Structure:
+ *   button.btn.btn-toggle-video[.is-playing]
+ *     .icon-pause
+ *     .icon-play
+ */
+@layer components {
+  .btn-toggle-video {
+    --btn-color-background: transparent;
+    --btn-color-background-hover: transparent;
+    --btn-color-border: transparent;
+    --btn-color-border-hover: transparent;
+
+    &:not(.is-playing) .icon-pause {
+      display: none;
+    }
+
+    &.is-playing .icon-play {
+      display: none;
+    }
+  }
+}
