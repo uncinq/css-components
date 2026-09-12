@@ -11,6 +11,10 @@
     background-color: var(--media-color-background);
     overflow: hidden;
 
+    .video {
+      height: 100%;
+    }
+
     picture {
       display: block;
     }
