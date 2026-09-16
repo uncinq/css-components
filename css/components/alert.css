@@ -52,7 +52,7 @@
   .alert-dark {
     --alert-color-background: var(--color-dark-muted);
     --alert-color-border: var(--color-dark-muted);
-    --alert-color-text: var(--color-dark-strong);
+    --alert-color-text: var(--color-text-on-dark);
   }
   .alert-info {
     --alert-color-background: var(--color-info-muted);
