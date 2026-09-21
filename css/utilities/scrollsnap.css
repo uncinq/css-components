@@ -23,8 +23,31 @@
  *
  * Bleed: --container-bleed, published by .container in @uncinq/css-base — one
  * gutter while the container spans the viewport, 0 once it caps, so the row
- * never pulls out into dead space it cannot cross. Outside a .container the
- * fallback keeps the gutter bleed.
+ * never pulls out into dead space it cannot cross.
+ *
+ * The property inherits, so it reaches the row from a .container however far
+ * up it sits, and the fallback is the answer to "no .container above me at
+ * all". Margin and padding take DIFFERENT fallbacks, because outside a
+ * container they answer two different questions:
+ *
+ *   margin  — how far may I pull out of my parent? Unknown, so 0. Nothing
+ *             published a bleed, the parent may be a card or a column with no
+ *             room to give, and pulling a gutter out of it is a guess that
+ *             overflows. Inside a container the published value decides, and
+ *             at a capped rung that is 0 too.
+ *   padding — how far in from MY edge should the first item sit? A gutter,
+ *             the same breathing room every other box gets. A full-bleed block
+ *             (.block-full, padding-inline: 0) spans the viewport with no
+ *             inset of its own, so without this the cards touch the screen.
+ *
+ * Inside a container the two collapse back to one value — --container-bleed is
+ * defined, both read it, and the padding puts back inside the scroll box
+ * exactly what the negative margin took out, landing the first item on the
+ * container's content edge.
+ *
+ * scroll-margin-inline follows the PADDING, not the margin: it is what makes
+ * an item snap flush with the content edge instead of the padding edge, so it
+ * has to cancel the padding whatever the margin does.
  */
 @layer utilities {
   .scrollsnap,
@@ -36,7 +59,7 @@
     grid-auto-flow: column;
     grid-template-columns: none;
     justify-content: start;
-    margin-inline: calc(var(--container-bleed, var(--gutter)) * -1);
+    margin-inline: calc(var(--container-bleed, 0px) * -1);
     overflow-x: auto;
     padding-inline: var(--container-bleed, var(--gutter));
     scroll-snap-type: x mandatory;
