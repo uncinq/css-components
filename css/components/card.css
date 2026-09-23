@@ -1,8 +1,12 @@
 /* components/card.css */
 /*
- * .card is a backwards-compatible alias for .item.
- * Prefer using .item directly: <article class="item page">
- * 
+ * .card — self-contained content card.
+ *
+ * Historically a backwards-compatible alias for .item, but .item is NOT
+ * defined in this package (it lives in the Hugolify design system theme).
+ * Within @uncinq/css-components, .card is the complete implementation and the
+ * class to use. It reads --card-* from @uncinq/component-tokens.
+ *
  * Structure:
  * <article class="card">
  *   <div class="content">

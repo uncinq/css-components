@@ -60,8 +60,10 @@
 
   :where(.modal, .drawer) {
     --color-link: var(--panel-color-text);
-    --color-link-hover: var(--panel-color-text);
+    --color-link-active: var(--panel-color-text-active);
+    --color-link-hover: var(--panel-color-text-hover);
     --nav-color-text: var(--color-link);
+    --nav-color-text-active: var(--color-link-active);
 
     background-color: var(--panel-color-background);
     border: 0;
@@ -167,13 +169,15 @@
          of the panel's chrome and takes the page's own text and link colours.
          `inherit` on a custom property hands it back to the parent, which is
          exactly what is wanted here — and it has to be done token by token.
-         Resetting --panel-color-text, which the three derive from, would make
+         Resetting the --panel-color-text-* tokens they derive from would make
          them invalid at computed-value time rather than page-valued, and every
          link would fall back to the surrounding text colour instead of the
          site's link colour. Keep this list in step with the panel rule above. */
       --color-link: inherit;
+      --color-link-active: inherit;
       --color-link-hover: inherit;
       --nav-color-text: inherit;
+      --nav-color-text-active: inherit;
 
       background-color: transparent;
       block-size: auto;
@@ -214,13 +218,15 @@
          of the panel's chrome and takes the page's own text and link colours.
          `inherit` on a custom property hands it back to the parent, which is
          exactly what is wanted here — and it has to be done token by token.
-         Resetting --panel-color-text, which the three derive from, would make
+         Resetting the --panel-color-text-* tokens they derive from would make
          them invalid at computed-value time rather than page-valued, and every
          link would fall back to the surrounding text colour instead of the
          site's link colour. Keep this list in step with the panel rule above. */
       --color-link: inherit;
+      --color-link-active: inherit;
       --color-link-hover: inherit;
       --nav-color-text: inherit;
+      --nav-color-text-active: inherit;
 
       background-color: transparent;
       block-size: auto;
@@ -261,13 +267,15 @@
          of the panel's chrome and takes the page's own text and link colours.
          `inherit` on a custom property hands it back to the parent, which is
          exactly what is wanted here — and it has to be done token by token.
-         Resetting --panel-color-text, which the three derive from, would make
+         Resetting the --panel-color-text-* tokens they derive from would make
          them invalid at computed-value time rather than page-valued, and every
          link would fall back to the surrounding text colour instead of the
          site's link colour. Keep this list in step with the panel rule above. */
       --color-link: inherit;
+      --color-link-active: inherit;
       --color-link-hover: inherit;
       --nav-color-text: inherit;
+      --nav-color-text-active: inherit;
 
       background-color: transparent;
       block-size: auto;
@@ -308,13 +316,15 @@
          of the panel's chrome and takes the page's own text and link colours.
          `inherit` on a custom property hands it back to the parent, which is
          exactly what is wanted here — and it has to be done token by token.
-         Resetting --panel-color-text, which the three derive from, would make
+         Resetting the --panel-color-text-* tokens they derive from would make
          them invalid at computed-value time rather than page-valued, and every
          link would fall back to the surrounding text colour instead of the
          site's link colour. Keep this list in step with the panel rule above. */
       --color-link: inherit;
+      --color-link-active: inherit;
       --color-link-hover: inherit;
       --nav-color-text: inherit;
+      --nav-color-text-active: inherit;
 
       background-color: transparent;
       block-size: auto;

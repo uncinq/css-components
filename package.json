@@ -19,7 +19,8 @@
     "cascade-layers"
   ],
   "files": [
-    "css/"
+    "css/",
+    "docs/"
   ],
   "exports": {
     ".": "./css/index.css",

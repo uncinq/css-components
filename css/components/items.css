@@ -1,10 +1,14 @@
 /* components/items.css */
 /*
- * .items — responsive grid.
+ * .items — responsive grid. Columns are intrinsic, not breakpoint-driven:
+ * children wrap once they no longer fit at --items-min-width.
+ *
+ * The children are yours to provide. Within this package that is .card;
+ * .item is defined by the Hugolify design system theme, not here.
  *
  * Structure:
  *   .items
- *     .item
+ *     .card | .item | any child
  */
 @layer components {
   .items {

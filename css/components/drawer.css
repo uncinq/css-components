@@ -29,6 +29,8 @@
     --panel-color-background: var(--drawer-color-background);
     --panel-color-border: var(--drawer-color-border);
     --panel-color-text: var(--drawer-color-text);
+    --panel-color-text-active: var(--drawer-color-text-active);
+    --panel-color-text-hover: var(--drawer-color-text-hover);
     --panel-content-padding-block: var(--drawer-content-padding-block, var(--drawer-padding-block));
     --panel-content-padding-inline: var(--drawer-content-padding-inline, var(--drawer-padding-inline));
     --panel-footer-padding-block: var(--drawer-footer-padding-block, var(--drawer-padding-block));

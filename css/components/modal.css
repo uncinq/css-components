@@ -27,6 +27,8 @@
     --panel-color-background: var(--modal-color-background);
     --panel-color-border: var(--modal-color-border);
     --panel-color-text: var(--modal-color-text);
+    --panel-color-text-active: var(--modal-color-text-active);
+    --panel-color-text-hover: var(--modal-color-text-hover);
     --panel-content-padding-block: var(--modal-content-padding-block, var(--modal-padding-block));
     --panel-content-padding-inline: var(--modal-content-padding-inline, var(--modal-padding-inline));
     --panel-footer-padding-block: var(--modal-footer-padding-block, var(--modal-padding-block));
