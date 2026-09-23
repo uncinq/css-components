@@ -3,6 +3,7 @@ isIndex: false
 title: Cascade layers
 description: The two layers this package owns, why panel.css is imported last, and how to override a component cleanly.
 weight: 1
+icon: stack
 ---
 
 This package writes to two layers.

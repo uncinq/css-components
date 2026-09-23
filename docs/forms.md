@@ -3,6 +3,7 @@ isIndex: false
 title: Forms
 description: The .form grid, its layout helpers, and where the actual control styling lives.
 weight: 7
+icon: ui-checks
 ---
 
 Form **controls** are styled by [@uncinq/css-base](../../css-base/base/#forms), on the native elements themselves. There is no `.input` or `.select` class to apply.

@@ -3,6 +3,7 @@ isIndex: false
 title: Embeds
 description: Aspect-ratio wrappers for third-party embeds, native video and maps.
 weight: 6
+icon: play-btn
 ---
 
 ## `.embed`

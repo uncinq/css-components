@@ -3,6 +3,7 @@ isIndex: false
 title: Utilities
 description: The .scrollsnap utility, which turns a grid into a horizontal snap carousel below a breakpoint.
 weight: 8
+icon: tools
 ---
 
 ## `.scrollsnap`

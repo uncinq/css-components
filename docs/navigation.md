@@ -3,6 +3,7 @@ isIndex: false
 title: Navigation
 description: Navigation lists, skip links, breadcrumbs and pagination.
 weight: 5
+icon: signpost
 ---
 
 ## `.nav`
