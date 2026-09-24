@@ -41,11 +41,13 @@ Per component:
 @import '@uncinq/css-components/css/utilities/scrollsnap.css';
 ```
 
-Without a build step:
+### A CDN link is not enough
 
-```html
-<link rel="stylesheet" href="https://unpkg.com/@uncinq/css-components">
-```
+`@uncinq/design-tokens` and `@uncinq/component-tokens` can be linked straight from a CDN, because they emit nothing but custom properties. **This package cannot**, and neither can `@uncinq/css-base`.
+
+Both ship `@media (--sm)` queries that rely on the `@custom-media` rules declared in `css-base/css/mediaqueries.css`, and no browser implements `@custom-media`. Loaded without [postcss-custom-media](https://www.npmjs.com/package/postcss-custom-media), 13 responsive blocks in this package are dropped: `.panel-inline-*`, `.panel-trigger-*` and every `.scrollsnap-*` variant.
+
+The failure is silent. No error is raised, the page simply stays at its mobile values on every screen. A build step is required.
 
 ## What's included
 
