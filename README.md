@@ -26,7 +26,7 @@ npm install @uncinq/design-tokens @uncinq/component-tokens @uncinq/css-base @unc
 Declare the cascade layer order once at the top of your entry stylesheet, **before any import**:
 
 ```css
-@layer reset, tokens, libs, vendors, base, layouts, components, pages, utilities;
+@layer reset, tokens, libs, base, vendors, layouts, components, pages, utilities;
 
 @import '@uncinq/design-tokens';    /* @layer tokens */
 @import '@uncinq/css-base';         /* @layer reset, base, layouts */

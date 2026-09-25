@@ -16,7 +16,7 @@ This package writes to two layers.
 The full order, including layers owned by the sibling packages and by the project itself, is the **consuming project's** responsibility. Declare it once, at the very top of your entry stylesheet, before any `@import`:
 
 ```css
-@layer reset, tokens, libs, vendors, base, layouts, components, pages, utilities;
+@layer reset, tokens, libs, base, vendors, layouts, components, pages, utilities;
 ```
 
 CSS fixes a layer's position the first time its name is seen, and later re-declarations do not reorder it. If that line comes after an import, it is already too late. See [the css-base page](../../css-base/cascade-layers/) for the full explanation, including why `libs` and `vendors` are a pair.
