@@ -38,6 +38,11 @@
     }
   }
 
+  /* Restore the hidden attribute, which display: flex would otherwise override */
+  .alert[hidden] {
+    display: none;
+  }
+
   /* Variants */
   .alert-brand {
     --alert-color-background: var(--color-brand-muted);
