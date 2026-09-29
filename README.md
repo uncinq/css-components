@@ -63,7 +63,7 @@ The failure is silent. No error is raised, the page simply stays at its mobile v
 
 ## Two import-order rules
 
-`components/panel.css` is imported **last** among the components: its `.panel-inline-*` variants beat `.modal` and `.drawer` on source order, because most of the file is `:where()`-wrapped and carries no specificity.
+`components/panel.css` must come **after** `modal.css` and `drawer.css`: its `.panel-inline-*` variants beat them on source order, because most of the file is `:where()`-wrapped and carries no specificity. Alphabetical order already gives that in `css/index.css`.
 
 `utilities/scrollsnap.css` comes after everything, in `@layer utilities`, because it has to win over the grid a component declares for itself.
 
@@ -73,22 +73,22 @@ If you import file by file rather than using the barrel, preserve both positions
 
 - **No JavaScript.** `modal`, `drawer` and `dropdown` expect a script; each documents the classes and attributes it must toggle.
 - **No `.item`.** This package ships `.card`, a complete implementation. `.item` lives in the Hugolify design system theme.
-- **No pagination glyphs.** The theme supplies them through `::before` or `::after` content.
+- **No `.icon` glyphs.** Buttons and `pagination` mask their own from icon tokens, but an `.icon` element you place inside an `alert` or a video toggle is the theme's to render.
 
 ## Documentation
 
 Full documentation: **[socle.uncinq.dev/docs/css-components/](https://socle.uncinq.dev/docs/css-components/)**
 
-It is also versioned with the code in [`docs/`](docs/), and ships inside the npm package, so it is readable offline and from `node_modules`:
+It is also versioned with the code in [`docs/`](docs/), one page per component, and ships inside the npm package, so it is readable offline and from `node_modules`:
 
 - [Cascade layers](docs/cascade-layers.md) — the two layers, and the `:where()` convention
-- [Buttons](docs/buttons.md)
-- [Overlays](docs/overlays.md) — the panel skeleton and the JS contracts
-- [Content](docs/content.md)
-- [Navigation](docs/navigation.md)
-- [Embeds](docs/embeds.md)
-- [Forms](docs/forms.md)
-- [Utilities](docs/utilities.md) — `.scrollsnap` and the bleed contract
+- [Buttons](docs/buttons/) — [`.btn`](docs/buttons/btn.md) and the seven specialised buttons
+- [Overlays](docs/overlays/) — [the panel skeleton](docs/overlays/panel.md), [`.modal`](docs/overlays/modal.md), [`.drawer`](docs/overlays/drawer.md), [`.dropdown`](docs/overlays/dropdown.md)
+- [Content](docs/content/) — [`.alert`](docs/content/alert.md), [`.badge`](docs/content/badge.md), [`.banner`](docs/content/banner.md), [`.card`](docs/content/card.md), [`.items`](docs/content/items.md), [`.list`](docs/content/list.md), [`.media`](docs/content/media.md), [`.surtitle`](docs/content/surtitle.md)
+- [Navigation](docs/navigation/) — [`.nav`](docs/navigation/nav.md), [`.nav-title`](docs/navigation/nav-title.md), [skip links](docs/navigation/nav-accessibility.md), [breadcrumb](docs/navigation/breadcrumb.md), [pagination](docs/navigation/pagination.md)
+- [Embeds](docs/embeds/) — [`.embed`](docs/embeds/embed.md), [`.video`](docs/embeds/video.md), [`.map`](docs/embeds/map.md)
+- [Forms](docs/forms/) — [`.form`](docs/forms/form.md), [`.form-check`](docs/forms/form-check.md)
+- [Utilities](docs/utilities/) — [`.scrollsnap`](docs/utilities/scrollsnap.md) and the bleed contract
 
 ## References
 

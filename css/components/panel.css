@@ -9,17 +9,19 @@
  * The tag picks the strategy, not the class. Either variant can be:
  * - <dialog> opened with showModal() — [open], native ::backdrop, top layer,
  *   and the browser handles Escape, the focus trap and inertness;
- * - any element carrying popover="auto", opened by components/dialog.js
- *   with showPopover() — same top layer, same ::backdrop, but no role of its
+ * - any element carrying popover="auto", opened with showPopover() by the
+ *   script you provide — same top layer, same ::backdrop, but no role of its
  *   own. Use this when the panel becomes a static region of the page above a
  *   breakpoint (see .panel-inline-*): a <dialog> is exposed as role="dialog"
- *   even when it is only styled as a sidebar, whereas dialog.js sets that
+ *   even when it is only styled as a sidebar, whereas a script can set that
  *   role solely while the panel is open.
  *
  * Most selectors here are :where()-wrapped so they carry no specificity: the
  * variants and the host components always win without escalating. The
  * .panel-inline-* variants are the exception — they must beat .modal and
- * .drawer, which they do on source order, so this file is imported last.
+ * .drawer, which they do on source order, so this file must be imported
+ * AFTER modal.css and drawer.css. Alphabetical order already gives that in
+ * css/index.css; keep it if you import file by file.
  *
  * Structure reads --panel-* tokens; each variant aliases them from its own
  * namespace, so --modal-* and --drawer-* stay the public API.
@@ -158,8 +160,8 @@
    * than patching every host component.
    *
    * The panel must NOT be a <dialog> when one of these is used — see the
-   * strategy note at the top of this file. components/dialog.js also closes
-   * an open panel carrying one of these classes when the viewport width
+   * strategy note at the top of this file. Your script must also close an
+   * open panel carrying one of these classes when the viewport width
    * changes, since CSS alone cannot release the backdrop, the scroll lock
    * and the inert background. */
 

@@ -19,15 +19,17 @@ Every rule lives in `@layer components`, except the scroll-snap utility which li
 
 ## The components
 
-| Page | Covers |
+One page per component, grouped into six sections.
+
+| Section | Components |
 | --- | --- |
-| [Buttons](buttons/) | `.btn` with its colour, size and style variants, plus 7 specialised buttons |
-| [Overlays](overlays/) | `.panel`, `.modal`, `.drawer`, `.dropdown` |
-| [Content](content/) | `.alert`, `.badge`, `.banner`, `.card`, `.items`, `.list`, `.media`, `.surtitle` |
-| [Navigation](navigation/) | `.nav`, `.nav-title`, `.nav-accessibility`, `.breadcrumb-wrapper`, `.pagination` |
-| [Embeds](embeds/) | `.embed`, `.video`, `.map` |
-| [Forms](forms/) | `.form`, `.form-check` and the form layout helpers |
-| [Utilities](utilities/) | `.scrollsnap`, turning a grid into a snap carousel |
+| [Buttons](buttons/) | [`.btn`](buttons/btn/), [`.btn-close`](buttons/btn-close/), [`.btn-menu`](buttons/btn-menu/), [`.btn-search`](buttons/btn-search/), [`.btn-filter`](buttons/btn-filter/), [`.btn-share`](buttons/btn-share/), [`.btn-toc`](buttons/btn-toc/), [`.btn-toggle-video`](buttons/btn-toggle-video/) |
+| [Overlays](overlays/) | [panel](overlays/panel/), [`.modal`](overlays/modal/), [`.drawer`](overlays/drawer/), [`.dropdown`](overlays/dropdown/) |
+| [Content](content/) | [`.alert`](content/alert/), [`.badge`](content/badge/), [`.banner`](content/banner/), [`.card`](content/card/), [`.items`](content/items/), [`.list`](content/list/), [`.media`](content/media/), [`.surtitle`](content/surtitle/) |
+| [Navigation](navigation/) | [`.nav`](navigation/nav/), [`.nav-title`](navigation/nav-title/), [`.nav-accessibility`](navigation/nav-accessibility/), [`.breadcrumb-wrapper`](navigation/breadcrumb/), [`.pagination`](navigation/pagination/) |
+| [Embeds](embeds/) | [`.embed`](embeds/embed/), [`.video`](embeds/video/), [`.map`](embeds/map/) |
+| [Forms](forms/) | [`.form`](forms/form/), [`.form-check`](forms/form-check/) |
+| [Utilities](utilities/) | [`.scrollsnap`](utilities/scrollsnap/) |
 
 Read [Cascade layers](cascade-layers/) first if you are wiring this into a project for the first time.
 
@@ -70,11 +72,11 @@ Note that `@uncinq/css-base` is a genuine prerequisite but is **not** declared i
 
 `css/index.css` imports the components alphabetically, with two deliberate exceptions.
 
-`components/panel.css` is imported **last** among the components. Its `.panel-inline-*` variants have to beat `.modal` and `.drawer`, and they do so on source order rather than on specificity, because most of the file is wrapped in `:where()` and carries no specificity at all.
+`components/button.css` comes **before** the seven `btn-*` files rather than after them, because five of those are modifiers on `.btn` and read better in that order.
 
 `utilities/scrollsnap.css` comes after everything, in `@layer utilities`, because it has to win over the grid a component declares for itself in `@layer components`.
 
-If you import file by file rather than using the barrel, preserve those two positions.
+One constraint is easy to break when importing file by file: `panel.css` must come **after** `modal.css` and `drawer.css`. Alphabetical order already gives that, which is why nothing in the barrel looks unusual, but the `.panel-inline-*` variants beat the two host components on source order rather than on specificity. See [Cascade layers](cascade-layers/).
 
 ## What this package does not include
 
@@ -82,7 +84,7 @@ If you import file by file rather than using the barrel, preserve those two posi
 
 **No `.item`.** Despite what a couple of source comments still suggest, `.item` is not defined here. It lives in the Hugolify design system theme. This package ships `.card`, a complete implementation in its own right, and `.items`, a grid whose children you provide. See [Content](content/).
 
-**No icons.** Components that show a glyph, such as `.pagination` controls, expect the theme to supply it through `::before` or `::after` content.
+**No icons for `.icon`.** Components that draw a glyph, the [buttons](buttons/) and [`.pagination`](navigation/pagination/), mask it from an icon token. An `.icon` element you place inside an [alert](content/alert/) or a [video toggle](buttons/btn-toggle-video/) is the theme's to render.
 
 ## References
 

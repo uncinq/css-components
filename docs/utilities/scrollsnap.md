@@ -1,12 +1,10 @@
 ---
 isIndex: false
-title: Utilities
-description: The .scrollsnap utility, which turns a grid into a horizontal snap carousel below a breakpoint.
-weight: 8
-icon: tools
+title: Scrollsnap
+description: Turns a grid into a horizontal snap carousel below a breakpoint, bleeding into the gutter so the next item peeks in.
+weight: 1
+icon: arrow-left-right
 ---
-
-## `.scrollsnap`
 
 Turns a grid into a horizontal carousel with snap points. Items keep their own width, the grid stops wrapping, and the row scrolls sideways, bleeding into the gutter so the next item peeks in.
 
@@ -34,9 +32,22 @@ This is the one thing to get right, and it reads backwards from most responsive 
 
 **The suffix names the rung where the carousel STOPS and the grid comes back.** `.scrollsnap-md` is a carousel on mobile and tablet, and a grid from 1024px up.
 
-## Why it is a utility
+## How a variant hands the grid back
 
-It has to win over the `grid-template-columns` that a component such as `.items` declares for itself in `@layer components`. `@layer utilities` comes later in the order, so it wins regardless of specificity. See [Cascade layers](../cascade-layers/).
+Above its rung, every property is set to `revert-layer` rather than to a second set of values:
+
+```css
+@media (--md) {
+  .scrollsnap-md {
+    grid-auto-flow: revert-layer;
+    grid-template-columns: revert-layer;
+    margin-inline: revert-layer;
+    /* … */
+  }
+}
+```
+
+`revert-layer` hands the property back to the layer below, which is the component's own grid rule in `@layer components`. So there is no duplicated set of grid values to keep in step: whatever `.items` declares is what comes back, including any override you wrote yourself.
 
 ## Item width
 
@@ -51,7 +62,7 @@ Items take `--items-min-width`, the same value that drives the grid, capped by `
 
 ## The bleed, and why margin and padding disagree
 
-The row pulls out to the screen edge using `--container-bleed`, published by `.container` in [css-base](../../css-base/layouts/#the-container-bleed-contract). The property inherits, so it reaches the row from a `.container` however far up it sits.
+The row pulls out to the screen edge using `--container-bleed`, published by `.container` in [css-base](../../../css-base/layouts/#the---container-bleed-contract). The property inherits, so it reaches the row from a `.container` however far up it sits.
 
 Outside a container there is no published value, and the two `var()` fallbacks differ **on purpose**, because margin and padding answer different questions:
 
@@ -65,3 +76,9 @@ Inside a container the two collapse to one value: both read the published bleed,
 `scroll-margin-inline` follows the **padding**, not the margin. It is what makes an item snap flush with the content edge rather than the padding edge, so it has to cancel the padding whatever the margin does.
 
 This is the same reasoning as the `--container-bleed` contract itself, applied to a scroll container. If you write your own full-bleed component, copy the pair rather than picking one fallback for both.
+
+## It needs a build step
+
+The four responsive variants are written with `@media (--sm)` and its siblings, which rely on the `@custom-media` rules declared in css-base. No browser implements `@custom-media`, so without [postcss-custom-media](https://www.npmjs.com/package/postcss-custom-media) every `.scrollsnap-*` variant becomes a permanent carousel: the base block applies and the block that hands the grid back is dropped.
+
+The failure is silent. See [the package index](../../).

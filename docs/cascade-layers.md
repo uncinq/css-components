@@ -1,7 +1,7 @@
 ---
 isIndex: false
 title: Cascade layers
-description: The two layers this package owns, why panel.css is imported last, and how to override a component cleanly.
+description: The two layers this package owns, why panel.css follows modal and drawer, and how to override a component cleanly.
 weight: 1
 icon: stack
 ---
@@ -23,18 +23,20 @@ CSS fixes a layer's position the first time its name is seen, and later re-decla
 
 ## Why `utilities` is last
 
-`.scrollsnap` changes the `grid-template-columns` that a component such as `.items` declares for itself in `@layer components`. A later layer beats an earlier one regardless of specificity, so putting it in `utilities` is what lets a single class opt an existing component into carousel behaviour without rewriting the component.
+[`.scrollsnap`](../utilities/scrollsnap/) changes the `grid-template-columns` that a component such as [`.items`](../content/items/) declares for itself in `@layer components`. A later layer beats an earlier one regardless of specificity, so putting it in `utilities` is what lets a single class opt an existing component into carousel behaviour without rewriting the component.
 
-This is also why it is a utility rather than a component rule: it is a modifier applied to something else, not a thing of its own.
+It is also what makes `revert-layer` work in the responsive variants: handing a property back to the layer below only means anything when there is a layer below holding the component's own value.
 
-## Why `panel.css` is imported last
+This is the reason it is a utility rather than a component rule: it is a modifier applied to something else, not a thing of its own.
+
+## Why `panel.css` follows `modal.css` and `drawer.css`
 
 Inside `@layer components`, source order breaks ties between rules of equal specificity. Two facts combine here:
 
-1. Most of `panel.css` is wrapped in `:where()`, so it carries **zero specificity**. That is deliberate: it lets `.modal`, `.drawer` and your own overrides win without escalating.
+1. Most of [`panel.css`](../overlays/panel/) is wrapped in `:where()`, so it carries **zero specificity**. That is deliberate: it lets `.modal`, `.drawer` and your own overrides win without escalating.
 2. The `.panel-inline-*` variants must beat `.modal` and `.drawer`, and they are plain class selectors.
 
-Because those variants have no specificity advantage over the host components, they rely on arriving later in the file. Hence `@import 'components/panel.css';` sits last among the component imports in `css/index.css`.
+Because those variants have no specificity advantage over the host components, they rely on arriving later in the file. The alphabetical import order in `css/index.css` already puts `panel.css` after both, so nothing there looks out of the ordinary, but the constraint is real.
 
 If you import files individually, keep `panel.css` after `modal.css` and `drawer.css`.
 
