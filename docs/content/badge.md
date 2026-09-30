@@ -2,7 +2,7 @@
 isIndex: false
 title: Badge
 description: A small inline label, with ten solid colour variants and hover styles reserved for links.
-weight: 2
+weight: 3
 icon: tag
 ---
 

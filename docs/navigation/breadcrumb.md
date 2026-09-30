@@ -2,7 +2,7 @@
 isIndex: false
 title: Breadcrumb
 description: The breadcrumb trail, with the class on the wrapper and the separator drawn from a token.
-weight: 4
+weight: 5
 icon: chevron-double-right
 ---
 

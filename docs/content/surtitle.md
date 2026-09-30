@@ -2,7 +2,7 @@
 isIndex: false
 title: Surtitle
 description: An eyebrow label above a heading, tightened automatically when it sits inside a card.
-weight: 8
+weight: 9
 icon: type-h2
 ---
 

@@ -2,7 +2,7 @@
 isIndex: false
 title: Media
 description: The structural base for images and video, holding the aspect ratio, plus the logo and icon variants.
-weight: 7
+weight: 8
 icon: image
 ---
 

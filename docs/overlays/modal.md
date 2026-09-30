@@ -2,7 +2,7 @@
 isIndex: false
 title: Modal
 description: The centred panel configuration, and how it centres and shrinks to its content at once.
-weight: 2
+weight: 3
 icon: window
 ---
 

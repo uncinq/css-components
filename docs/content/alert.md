@@ -2,7 +2,7 @@
 isIndex: false
 title: Alert
 description: An inline notification block, with ten colour variants and an automatic horizontal layout when it leads with an icon.
-weight: 1
+weight: 2
 icon: exclamation-triangle
 ---
 

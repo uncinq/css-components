@@ -2,7 +2,7 @@
 isIndex: false
 title: Dropdown
 description: A contextual menu positioned against its trigger, with a three-class transition contract.
-weight: 4
+weight: 5
 icon: caret-down-square
 ---
 

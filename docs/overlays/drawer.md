@@ -2,7 +2,7 @@
 isIndex: false
 title: Drawer
 description: The edge-pinned panel configuration and its four position variants.
-weight: 3
+weight: 4
 icon: layout-sidebar-reverse
 ---
 

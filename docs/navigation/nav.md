@@ -2,7 +2,7 @@
 isIndex: false
 title: Nav
 description: The base navigation list, vertical by default, whose direction is set by context rather than by a modifier class.
-weight: 1
+weight: 2
 icon: compass
 ---
 

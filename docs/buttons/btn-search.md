@@ -2,7 +2,7 @@
 isIndex: false
 title: Search button
 description: The search toggle, a modifier on .btn carrying the search icon.
-weight: 4
+weight: 5
 icon: search
 ---
 

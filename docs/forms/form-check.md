@@ -2,7 +2,7 @@
 isIndex: false
 title: Check row
 description: A checkbox or radio laid out beside its label, and why the class is only one declaration.
-weight: 2
+weight: 3
 icon: check-square
 ---
 
@@ -21,7 +21,7 @@ A checkbox or radio laid out inline with its label.
 .form-check { display: flex; }
 ```
 
-That is the entire rule, and it is deliberate. The control's appearance, its size, and the gap between it and the adjacent label all come from [css-base](../../../css-base/base/#forms), which styles `[type='checkbox'] + label` directly on the native elements.
+That is the entire rule, and it is deliberate. The control's appearance, its size, and the gap between it and the adjacent label all come from [css-base](../../../css-base/base/form-checkbox/), which styles `[type='checkbox'] + label` directly on the native elements.
 
 So the only thing missing from a bare input and label is that they sit on separate lines by default. This class fixes that, and stays out of everything else.
 

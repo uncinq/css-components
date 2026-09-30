@@ -2,7 +2,7 @@
 isIndex: false
 title: Pagination
 description: Page navigation, with masked control glyphs and a built-in responsive collapse.
-weight: 5
+weight: 6
 icon: three-dots
 ---
 

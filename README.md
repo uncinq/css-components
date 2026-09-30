@@ -81,6 +81,7 @@ Full documentation: **[socle.uncinq.dev/docs/css-components/](https://socle.unci
 
 It is also versioned with the code in [`docs/`](docs/), one page per component, and ships inside the npm package, so it is readable offline and from `node_modules`:
 
+- [Overview](docs/overview.md) — installation, import order, what the package leaves out
 - [Cascade layers](docs/cascade-layers.md) — the two layers, and the `:where()` convention
 - [Buttons](docs/buttons/) — [`.btn`](docs/buttons/btn.md) and the seven specialised buttons
 - [Overlays](docs/overlays/) — [the panel skeleton](docs/overlays/panel.md), [`.modal`](docs/overlays/modal.md), [`.drawer`](docs/overlays/drawer.md), [`.dropdown`](docs/overlays/dropdown.md)

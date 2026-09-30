@@ -2,7 +2,7 @@
 isIndex: false
 title: Form
 description: A responsive grid that is one column or two, never three, plus its layout helpers.
-weight: 1
+weight: 2
 icon: columns-gap
 ---
 
@@ -64,4 +64,4 @@ Both axes use `--gap`, the same token the grid uses for its column calculation. 
 
 ## Controls are not styled here
 
-Inputs, selects, textareas and their focus and invalid states come from [css-base](../../../css-base/base/#forms), applied to the native elements. This file adds layout and nothing else, which is why a form built without `.form` still looks right, it is simply stacked.
+Inputs, selects, textareas and their focus and invalid states come from [css-base](../../../css-base/base/form/), applied to the native elements. This file adds layout and nothing else, which is why a form built without `.form` still looks right, it is simply stacked.

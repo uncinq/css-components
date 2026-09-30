@@ -2,7 +2,7 @@
 isIndex: false
 title: List
 description: A compact labelled list, with the label as a sibling of the list rather than inside it.
-weight: 6
+weight: 7
 icon: list-ul
 ---
 

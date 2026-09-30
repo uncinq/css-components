@@ -2,7 +2,7 @@
 isIndex: false
 title: Share button
 description: The share control, a modifier on .btn carrying the share icon.
-weight: 6
+weight: 7
 icon: share
 ---
 

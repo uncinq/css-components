@@ -2,7 +2,7 @@
 isIndex: false
 title: Menu button
 description: The self-contained menu toggle, typically the burger in a site header.
-weight: 3
+weight: 4
 icon: list
 ---
 

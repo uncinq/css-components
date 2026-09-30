@@ -2,7 +2,7 @@
 isIndex: false
 title: Map
 description: A Leaflet map container, and where Leaflet's own stylesheet belongs in the layer order.
-weight: 3
+weight: 4
 icon: map
 ---
 

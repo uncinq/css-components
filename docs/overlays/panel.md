@@ -2,7 +2,7 @@
 isIndex: false
 title: Panel
 description: The shared skeleton behind .modal and .drawer, the two opening strategies, the inline variants and the backdrop.
-weight: 1
+weight: 2
 icon: layout-sidebar
 ---
 

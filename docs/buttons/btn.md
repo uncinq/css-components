@@ -2,7 +2,7 @@
 isIndex: false
 title: Button
 description: The .btn base class, its ten colour variants, five sizes and three style variants.
-weight: 1
+weight: 2
 icon: hand-index-thumb
 ---
 

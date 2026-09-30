@@ -2,7 +2,7 @@
 isIndex: false
 title: Nav title
 description: A label above a group of navigation links.
-weight: 2
+weight: 3
 icon: type
 ---
 

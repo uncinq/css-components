@@ -2,7 +2,7 @@
 isIndex: false
 title: Video toggle
 description: The play and pause control overlaid on an autoplaying video, driven by the .is-playing state class.
-weight: 8
+weight: 9
 icon: play-circle
 ---
 

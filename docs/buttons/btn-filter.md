@@ -2,7 +2,7 @@
 isIndex: false
 title: Filter button
 description: The filters toggle, a modifier on .btn carrying the filter icon.
-weight: 5
+weight: 6
 icon: funnel
 ---
 

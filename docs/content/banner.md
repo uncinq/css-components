@@ -2,7 +2,7 @@
 isIndex: false
 title: Banner
 description: A centred modifier on .alert, for site-wide announcements.
-weight: 3
+weight: 4
 icon: megaphone
 ---
 

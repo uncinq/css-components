@@ -2,7 +2,7 @@
 isIndex: false
 title: Card
 description: A self-contained content card, the tokens it hands down to its media, and the whole-card link pattern.
-weight: 4
+weight: 5
 icon: card-heading
 ---
 

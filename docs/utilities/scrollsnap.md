@@ -2,7 +2,7 @@
 isIndex: false
 title: Scrollsnap
 description: Turns a grid into a horizontal snap carousel below a breakpoint, bleeding into the gutter so the next item peeks in.
-weight: 1
+weight: 2
 icon: arrow-left-right
 ---
 
@@ -62,7 +62,7 @@ Items take `--items-min-width`, the same value that drives the grid, capped by `
 
 ## The bleed, and why margin and padding disagree
 
-The row pulls out to the screen edge using `--container-bleed`, published by `.container` in [css-base](../../../css-base/layouts/#the---container-bleed-contract). The property inherits, so it reaches the row from a `.container` however far up it sits.
+The row pulls out to the screen edge using `--container-bleed`, published by `.container` in [css-base](../../../css-base/layouts/container/#the---container-bleed-contract). The property inherits, so it reaches the row from a `.container` however far up it sits.
 
 Outside a container there is no published value, and the two `var()` fallbacks differ **on purpose**, because margin and padding answer different questions:
 
