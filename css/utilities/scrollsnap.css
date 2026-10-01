@@ -61,6 +61,7 @@
     justify-content: start;
     margin-inline: calc(var(--container-bleed, 0px) * -1);
     overflow-x: auto;
+    overflow-y: hidden;
     padding-inline: var(--container-bleed, var(--gutter));
     scroll-snap-type: x mandatory;
 
