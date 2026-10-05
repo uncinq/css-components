@@ -15,6 +15,7 @@
 
     video {
       aspect-ratio: var(--video-ratio, var(--ratio-video));
+      object-fit: var(--video-fit, contain);
       width: 100%;
     }
 

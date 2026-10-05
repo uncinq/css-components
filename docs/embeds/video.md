@@ -26,7 +26,7 @@ Three things:
 .video {
   position: relative;
 
-  video { aspect-ratio: var(--video-ratio, var(--ratio-video)); width: 100%; }
+  video { aspect-ratio: var(--video-ratio, var(--ratio-video)); object-fit: var(--video-fit, contain); width: 100%; }
 
   .btn-toggle-video { position: absolute; inset-block-end: 0; inset-inline-end: 0; z-index: 10; }
 }
