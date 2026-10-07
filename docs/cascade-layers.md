@@ -10,7 +10,7 @@ This package writes to two layers.
 
 | Layer | Contents |
 | --- | --- |
-| `@layer components` | All 29 components |
+| `@layer components` | All 30 components |
 | `@layer utilities` | `.scrollsnap`, the only utility |
 
 The full order, including layers owned by the sibling packages and by the project itself, is the **consuming project's** responsibility. Declare it once, at the very top of your entry stylesheet, before any `@import`:

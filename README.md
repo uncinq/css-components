@@ -4,7 +4,7 @@
 
 <img width="1280" height="640" alt="share-css-components" src="https://github.com/user-attachments/assets/3d74df8a-e7bf-4ba5-8529-99cfef0bc176" />
 
-29 components and 1 utility, written as plain CSS, reading their values from [@uncinq/component-tokens](https://github.com/uncinq/component-tokens) and adding none of their own.
+30 components and 1 utility, written as plain CSS, reading their values from [@uncinq/component-tokens](https://github.com/uncinq/component-tokens) and adding none of their own.
 
 ## Where this sits
 
@@ -55,7 +55,7 @@ The failure is silent. No error is raised, the page simply stays at its mobile v
 | --- | --- |
 | Buttons | `.btn` with colour, size and style variants, plus `btn-close`, `btn-menu`, `btn-search`, `btn-filter`, `btn-share`, `btn-toc`, `btn-toggle-video` |
 | Overlays | `modal`, `drawer`, `dropdown`, and the shared panel skeleton |
-| Content | `alert`, `badge`, `banner`, `card`, `items`, `list`, `media`, `surtitle` |
+| Content | `alert`, `badge`, `banner`, `card`, `items`, `list`, `media`, `push`, `surtitle` |
 | Navigation | `nav`, `nav-title`, `nav-accessibility`, `breadcrumb`, `pagination` |
 | Embeds | `embed`, `video`, `map` |
 | Forms | `form`, `form-check` and the layout helpers |

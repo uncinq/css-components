@@ -1,12 +1,12 @@
 ---
 isIndex: false
 title: Overview
-description: The eight content components, the three that are meant to nest, and the two colour patterns they follow.
+description: The nine content components, the three that are meant to nest, and the two colour patterns they follow.
 weight: 1
 icon: book
 ---
 
-Eight components for laying out page content.
+Nine components for laying out page content.
 
 | Page | Class | Purpose |
 | --- | --- | --- |
@@ -17,6 +17,7 @@ Eight components for laying out page content.
 | [Items](../items/) | `.items` | The responsive grid that holds cards |
 | [List](../list/) | `.list` | A compact labelled list |
 | [Media](../media/) | `.media` | The structural base for images and video |
+| [Push](../push/) | `.push` | A video or image with text and a call to action laid over it |
 | [Surtitle](../surtitle/) | `.surtitle` | An eyebrow label above a heading |
 
 ## Three of them are meant to nest

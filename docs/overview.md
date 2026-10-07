@@ -1,12 +1,12 @@
 ---
 isIndex: false
 title: Overview
-description: The 29 components and 1 utility, how to install them, the import order inside the package, and what it deliberately leaves out.
+description: The 30 components and 1 utility, how to install them, the import order inside the package, and what it deliberately leaves out.
 weight: 1
 icon: book
 ---
 
-`@uncinq/css-components` is the top of the stack: 29 components and 1 utility, written as plain CSS, reading their values from [@uncinq/component-tokens](../../component-tokens/) and adding no values of their own.
+`@uncinq/css-components` is the top of the stack: 30 components and 1 utility, written as plain CSS, reading their values from [@uncinq/component-tokens](../../component-tokens/) and adding no values of their own.
 
 ```
 @uncinq/design-tokens      primitive + semantic values
@@ -25,7 +25,7 @@ One page per component, grouped into six sections.
 | --- | --- |
 | [Buttons](../buttons/) | [`.btn`](../buttons/btn/), [`.btn-close`](../buttons/btn-close/), [`.btn-menu`](../buttons/btn-menu/), [`.btn-search`](../buttons/btn-search/), [`.btn-filter`](../buttons/btn-filter/), [`.btn-share`](../buttons/btn-share/), [`.btn-toc`](../buttons/btn-toc/), [`.btn-toggle-video`](../buttons/btn-toggle-video/) |
 | [Overlays](../overlays/) | [panel](../overlays/panel/), [`.modal`](../overlays/modal/), [`.drawer`](../overlays/drawer/), [`.dropdown`](../overlays/dropdown/) |
-| [Content](../content/) | [`.alert`](../content/alert/), [`.badge`](../content/badge/), [`.banner`](../content/banner/), [`.card`](../content/card/), [`.items`](../content/items/), [`.list`](../content/list/), [`.media`](../content/media/), [`.surtitle`](../content/surtitle/) |
+| [Content](../content/) | [`.alert`](../content/alert/), [`.badge`](../content/badge/), [`.banner`](../content/banner/), [`.card`](../content/card/), [`.items`](../content/items/), [`.list`](../content/list/), [`.media`](../content/media/), [`.push`](../content/push/), [`.surtitle`](../content/surtitle/) |
 | [Navigation](../navigation/) | [`.nav`](../navigation/nav/), [`.nav-title`](../navigation/nav-title/), [`.nav-accessibility`](../navigation/nav-accessibility/), [`.breadcrumb-wrapper`](../navigation/breadcrumb/), [`.pagination`](../navigation/pagination/) |
 | [Embeds](../embeds/) | [`.embed`](../embeds/embed/), [`.video`](../embeds/video/), [`.map`](../embeds/map/) |
 | [Forms](../forms/) | [`.form`](../forms/form/), [`.form-check`](../forms/form-check/) |

@@ -1,0 +1,256 @@
+/* components/push.css */
+/*
+ * .push — a video or an image with a surtitle, title, text and CTA laid over it.
+ * Reads --push-* from @uncinq/component-tokens.
+ *
+ * Structure, the same for every modifier:
+ * <div class="push">
+ *   <div class="content">
+ *     <p class="surtitle">...</p>
+ *     <h2 class="title">...</h2>
+ *     <div class="text">...</div>
+ *     <a class="btn">...</a>
+ *   </div>
+ *   <div class="media">
+ *     picture | .video > video
+ *   </div>
+ * </div>
+ *
+ * The push carries the ratio and places .content inside it; .content is only
+ * the text box, which .push-card turns into a card. The ratio is drawn by
+ * .push::after, so that pseudo-element is taken.
+ *
+ * Modifiers:
+ *   .push-center | .push-end                         horizontal position of the content
+ *   .push-align-start | -center | -end               text alignment
+ *   .push-vertical-start | .push-vertical-end        vertical position of the content
+ *   .push-card                                       background behind the text
+ *   .push-darken                                     gradient under the text
+ */
+@layer components {
+  .push {
+    --media-color-background: var(--push-color-background);
+    --ratio-video: auto;
+
+    border-radius: var(--push-border-radius);
+    display: grid;
+    /* A fixed track: sized by its content, it would widen to the ratio box's
+       transferred size whenever the push is stretched by a min-height. */
+    grid-template-columns: minmax(0, 1fr);
+    overflow: hidden;
+    padding-block: var(--push-content-padding-block);
+    padding-inline: var(--push-content-padding-inline);
+    position: relative;
+
+    @media (--sm) {
+      --push-content-max-inline-size: var(--push-content-max-inline-size-tablet);
+    }
+    @media (--lg) {
+      --push-content-max-inline-size: var(--push-content-max-inline-size-laptop);
+    }
+
+    /* The ratio: an empty box sharing the single grid cell with .content, and
+       stretched over the padding by negative margins so that the ratio is the
+       push's own. The push takes the taller of the two, so a text that needs
+       more room grows it rather than being cut, even under a min-height. */
+    &::after {
+      aspect-ratio: var(--push-ratio-mobile);
+      content: '';
+      grid-area: 1 / 1;
+      justify-self: stretch;
+      margin-block: calc(var(--push-content-padding-block) * -1);
+      margin-inline: calc(var(--push-content-padding-inline) * -1);
+
+      @media (--sm) {
+        aspect-ratio: var(--push-ratio);
+      }
+    }
+
+    &:not(.push-card) {
+      --btn-color-background: var(--color-light);
+      --btn-color-background-hover: var(--color-light-hover);
+      --btn-color-border: var(--color-light);
+      --btn-color-border-hover: var(--color-light-hover);
+      --btn-color-text: var(--color-text-on-light);
+      --color-heading: var(--push-color);
+      --color-link: var(--push-color);
+      --color-link-hover: var(--push-color);
+      --surtitle-color-text: var(--push-surtitle-color, oklch(from var(--push-color) l c h / var(--opacity-muted)));
+
+      color: var(--push-color);
+    }
+
+    /* A grid item stacks above the media and the darken overlay through its
+       z-index alone. Left unpositioned, it is no containing block, so the
+       .btn::after overlay below covers the whole push, not just the text. */
+    > .content {
+      align-self: var(--push-content-justify, center);
+      display: flex;
+      flex-direction: column;
+      gap: var(--push-content-gap);
+      grid-area: 1 / 1;
+      justify-self: var(--push-content-items, flex-start);
+      max-inline-size: var(--push-content-max-inline-size);
+      width: 100%;
+      z-index: 1;
+
+      @media (--sm) {
+        text-align: var(--push-content-align);
+      }
+
+      > * {
+        margin-block: 0;
+      }
+
+      /* The button keeps its own width rather than stretching across the
+         box, and follows the text alignment, which applies from --sm up. */
+      > .btn {
+        align-self: start;
+
+        @media (--sm) {
+          align-self: var(--push-content-align, start);
+        }
+      }
+    }
+
+    .media {
+      height: 100%;
+      inset: 0;
+      position: absolute;
+      width: 100%;
+    }
+
+    .surtitle {
+      margin-block-end: calc(var(--push-content-gap) * -1);
+    }
+
+    .btn::after {
+      content: '';
+      inset: 0;
+      position: absolute;
+    }
+  }
+
+  /* Card: the text box takes the look of a .card. Each value reads an optional
+     --push-card-* first, unset by default, so push cards can be restyled
+     without touching the cards themselves. */
+  .push-card > .content {
+    background-color: var(--push-card-color-background, var(--card-color-background));
+    border-color: var(--push-card-color-border, var(--card-color-border));
+    border-radius: var(--push-card-border-radius, var(--card-border-radius));
+    border-style: var(--push-card-border-style, var(--card-border-style));
+    border-width: var(--push-card-border-width, var(--card-border-width));
+    box-shadow: var(--push-card-shadow, var(--card-shadow));
+    color: var(--push-card-color-text, var(--card-color-text));
+    padding-block: var(--push-card-padding-block, var(--card-padding-block));
+    padding-inline: var(--push-card-padding-inline, var(--card-padding-inline));
+
+    > .title {
+      color: var(--push-card-title-color, var(--card-title-color));
+      font-family: var(--push-card-title-font-family, var(--card-title-font-family));
+      font-size: var(--push-card-title-font-size, var(--card-title-font-size));
+      font-weight: var(--push-card-title-font-weight, var(--card-title-font-weight));
+      line-height: var(--push-card-title-line-height, var(--card-title-line-height));
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: var(--push-card-transition, var(--card-transition));
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .push-card:hover > .content {
+      --push-card-shadow: var(--push-card-shadow-hover, var(--card-shadow-hover));
+    }
+  }
+
+  /* Darken */
+  .push-darken {
+    /* Logical gradient directions (flipped under RTL) */
+    --push-gradient-to-end: to right;   /* toward inline-end */
+    --push-gradient-to-start: to left;  /* toward inline-start */
+
+    /* The shadow comes from the edge the content sits against. Only this
+       variable changes from one variant to the next; the ::before below is
+       the single place that paints it. */
+    --push-darken: linear-gradient(var(--push-gradient-to-end), var(--push-gradient-color-from) 0%, var(--push-gradient-color-to) var(--push-gradient-stop));
+
+    &:dir(rtl) {
+      --push-gradient-to-end: to left;
+      --push-gradient-to-start: to right;
+    }
+
+    @media (--sm) {
+      &.push-end {
+        --push-darken: linear-gradient(var(--push-gradient-to-start), var(--push-gradient-color-from) 0%, var(--push-gradient-color-to) var(--push-gradient-stop));
+      }
+    }
+
+    /* A vertical offset tilts the gradient the same way, as in .hero.
+       Declared after the horizontal ones, so it wins when both are set. */
+    &.push-vertical-start {
+      --push-darken: linear-gradient(to bottom, var(--push-gradient-color-from) 0%, var(--push-gradient-color-to) var(--push-gradient-stop));
+    }
+    &.push-vertical-end {
+      --push-darken: linear-gradient(to top, var(--push-gradient-color-from) 0%, var(--push-gradient-color-to) var(--push-gradient-stop));
+    }
+
+    /* …except when the text carries its own background, or is centered: the
+       media is dimmed as a whole instead. */
+    &.push-card,
+    &.push-center {
+      --push-darken: transparent;
+
+      .media {
+        filter: brightness(var(--push-media-brightness));
+      }
+    }
+
+    /* Painted on the push itself, edge to edge: .content is only the text box.
+       Same layering as .hero: the overlay sits above the media, the content
+       above the overlay. */
+    &::before {
+      background: var(--push-darken);
+      content: '';
+      inset: 0;
+      pointer-events: none;
+      position: absolute;
+      z-index: 1;
+    }
+  }
+
+  /* Offset: horizontal position of the content */
+  .push-center {
+    @media (--sm) {
+      --push-content-items: center;
+    }
+  }
+
+  .push-end {
+    @media (--sm) {
+      --push-content-items: flex-end;
+    }
+  }
+
+  /* Text alignment */
+  .push-align-start {
+    --push-content-align: start;
+  }
+
+  .push-align-center {
+    --push-content-align: center;
+  }
+
+  .push-align-end {
+    --push-content-align: end;
+  }
+
+  /* Vertical position of the content (centered by default) */
+  .push-vertical-start {
+    --push-content-justify: flex-start;
+  }
+
+  .push-vertical-end {
+    --push-content-justify: flex-end;
+  }
+}
