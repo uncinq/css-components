@@ -41,6 +41,12 @@ The push takes the taller of the two boxes: a text that needs more room than the
 
 `--push-ratio-double` is not read here. It is a second ratio for layouts that set two pushes side by side and want a taller shape than a full-width one.
 
+## The media is a background
+
+`.media` takes `pointer-events: none`: a click on the image or the video goes through to the push and its link, and a tap never starts or pauses a video. The pause control that a [`.video`](../../embeds/video/) lays over an autoplaying video is the exception, set back to `pointer-events: auto`, since WCAG requires a way to stop it. A video that needs its native `controls` does not belong in a push.
+
+Safari draws a play button over a video it refuses to autoplay, in Low Power Mode for instance. The push hides it through `::-webkit-media-controls-start-playback-button`, with the one `!important` of the component: the button lives in the browser's shadow DOM, and nothing weaker overrides it there. The video then shows its first frame, or its poster.
+
 ## What the push hands down
 
 Unless it has `.push-card`, a push sets the text, heading, link and surtitle colours from `--push-color`, and turns `.btn` into a light button that reads on a dark media. `--push-surtitle-color` overrides the surtitle colour alone; it is unset by default, and the surtitle falls back to `--push-color` at `--opacity-muted`.
