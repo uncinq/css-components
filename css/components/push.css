@@ -72,6 +72,7 @@
       --btn-color-border: var(--color-light);
       --btn-color-border-hover: var(--color-light-hover);
       --btn-color-text: var(--color-text-on-light);
+      --btn-color-text-hover: var(--color-text-on-light);
       --color-heading: var(--push-color);
       --color-link: var(--push-color);
       --color-link-hover: var(--push-color);
