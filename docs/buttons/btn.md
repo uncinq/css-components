@@ -44,6 +44,8 @@ Each sets four properties together: background, border, their hover values, and 
 
 The text colour always comes from the matching `--color-text-on-*` semantic token, so contrast survives a change to the underlying colour. That pairing is the reason to rebrand by redefining `--color-brand` rather than `--btn-color-background`.
 
+The text keeps its colour on hover: `.btn` reads `var(--btn-color-text-hover, var(--btn-color-text))`, and `--btn-color-text-hover` is no token, so it is unset unless a variant or a context sets it. A context that recolours its buttons, as a push over a dark media does, only needs `--btn-color-text`.
+
 `.btn-primary` and `.btn-brand` resolve to exactly the same values, as do `.btn-secondary` and `.btn-neutral`. The intent names exist so a page can say *primary action* without deciding which colour that is.
 
 ## Sizes

@@ -42,7 +42,7 @@
         background-color: var(--btn-color-background-hover);
         border-color: var(--btn-color-border-hover);
         box-shadow: var(--btn-shadow-hover);
-        color: var(--btn-color-text-hover);
+        color: var(--btn-color-text-hover, var(--btn-color-text));
         text-decoration-color: var(--btn-color-text-decoration-hover);
       }
     }
