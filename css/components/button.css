@@ -42,7 +42,7 @@
         background-color: var(--btn-color-background-hover);
         border-color: var(--btn-color-border-hover);
         box-shadow: var(--btn-shadow-hover);
-        color: var(--btn-color-text-hover, var(--btn-color-text));
+        color: var(--btn-color-text-hover);
         text-decoration-color: var(--btn-color-text-decoration-hover);
       }
     }
@@ -59,6 +59,7 @@
     --btn-color-border: var(--color-brand);
     --btn-color-border-hover: var(--color-brand-hover);
     --btn-color-text: var(--color-text-on-brand);
+    --btn-color-text-hover: var(--color-text-on-brand);
   }
 
   .btn-control {
@@ -76,6 +77,7 @@
     --btn-color-border: var(--color-danger);
     --btn-color-border-hover: var(--color-danger-hover);
     --btn-color-text: var(--color-text-on-danger);
+    --btn-color-text-hover: var(--color-text-on-danger);
   }
 
   .btn-dark {
@@ -84,6 +86,7 @@
     --btn-color-border: var(--color-dark);
     --btn-color-border-hover: var(--color-dark-hover);
     --btn-color-text: var(--color-text-on-dark);
+    --btn-color-text-hover: var(--color-text-on-dark);
   }
 
   .btn-ghost {
@@ -101,6 +104,7 @@
     --btn-color-border: var(--color-info);
     --btn-color-border-hover: var(--color-info-hover);
     --btn-color-text: var(--color-text-on-info);
+    --btn-color-text-hover: var(--color-text-on-info);
   }
 
   .btn-light {
@@ -109,6 +113,7 @@
     --btn-color-border: var(--color-light);
     --btn-color-border-hover: var(--color-light-hover);
     --btn-color-text: var(--color-text-on-light);
+    --btn-color-text-hover: var(--color-text-on-light);
   }
 
   .btn-link {
@@ -133,6 +138,7 @@
     --btn-color-border: var(--color-neutral);
     --btn-color-border-hover: var(--color-neutral-hover);
     --btn-color-text: var(--color-text-on-neutral);
+    --btn-color-text-hover: var(--color-text-on-neutral);
   }
 
   .btn-primary {
@@ -141,6 +147,7 @@
     --btn-color-border: var(--color-brand);
     --btn-color-border-hover: var(--color-brand-hover);
     --btn-color-text: var(--color-text-on-brand);
+    --btn-color-text-hover: var(--color-text-on-brand);
   }
 
   .btn-secondary {
@@ -149,6 +156,7 @@
     --btn-color-border: var(--color-neutral);
     --btn-color-border-hover: var(--color-neutral-hover);
     --btn-color-text: var(--color-text-on-neutral);
+    --btn-color-text-hover: var(--color-text-on-neutral);
   }
 
   .btn-success {
@@ -157,6 +165,7 @@
     --btn-color-border: var(--color-success);
     --btn-color-border-hover: var(--color-success-hover);
     --btn-color-text: var(--color-text-on-success);
+    --btn-color-text-hover: var(--color-text-on-success);
   }
 
   .btn-warning {
@@ -165,6 +174,7 @@
     --btn-color-border: var(--color-warning);
     --btn-color-border-hover: var(--color-warning-hover);
     --btn-color-text: var(--color-text-on-warning);
+    --btn-color-text-hover: var(--color-text-on-warning);
   }
 
   /* Sizes */
