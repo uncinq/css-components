@@ -35,9 +35,9 @@ Each sets four properties together: background, border, their hover values, and 
 ```css
 .btn-danger {
   --btn-color-background: var(--color-danger);
-  --btn-color-background-hover: var(--color-danger-strong);
+  --btn-color-background-hover: var(--color-danger-hover);
   --btn-color-border: var(--color-danger);
-  --btn-color-border-hover: var(--color-danger-strong);
+  --btn-color-border-hover: var(--color-danger-hover);
   --btn-color-text: var(--color-text-on-danger);
 }
 ```

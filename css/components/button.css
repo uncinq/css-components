@@ -55,9 +55,9 @@
   /* Variants */
   .btn-brand {
     --btn-color-background: var(--color-brand);
-    --btn-color-background-hover: var(--color-brand-strong);
+    --btn-color-background-hover: var(--color-brand-hover);
     --btn-color-border: var(--color-brand);
-    --btn-color-border-hover: var(--color-brand-strong);
+    --btn-color-border-hover: var(--color-brand-hover);
     --btn-color-text: var(--color-text-on-brand);
   }
 
@@ -72,17 +72,17 @@
 
   .btn-danger {
     --btn-color-background: var(--color-danger);
-    --btn-color-background-hover: var(--color-danger-strong);
+    --btn-color-background-hover: var(--color-danger-hover);
     --btn-color-border: var(--color-danger);
-    --btn-color-border-hover: var(--color-danger-strong);
+    --btn-color-border-hover: var(--color-danger-hover);
     --btn-color-text: var(--color-text-on-danger);
   }
 
   .btn-dark {
     --btn-color-background: var(--color-dark);
-    --btn-color-background-hover: var(--color-dark-strong);
+    --btn-color-background-hover: var(--color-dark-hover);
     --btn-color-border: var(--color-dark);
-    --btn-color-border-hover: var(--color-dark-strong);
+    --btn-color-border-hover: var(--color-dark-hover);
     --btn-color-text: var(--color-text-on-dark);
   }
 
@@ -97,17 +97,17 @@
 
   .btn-info {
     --btn-color-background: var(--color-info);
-    --btn-color-background-hover: var(--color-info-strong);
+    --btn-color-background-hover: var(--color-info-hover);
     --btn-color-border: var(--color-info);
-    --btn-color-border-hover: var(--color-info-strong);
+    --btn-color-border-hover: var(--color-info-hover);
     --btn-color-text: var(--color-text-on-info);
   }
 
   .btn-light {
     --btn-color-background: var(--color-light);
-    --btn-color-background-hover: var(--color-light-strong);
+    --btn-color-background-hover: var(--color-light-hover);
     --btn-color-border: var(--color-light);
-    --btn-color-border-hover: var(--color-light-strong);
+    --btn-color-border-hover: var(--color-light-hover);
     --btn-color-text: var(--color-text-on-light);
   }
 
@@ -129,41 +129,41 @@
 
   .btn-neutral {
     --btn-color-background: var(--color-neutral);
-    --btn-color-background-hover: var(--color-neutral-strong);
+    --btn-color-background-hover: var(--color-neutral-hover);
     --btn-color-border: var(--color-neutral);
-    --btn-color-border-hover: var(--color-neutral-strong);
+    --btn-color-border-hover: var(--color-neutral-hover);
     --btn-color-text: var(--color-text-on-neutral);
   }
 
   .btn-primary {
     --btn-color-background: var(--color-brand);
-    --btn-color-background-hover: var(--color-brand-strong);
+    --btn-color-background-hover: var(--color-brand-hover);
     --btn-color-border: var(--color-brand);
-    --btn-color-border-hover: var(--color-brand-strong);
+    --btn-color-border-hover: var(--color-brand-hover);
     --btn-color-text: var(--color-text-on-brand);
   }
 
   .btn-secondary {
     --btn-color-background: var(--color-neutral);
-    --btn-color-background-hover: var(--color-neutral-strong);
+    --btn-color-background-hover: var(--color-neutral-hover);
     --btn-color-border: var(--color-neutral);
-    --btn-color-border-hover: var(--color-neutral-strong);
+    --btn-color-border-hover: var(--color-neutral-hover);
     --btn-color-text: var(--color-text-on-neutral);
   }
 
   .btn-success {
     --btn-color-background: var(--color-success);
-    --btn-color-background-hover: var(--color-success-strong);
+    --btn-color-background-hover: var(--color-success-hover);
     --btn-color-border: var(--color-success);
-    --btn-color-border-hover: var(--color-success-strong);
+    --btn-color-border-hover: var(--color-success-hover);
     --btn-color-text: var(--color-text-on-success);
   }
 
   .btn-warning {
     --btn-color-background: var(--color-warning);
-    --btn-color-background-hover: var(--color-warning-strong);
+    --btn-color-background-hover: var(--color-warning-hover);
     --btn-color-border: var(--color-warning);
-    --btn-color-border-hover: var(--color-warning-strong);
+    --btn-color-border-hover: var(--color-warning-hover);
     --btn-color-text: var(--color-text-on-warning);
   }
 
