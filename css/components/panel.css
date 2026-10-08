@@ -61,11 +61,20 @@
   /* ── Panel ─────────────────────────────────────────────────────── */
 
   :where(.modal, .drawer) {
+    /* The panel paints its own background, so it restates the whole text
+       context a host may have set for its own (a header recolours text,
+       muted text, surtitles and links). Muted and surtitle are derived again
+       here: a value derived on an ancestor is inherited already computed, so
+       it would keep the host's colour. */
+    --color-credit: var(--color-text-muted);
     --color-link: var(--panel-color-text);
     --color-link-active: var(--panel-color-text-active);
     --color-link-hover: var(--panel-color-text-hover);
+    --color-text: var(--panel-color-text);
+    --color-text-muted: oklch(from var(--color-text) l c h / var(--opacity-muted));
     --nav-color-text: var(--color-link);
     --nav-color-text-active: var(--color-link-active);
+    --surtitle-color-text: var(--color-text-muted);
 
     background-color: var(--panel-color-background);
     border: 0;
@@ -175,11 +184,15 @@
          them invalid at computed-value time rather than page-valued, and every
          link would fall back to the surrounding text colour instead of the
          site's link colour. Keep this list in step with the panel rule above. */
+      --color-credit: inherit;
       --color-link: inherit;
       --color-link-active: inherit;
       --color-link-hover: inherit;
+      --color-text: inherit;
+      --color-text-muted: inherit;
       --nav-color-text: inherit;
       --nav-color-text-active: inherit;
+      --surtitle-color-text: inherit;
 
       background-color: transparent;
       block-size: auto;
@@ -224,11 +237,15 @@
          them invalid at computed-value time rather than page-valued, and every
          link would fall back to the surrounding text colour instead of the
          site's link colour. Keep this list in step with the panel rule above. */
+      --color-credit: inherit;
       --color-link: inherit;
       --color-link-active: inherit;
       --color-link-hover: inherit;
+      --color-text: inherit;
+      --color-text-muted: inherit;
       --nav-color-text: inherit;
       --nav-color-text-active: inherit;
+      --surtitle-color-text: inherit;
 
       background-color: transparent;
       block-size: auto;
@@ -273,11 +290,15 @@
          them invalid at computed-value time rather than page-valued, and every
          link would fall back to the surrounding text colour instead of the
          site's link colour. Keep this list in step with the panel rule above. */
+      --color-credit: inherit;
       --color-link: inherit;
       --color-link-active: inherit;
       --color-link-hover: inherit;
+      --color-text: inherit;
+      --color-text-muted: inherit;
       --nav-color-text: inherit;
       --nav-color-text-active: inherit;
+      --surtitle-color-text: inherit;
 
       background-color: transparent;
       block-size: auto;
@@ -322,11 +343,15 @@
          them invalid at computed-value time rather than page-valued, and every
          link would fall back to the surrounding text colour instead of the
          site's link colour. Keep this list in step with the panel rule above. */
+      --color-credit: inherit;
       --color-link: inherit;
       --color-link-active: inherit;
       --color-link-hover: inherit;
+      --color-text: inherit;
+      --color-text-muted: inherit;
       --nav-color-text: inherit;
       --nav-color-text-active: inherit;
+      --surtitle-color-text: inherit;
 
       background-color: transparent;
       block-size: auto;
