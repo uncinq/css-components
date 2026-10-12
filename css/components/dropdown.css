@@ -38,9 +38,9 @@
     border: 0;
     cursor: pointer;
     display: inline-flex;
-    margin-inline-start: calc(var(--spacing-xs) * -1);
-    padding-block: var(--spacing-2xs);
-    padding-inline: var(--spacing-xs);
+    margin-inline-start: calc(var(--dropdown-toggle-padding-inline) * -1);
+    padding-block: var(--dropdown-toggle-padding-block);
+    padding-inline: var(--dropdown-toggle-padding-inline);
 
     &::before {
       content: '';
@@ -111,6 +111,7 @@
     /* ── Items ───────────────────────────────────────────────────────── */
 
     li a {
+      background-color: var(--dropdown-item-color-background);
       border-radius: var(--dropdown-item-border-radius);
       color: var(--dropdown-color-text);
       font-size: var(--dropdown-item-font-size);
