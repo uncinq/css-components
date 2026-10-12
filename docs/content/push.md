@@ -43,9 +43,7 @@ The push takes the taller of the two boxes: a text that needs more room than the
 
 ## The media is a background
 
-`.media` takes `pointer-events: none`: a click on the image or the video goes through to the push and its link, and a tap never starts or pauses a video. The pause control that a [`.video`](../../embeds/video/) lays over an autoplaying video is the exception, set back to `pointer-events: auto`, since WCAG requires a way to stop it. A video that needs its native `controls` does not belong in a push.
-
-Safari draws a play button over a video it refuses to autoplay, in Low Power Mode for instance. The push hides it through `::-webkit-media-controls-start-playback-button`, with the one `!important` of the component: the button lives in the browser's shadow DOM, and nothing weaker overrides it there. The video then shows its first frame, or its poster.
+`.media` takes `pointer-events: none`: a click on the image or the video goes through to the push and its link, and a tap never starts or pauses a video. The pause control that a [`.video`](../../embeds/video/) lays over an autoplaying video is the exception, set back to `pointer-events: auto`, since WCAG requires a way to stop it. A video that needs its native `controls` does not belong in a push. For the play button Safari draws over a background video in Low Power Mode, see [Video](../../embeds/video/#autoplay-checklist): no CSS hides it.
 
 ## What the push hands down
 

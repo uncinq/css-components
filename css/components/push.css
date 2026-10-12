@@ -127,14 +127,6 @@
       .btn-toggle-video {
         pointer-events: auto;
       }
-
-      /* Safari draws a play button over a video it refuses to autoplay, in
-         Low Power Mode for one. The button sits in the browser's shadow DOM,
-         which only gives way to !important. */
-      video::-webkit-media-controls-start-playback-button {
-        -webkit-appearance: none;
-        display: none !important;
-      }
     }
 
     .surtitle {

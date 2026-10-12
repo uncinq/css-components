@@ -51,3 +51,11 @@ A [`.media`](../../content/media/) stretches the wrapper to fill it, so a video 
 ## Autoplay checklist
 
 `muted` is required for autoplay to be allowed at all, and `playsinline` keeps iOS from taking the video fullscreen. `loop` is what makes a background video a background video. All three are attributes on the element, not something this component can supply.
+
+`autoplay` itself is better left out. In Low Power Mode, or when the device runs hot, Safari refuses to autoplay and forces its own play button over every video that carries the attribute. WebKit does this on purpose, and the button lives in a closed shadow root: `::-webkit-media-controls-start-playback-button` no longer reaches it, `!important` or not. Start the video from script instead, and ignore the refusal:
+
+```js
+video.play().catch(() => {});
+```
+
+Without the attribute Safari draws nothing. The video stays on its poster or its first frame, and `.btn-toggle-video` is there to start it.
