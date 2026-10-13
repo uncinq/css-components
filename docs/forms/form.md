@@ -36,11 +36,13 @@ Each field is a plain `div`. There is no `.form-group` or `.field` class: the gr
 ```css
 grid-template-columns: repeat(
   auto-fill,
-  minmax(max(var(--form-col-min-width, 25ch), calc(50% - var(--gap) / 2)), 1fr)
+  minmax(min(max(var(--form-col-min-width, 25ch), calc(50% - var(--gap) / 2)), 100%), 1fr)
 );
 ```
 
 The `max()` is doing two jobs at once. It sets a **floor** of `25ch`, below which a field is too narrow to use, and it sets each track to at least half the width minus half the gap, which **caps** the result at two columns however wide the container gets.
+
+The outer `min(…, 100%)` keeps that floor from ever exceeding the form itself. `ch` is the width of the font's `0`, so with a wide typeface `25ch` can be wider than a phone screen (Termina's `0` is 0.94em, making `25ch` 376px at 16px), and without the clamp the single column would overflow its container and widen the page.
 
 A three-column form is almost never what you want, because it breaks the vertical reading order of a sequence of fields: the eye has to move right twice before dropping a line, and nothing in the layout says which order the fields belong in.
 
