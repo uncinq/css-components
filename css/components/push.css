@@ -96,7 +96,7 @@
       z-index: 1;
 
       @media (--sm) {
-        text-align: var(--push-content-align);
+        text-align: var(--push-content-align, start);
       }
 
       > * {
