@@ -4,7 +4,7 @@
     --icon-margin-inline-start: 0;
     --icon-size: var(--btn-font-size);
 
-    align-items: center;
+    align-items: baseline;
     appearance: none;
     background-color: var(--btn-color-background);
     border: var(--btn-border-width) var(--btn-border-style) var(--btn-color-border);
@@ -25,6 +25,12 @@
     text-decoration-thickness: var(--text-decoration-thickness);
     text-transform: var(--btn-text-transform);
     text-underline-offset: var(--text-decoration-offset);
+
+    &::before,
+    &::after,
+    > svg {
+      align-self: center;
+    }
 
     &:focus-visible {
       outline: var(--focus-outline-width) var(--focus-outline-style) var(--focus-color-outline);
