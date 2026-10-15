@@ -82,6 +82,7 @@
       justify-content: revert-layer;
       margin-inline: revert-layer;
       overflow-x: revert-layer;
+      overflow-y: revert-layer;
       padding-inline: revert-layer;
       scroll-snap-type: revert-layer;
 
@@ -99,6 +100,7 @@
       justify-content: revert-layer;
       margin-inline: revert-layer;
       overflow-x: revert-layer;
+      overflow-y: revert-layer;
       padding-inline: revert-layer;
       scroll-snap-type: revert-layer;
 
@@ -116,6 +118,7 @@
       justify-content: revert-layer;
       margin-inline: revert-layer;
       overflow-x: revert-layer;
+      overflow-y: revert-layer;
       padding-inline: revert-layer;
       scroll-snap-type: revert-layer;
 
@@ -133,6 +136,7 @@
       justify-content: revert-layer;
       margin-inline: revert-layer;
       overflow-x: revert-layer;
+      overflow-y: revert-layer;
       padding-inline: revert-layer;
       scroll-snap-type: revert-layer;
 
