@@ -31,6 +31,7 @@
   .push {
     --media-color-background: var(--push-color-background);
     --ratio-video: auto;
+    --video-fit: cover;
 
     border-radius: var(--push-border-radius);
     display: grid;
