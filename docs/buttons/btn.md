@@ -38,14 +38,14 @@ Each sets its background, border and text colour, with their hover values.
   --btn-color-background-hover: var(--color-danger-hover);
   --btn-color-border: var(--color-danger);
   --btn-color-border-hover: var(--color-danger-hover);
-  --btn-color-text: var(--color-text-on-danger);
-  --btn-color-text-hover: var(--color-text-on-danger);
+  --btn-color-text: var(--color-on-danger);
+  --btn-color-text-hover: var(--color-on-danger);
 }
 ```
 
-The text colour always comes from the matching `--color-text-on-*` semantic token, so contrast survives a change to the underlying colour. That pairing is the reason to rebrand by redefining `--color-brand` rather than `--btn-color-background`.
+The text colour always comes from the matching `--color-on-*` semantic token, so contrast survives a change to the underlying colour. That pairing is the reason to rebrand by redefining `--color-brand` rather than `--btn-color-background`.
 
-The hover text colour has to be set alongside the text colour, even when the two are the same. The `--btn-color-text-hover` token defaults to `var(--btn-color-text)`, but on `:root`, where it resolves to the default text colour once and for all: a variant or a context that only changes `--btn-color-text`, as a push over a dark media does, would see its text turn back to `--color-text-on-brand` on hover.
+The hover text colour has to be set alongside the text colour, even when the two are the same. The `--btn-color-text-hover` token defaults to `var(--btn-color-text)`, but on `:root`, where it resolves to the default text colour once and for all: a variant or a context that only changes `--btn-color-text`, as a push over a dark media does, would see its text turn back to `--color-on-brand` on hover.
 
 `.btn-primary` and `.btn-brand` resolve to exactly the same values, as do `.btn-secondary` and `.btn-neutral`. The intent names exist so a page can say *primary action* without deciding which colour that is.
 

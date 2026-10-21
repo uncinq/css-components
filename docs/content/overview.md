@@ -35,6 +35,6 @@ Several source comments describe `.card` as a backwards-compatible alias for `.i
 | | Background | Text |
 | --- | --- | --- |
 | `.alert-*` | `--color-*-muted` | `--color-*-strong` |
-| `.badge-*` | `--color-*` | `--color-text-on-*` |
+| `.badge-*` | `--color-*` | `--color-on-*` |
 
 An alert is a tinted block meant to hold a paragraph, so it uses the muted pair. A badge is a solid chip meant to be read at a glance, so it uses the full colour with its guaranteed-contrast text token. Neither ever hardcodes a colour, which is what makes a rebrand a token change rather than a search and replace.

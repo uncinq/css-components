@@ -25,11 +25,11 @@ The colours do not. A badge is a **solid** chip, not a tinted block:
 .badge-success {
   --badge-color-background: var(--color-success);
   --badge-color-background-hover: var(--color-success-strong);
-  --badge-color-text: var(--color-text-on-success);
+  --badge-color-text: var(--color-on-success);
 }
 ```
 
-Full colour for the background, and the matching `--color-text-on-*` token for the text, which is the pair that guarantees contrast when the underlying colour is overridden. Compare with `.alert-*`, which uses `-muted` and `-strong` because it has to remain readable behind a paragraph.
+Full colour for the background, and the matching `--color-on-*` token for the text, which is the pair that guarantees contrast when the underlying colour is overridden. Compare with `.alert-*`, which uses `-muted` and `-strong` because it has to remain readable behind a paragraph.
 
 Note that a variant sets no border colour. `--badge-color-border` keeps whatever the base token resolves to, so a bordered badge needs that token set explicitly.
 

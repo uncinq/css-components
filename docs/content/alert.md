@@ -29,7 +29,7 @@ Each sets background, border and text colour from the matching `-muted` and `-st
 }
 ```
 
-`.alert-primary` and `.alert-brand` resolve identically, as do `.alert-secondary` and `.alert-neutral`. `.alert-dark` is the one exception to the muted pattern: it takes `--color-text-on-dark` rather than `--color-dark-strong`.
+`.alert-primary` and `.alert-brand` resolve identically, as do `.alert-secondary` and `.alert-neutral`. `.alert-dark` is the one exception to the muted pattern: it takes `--color-on-dark` rather than `--color-dark-strong`.
 
 The base `.alert` declares no colours of its own, so an alert with no variant class shows whatever `--alert-color-*` resolves to in your token set.
 
