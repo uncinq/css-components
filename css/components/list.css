@@ -1,6 +1,6 @@
 /* components/list.css */
 /*
- * .list — compact labelled list with dash markers.
+ * .list: compact labelled list. Markers and indent come from css-base.
  *
  * Structure:
  *   div.list

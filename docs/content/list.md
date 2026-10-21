@@ -34,7 +34,7 @@ Item spacing is a **margin**, not a `gap`, because the list is not a flex contai
 
 ## Markers come from css-base
 
-The dash marker is not declared in this file. Bullets, numbering and the marker colour all come from the native list styling in [css-base](../../../css-base/base/), which is also why the component works on `ol` without a variant.
+No marker is declared in this file. Bullets and numbering are the user agent's, and the indent comes from the native list styling in [css-base](../../../css-base/base/), sized in em by `--list-padding-inline-start` and `--list-ordered-padding-inline-start`. That is also why the component works on `ol` without a variant.
 
 ## Where it fits
 
