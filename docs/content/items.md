@@ -73,4 +73,4 @@ Add a [`.scrollsnap-*`](../../utilities/scrollsnap/) class to the same element. 
 <div class="items scrollsnap-md">...</div>
 ```
 
-The carousel reads the same `--items-min-width`, so item width stays consistent between the two modes.
+The carousel reads the same `--items-min-width`, so item width stays consistent between the two modes, unless `--items-carousel-min-width` gives the carousels a width of their own (see [Scrollsnap](../../utilities/scrollsnap/#one-width-for-every-carousel)).

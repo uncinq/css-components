@@ -53,12 +53,32 @@ Above its rung, every property is set to `revert-layer` rather than to a second 
 
 ```css
 grid-auto-columns: min(
-  var(--items-min-width, var(--max-width-item)),
+  var(--items-carousel-min-width, var(--items-min-width, var(--max-width-item))),
   var(--items-carousel-max-width, 75vw)
 );
 ```
 
 Items take `--items-min-width`, the same value that drives the grid, capped by `--items-carousel-max-width` (default `75vw`). The cap is what guarantees the next item always peeks in, which is the affordance that tells a reader the row scrolls at all. Without it, a wide item on a narrow screen would fill the viewport and the carousel would look like a static card.
+
+### One width for every carousel
+
+`--items-carousel-min-width` is unset by default, so each carousel keeps the width its own grid gives it. Set it to give every carousel the same width, whatever their grid says:
+
+```css
+@layer tokens {
+  :root {
+    --items-carousel-min-width: 25ch;
+  }
+}
+```
+
+It inherits, so it can be set on a section rather than on `:root` to cover only the carousels inside it. A component that has to keep its own width hands it back on itself, which wins over the inherited value:
+
+```css
+.logos { --items-carousel-min-width: var(--items-min-width); }
+```
+
+It is only read while the row scrolls. Above its rung the grid comes back with `--items-min-width`, so the carousels can be narrowed without touching the grids they turn back into.
 
 ## The bleed, and why margin and padding disagree
 

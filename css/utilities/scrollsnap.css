@@ -20,6 +20,11 @@
  *
  * Item width: --items-min-width (or --max-width-item), capped by
  * --items-carousel-max-width so the next item always peeks in.
+ * --items-carousel-min-width, unset by default, overrides the first for every
+ * carousel at once: set on :root, it gives them all one width whatever their
+ * grid says, and a component re-declaring it on itself keeps its own. It is
+ * only read while the row scrolls, so the grid it turns back into keeps
+ * --items-min-width.
  *
  * Bleed: --container-bleed, published by .container in @uncinq/css-base — one
  * gutter while the container spans the viewport, 0 once it caps, so the row
@@ -55,7 +60,7 @@
   .scrollsnap-md,
   .scrollsnap-lg,
   .scrollsnap-xl {
-    grid-auto-columns: min(var(--items-min-width, var(--max-width-item)), var(--items-carousel-max-width, 75vw));
+    grid-auto-columns: min(var(--items-carousel-min-width, var(--items-min-width, var(--max-width-item))), var(--items-carousel-max-width, 75vw));
     grid-auto-flow: column;
     grid-template-columns: none;
     justify-content: start;
