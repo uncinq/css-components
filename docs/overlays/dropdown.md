@@ -70,6 +70,14 @@ The script must also keep `aria-expanded` on the toggle in sync with the state.
 
 Transitions are inside `@media (prefers-reduced-motion: no-preference)`, so the three classes still work with motion disabled; they simply take effect instantly.
 
+## Without JavaScript
+
+With scripting disabled, nothing toggles `.show`, so under `@media (scripting: none)` the menu opens on `:hover` of the `.dropdown` and on keyboard focus inside it (`:has(:focus-visible)`) instead, and the chevron turns with it. The links stay reachable with a pointer and with the keyboard. Keyboard focus rather than `:focus-within`: a click leaves the focus on the toggle, and the menu would stay open after the pointer has gone.
+
+Two more adjustments apply in that mode. The toggle's `::before` no longer covers the whole item, since the toggle opens nothing by itself: a link next to it stays clickable. And the menu waits 0.4s before closing, so the pointer can cross a gap between the item and its menu, as with a mega menu laid out below a header.
+
+The rule never applies when a script runs, so it cannot fight the script's own state. It reaches the menu as a **direct child** of `.dropdown`, like the rest of the contract.
+
 ## Alignment
 
 `.dropdown-menu-end` aligns the menu to the inline end of its trigger rather than the start. It is the only variant, and it goes on the menu, not on the container.

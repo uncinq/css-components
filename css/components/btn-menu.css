@@ -30,6 +30,13 @@
       width: var(--btn-menu-icon-size, var(--icon-size));
     }
 
+    /* Not a .btn, so the focus ring is restated: the browser's own one can
+       vanish on a coloured header */
+    &:focus-visible {
+      outline: var(--focus-outline-width) var(--focus-outline-style) var(--focus-color-outline);
+      outline-offset: var(--focus-outline-offset, 2px);
+    }
+
     @media (hover: hover) and (pointer: fine) {
       &:hover {
         background-color: var(--btn-menu-color-background-hover, var(--btn-control-color-background-hover));

@@ -10,6 +10,9 @@
  *
  * Trigger:  .js-dropdown-toggle (nextElementSibling must be .dropdown-menu)
  *
+ * Without JavaScript (scripting: none), the menu opens on hover and on
+ * keyboard focus within the .dropdown instead, so its links stay reachable.
+ *
  * Expected HTML:
  *   <div class="dropdown">
  *     <button class="js-dropdown-toggle" aria-expanded="false">Label</button>
@@ -129,6 +132,45 @@
     }
   }
   
+
+  /* ── Without JavaScript ──────────────────────────────────────────────
+   * No script to toggle .show: the menu follows the pointer and the keyboard
+   * focus instead. Scoped to scripting: none, so it never fights the script's
+   * own state when there is one. */
+
+  @media (scripting: none) {
+    /* The toggle opens nothing by itself here: it stops covering its item,
+       so a link next to it stays clickable */
+    .dropdown-toggle::before {
+      content: none;
+    }
+
+    /* Closing waits, so the pointer can cross a gap between the item and
+       its menu — a mega menu below a header, for instance. The menu has to
+       take the pointer meanwhile: once closed, visibility: hidden keeps it
+       out of the way. */
+    .dropdown > .dropdown-menu {
+      pointer-events: auto;
+      transition-delay: 0.4s;
+      transition-property: opacity, transform, visibility;
+    }
+
+    /* Keyboard focus only: a click leaves focus on the toggle, and the menu
+       would stay open once the pointer has gone */
+    .dropdown:is(:hover, :has(:focus-visible)) {
+      > .dropdown-menu {
+        opacity: 1;
+        pointer-events: auto;
+        transform: none;
+        transition-delay: 0s;
+        visibility: visible;
+      }
+
+      > .dropdown-toggle::after {
+        rotate: 180deg;
+      }
+    }
+  }
 
   /* ── Alignment variants ──────────────────────────────────────────── */
 

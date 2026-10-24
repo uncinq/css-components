@@ -13,10 +13,11 @@ There is **no `.panel` class.** The selectors read `:where(.modal, .drawer)`, so
 ## Structure
 
 ```html
-<dialog class="modal" id="contact" aria-labelledby="contactLabel">
+<button commandfor="contact" command="show-modal">Contact</button>
+<dialog class="modal" id="contact" aria-labelledby="contactLabel" closedby="any">
   <div class="header">
     <p class="title" id="contactLabel">Contact</p>
-    <button class="btn-close js-dialog-close" aria-label="Close"></button>
+    <button class="btn-close" commandfor="contact" command="close" aria-label="Close"></button>
   </div>
   <div class="content">...</div>
   <div class="footer">...</div>
@@ -35,17 +36,17 @@ The panel itself carries **no padding**. It lives on the three sections instead,
 
 ## Two ways to open a panel
 
-**The tag picks the strategy, not the class.** Either variant works both ways.
+**The tag picks the strategy, not the class.** Either variant works both ways, and both open **without JavaScript**, from a native invoker on the button. See [The JavaScript contract](#the-javascript-contract).
 
-### `<dialog>` with `showModal()`
+### `<dialog>`, opened as a modal
 
-The browser handles Escape, the focus trap and making the rest of the page inert. You get `[open]`, the native `::backdrop` and the top layer for free.
+Opened by `command="show-modal"`, or `showModal()` from a script. The browser handles Escape, the focus trap and making the rest of the page inert. You get `[open]`, the native `::backdrop` and the top layer for free, and `closedby="any"` adds the click on the backdrop.
 
 This is the right choice when the panel is **always** a dialog.
 
-### `popover="auto"` with `showPopover()`
+### `popover="auto"`
 
-Same top layer, same native `::backdrop`, but the element carries no implicit role.
+Opened by `popovertarget`, or `showPopover()` from a script. Same top layer, same native `::backdrop`, but the element carries no implicit role.
 
 Use this when the panel becomes a static region of the page above a breakpoint, which is what the [inline variants](#inline-variants) do. The reason is an accessibility one: a `<dialog>` is exposed as `role="dialog"` even when it is only styled as a sidebar, whereas a script can set that role solely while the panel is actually open.
 
@@ -133,18 +134,24 @@ If you add a property to the panel rule, neutralise it in all four variants. Tha
 
 Pair the suffixes: a panel carrying `.panel-inline-md` needs its button carrying `.panel-trigger-md`, otherwise a button that opens nothing remains on screen at desktop width.
 
-The reason this is a second class rather than something CSS derives on its own is worth knowing, because it looks like a redundancy. Nothing structurally connects a trigger to its panel: the only link is `data-target` matching an `id`, and no selector can compare two attribute values. A positional rule would work only until somebody moved the markup, and a filter button typically lives in the page heading rather than beside the panel it opens. In practice both classes come from the same configuration value, so the pair cannot disagree.
+The reason this is a second class rather than something CSS derives on its own is worth knowing, because it looks like a redundancy. Nothing structurally connects a trigger to its panel: the only link is an attribute — `popovertarget`, `commandfor` or a script's `data-target` — matching an `id`, and no selector can compare two attribute values. A positional rule would work only until somebody moved the markup, and a filter button typically lives in the page heading rather than beside the panel it opens. In practice both classes come from the same configuration value, so the pair cannot disagree.
 
 ## The JavaScript contract
 
-This package ships no JavaScript. `.modal` and `.drawer` expect a script that provides:
+This package ships no JavaScript, and a panel does not strictly need any: the browser opens and closes it by itself, from native invokers on the buttons.
 
-| Hook | Role |
-| --- | --- |
-| `.js-dialog-toggle[data-target="#id"]` | Opens the panel it points at |
-| `.js-dialog-close` | Any element inside the panel that closes it |
+| Panel | Trigger | Close button |
+| --- | --- | --- |
+| `popover="auto"` | `popovertarget="id"` | `popovertarget="id" popovertargetaction="hide"` |
+| `<dialog>` | `commandfor="id" command="show-modal"` | `commandfor="id" command="close"` |
 
-Closing must also work on Escape and on a click outside. With `<dialog>` and `showModal()` the browser already does both. With `popover="auto"` the platform handles light dismiss and Escape too, so in practice the script mainly manages the role and the open call.
+Escape works on both. A click outside closes a popover through light dismiss, and a `<dialog>` once it carries `closedby="any"`. `popovertarget` is Baseline 2024, invoker commands (`commandfor`) Baseline 2025.
+
+A script then adds what the platform does not:
+
+- `role="dialog"` and `aria-modal` on a popover, only while it is open, and an inert background behind it;
+- closing the panel when one of its in-page anchors is followed;
+- opening and closing for markup without native invokers, or for a browser that does not know invoker commands yet, through hooks of its choosing — for instance `.js-dialog-toggle[data-target="#id"]` and `.js-dialog-close`.
 
 One case CSS cannot cover: a panel carrying a `.panel-inline-*` class that is **open** when the viewport crosses the breakpoint. The script has to close it, because nothing in CSS releases the backdrop, the scroll lock and the inert background.
 

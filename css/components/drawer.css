@@ -16,8 +16,10 @@
  * Position variants: .drawer-start | .drawer-end | .drawer-top | .drawer-bottom
  * Inline variants:   .panel-inline-* — see components/panel.css
  *
- * Triggers: .js-dialog-toggle[data-target="#id"]
- * Close:    .js-dialog-close inside the panel, Escape, or a click outside
+ * Triggers: popovertarget="id", or commandfor="id" command="show-modal" for a
+ *           <dialog> — native, no script needed; see components/panel.css
+ * Close:    the same with popovertargetaction="hide" or command="close",
+ *           Escape, or a click outside
  */
 @layer components {
   .drawer {

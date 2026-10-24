@@ -31,4 +31,4 @@ Either variant works both ways, and the choice is an accessibility one rather th
 
 ## No JavaScript ships here
 
-`.modal`, `.drawer` and `.dropdown` all expect a script. The CSS defines the classes and attributes that script must toggle; each page documents the contract it needs.
+`.modal` and `.drawer` open and close without one, from native invokers on their buttons; a script only adds the dialog role, the inert background and the cases the platform leaves out. `.dropdown` expects a script, and falls back to hover and focus when scripting is off. Each page documents the contract it needs.

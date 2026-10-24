@@ -7,14 +7,19 @@
  * drawer.css sticks them to an edge.
  *
  * The tag picks the strategy, not the class. Either variant can be:
- * - <dialog> opened with showModal() — [open], native ::backdrop, top layer,
- *   and the browser handles Escape, the focus trap and inertness;
- * - any element carrying popover="auto", opened with showPopover() by the
- *   script you provide — same top layer, same ::backdrop, but no role of its
- *   own. Use this when the panel becomes a static region of the page above a
- *   breakpoint (see .panel-inline-*): a <dialog> is exposed as role="dialog"
- *   even when it is only styled as a sidebar, whereas a script can set that
- *   role solely while the panel is open.
+ * - <dialog> opened as a modal — [open], native ::backdrop, top layer, and the
+ *   browser handles Escape, the focus trap and inertness;
+ * - any element carrying popover="auto" — same top layer, same ::backdrop,
+ *   but no role of its own. Use this when the panel becomes a static region
+ *   of the page above a breakpoint (see .panel-inline-*): a <dialog> is
+ *   exposed as role="dialog" even when it is only styled as a sidebar,
+ *   whereas a script can set that role solely while the panel is open.
+ *
+ * Both open without a script, from native invokers on the buttons:
+ * popovertarget="x" for a popover, commandfor="x" command="show-modal" for a
+ * <dialog>, and their closing forms, popovertargetaction="hide" and
+ * command="close". closedby="any" lets a click on a <dialog>'s backdrop close
+ * it too. showModal() and showPopover() remain available to a script.
  *
  * Most selectors here are :where()-wrapped so they carry no specificity: the
  * variants and the host components always win without escalating. The
@@ -27,10 +32,11 @@
  * namespace, so --modal-* and --drawer-* stay the public API.
  *
  * Expected HTML:
- *   <dialog class="modal" id="x" aria-labelledby="xLabel">
+ *   <button commandfor="x" command="show-modal">...</button>
+ *   <dialog class="modal" id="x" aria-labelledby="xLabel" closedby="any">
  *     <div class="header">
  *       <p class="title" id="xLabel">...</p>
- *       <button class="btn-close js-dialog-close"></button>
+ *       <button class="btn-close" commandfor="x" command="close"></button>
  *     </div>
  *     <div class="content">...</div>
  *     <div class="footer">...</div>
