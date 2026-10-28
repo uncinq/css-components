@@ -14,6 +14,7 @@
     border-style: var(--surtitle-border-style);
     border-width: var(--surtitle-border-width);
     color: var(--surtitle-color-text);
+    font-family: var(--surtitle-font-family);
     font-size: var(--surtitle-font-size);
     font-weight: var(--surtitle-font-weight);
     letter-spacing: var(--surtitle-letter-spacing);

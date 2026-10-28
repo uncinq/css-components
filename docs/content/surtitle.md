@@ -19,7 +19,7 @@ It is a leaf component: no children, no variants, no states. Every property read
 | --- | --- |
 | `--surtitle-color-*` | Background and text |
 | `--surtitle-border-*` | Colour, style, width and radius |
-| `--surtitle-font-size`, `-font-weight`, `-letter-spacing`, `-line-height`, `-text-transform` | Typography |
+| `--surtitle-font-family`, `-font-size`, `-font-weight`, `-letter-spacing`, `-line-height`, `-text-transform` | Typography |
 | `--surtitle-padding-*`, `-margin-block-*` | Spacing |
 
 ## It pulls itself closer inside a card
