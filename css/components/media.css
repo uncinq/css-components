@@ -41,6 +41,18 @@
     }
   }
 
+  .media-contain {
+    img {
+      object-fit: contain;
+    }
+  }
+
+  .media-cover {
+    img {
+      object-fit: cover;
+    }
+  }
+
   .media-icon {
     --media-ratio: none;
     --media-color-background: transparent;
