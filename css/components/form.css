@@ -1,4 +1,17 @@
 /* components/form.css */
+/*
+ * .form — responsive grid of one or two columns, and its layout helpers.
+ *
+ * Structure:
+ *   form.form[.is-submitting|.is-success|.has-error]
+ *     p.required         (meaning of the asterisk, before the first field: RGAA 11.10)
+ *     div[.full]*        (fields)
+ *     .alert[hidden]     (answer of an async submission)
+ *     div.actions        (submit, legal)
+ *
+ * States, set by the script that submits the form asynchronously:
+ * .is-submitting, .is-success (only the .alert remains), .has-error
+ */
 @layer components {
   .form {
     display: grid;
@@ -14,10 +27,18 @@
     }
 
     .actions,
-    .full {
+    .alert,
+    .full,
+    .required {
       grid-column: 1 / -1;
     }
-    
+
+    /* Aligned with the labels, whatever the alignment of the container */
+    .required {
+      margin-block: 0;
+      text-align: start;
+    }
+
     .actions {
       align-items: start;
       display: flex;
@@ -28,6 +49,15 @@
       }
     }
 
+    &.is-submitting {
+      cursor: progress;
+    }
+
+    /* Once sent, only the answer remains (direct children only, so that the
+       content of the .alert stays) */
+    &.is-success > :not(.alert) {
+      display: none;
+    }
   }
 
   .form-check {

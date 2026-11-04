@@ -55,10 +55,33 @@ Change the floor with `--form-col-min-width`. Raising it past 50% forces a singl
 | `.full` | Spans both columns, `grid-column: 1 / -1` |
 | `.actions` | Spans both columns and stacks its children vertically |
 | `.help` | Help text under a field |
+| `.required` | Spans both columns, aligned to the start, no block margin |
+| `.alert` | Spans both columns |
 
 `.actions` is a column flex container aligned to the start, with `--gap` between its children and their block margins flattened. So a submit button, a consent line and a legal note stack in the order written without fighting each other's margins.
 
 `.help` reads `--help-*` for colour, size, weight, margin and alignment. Pair it with `aria-describedby`, or it is seen and never announced.
+
+`.required` is the line explaining the asterisk of the required fields. Put it before the first field: the RGAA wants the meaning of a non-textual indication such as `*` given before its first use, visually and in the source order. It stays aligned with the labels even in a centred container.
+
+## Async submission
+
+A script that submits the form without leaving the page shows its answer in an `.alert` placed among the fields, `hidden` until then, and sets these states on the form:
+
+| State | Effect |
+| --- | --- |
+| `.is-submitting` | `cursor: progress` while the request runs |
+| `.is-success` | Hides every direct child but the `.alert`, so only the answer remains |
+| `.has-error` | No rule: the fields stay, the `.alert` (e.g. `.alert-danger`) carries the error |
+
+```html
+<form class="form is-success">
+  <p class="required">* Required fields</p>
+  <div>…</div>
+  <p class="alert alert-success" role="status" tabindex="-1">Thank you!</p>
+  <div class="actions">…</div>
+</form>
+```
 
 ## Field spacing
 
@@ -66,4 +89,4 @@ Both axes use `--gap`, the same token the grid uses for its column calculation. 
 
 ## Controls are not styled here
 
-Inputs, selects, textareas and their focus and invalid states come from [css-base](../../../css-base/base/form/), applied to the native elements. This file adds layout and nothing else, which is why a form built without `.form` still looks right, it is simply stacked.
+Inputs, selects, textareas and their focus and invalid states come from [css-base](../../../css-base/base/form/), applied to the native elements. This file adds layout and the submission states, nothing else, which is why a form built without `.form` still looks right, it is simply stacked.
