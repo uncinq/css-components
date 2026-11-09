@@ -1,0 +1,41 @@
+/* components/rating.css */
+/*
+ * .rating — star rating out of 5, fractional values included (4.8).
+ *
+ * Structure:
+ *   div.rating
+ *     span.rating-star       (×5, style="--rating-fill: 0–100%")
+ *       .icon                (the theme's star glyph, painted as a mask)
+ *     span.visually-hidden   (e.g. "Rating: 4.8 out of 5")
+ *
+ * The icon is a mask, so its background is what shows through the glyph.
+ * A hard-stop gradient paints each star in the active colour up to its
+ * --rating-fill and in the empty colour after it.
+ */
+@layer components {
+  .rating {
+    --icon-size: var(--rating-size);
+
+    align-items: center;
+    display: flex;
+    gap: var(--rating-gap);
+    justify-content: var(--rating-justify-content);
+  }
+
+  .rating-star {
+    display: flex;
+
+    .icon {
+      background: linear-gradient(
+        to right,
+        var(--rating-color-active) var(--rating-fill, 0%),
+        var(--rating-color-empty) var(--rating-fill, 0%)
+      );
+
+      /* RTL: stars fill from the right */
+      &:dir(rtl) {
+        scale: -1 1;
+      }
+    }
+  }
+}

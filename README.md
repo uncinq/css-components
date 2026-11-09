@@ -4,7 +4,7 @@
 
 <img width="1280" height="640" alt="share-css-components" src="https://github.com/user-attachments/assets/3d74df8a-e7bf-4ba5-8529-99cfef0bc176" />
 
-30 components and 1 utility, written as plain CSS, reading their values from [@uncinq/component-tokens](https://github.com/uncinq/component-tokens) and adding none of their own.
+31 components and 1 utility, written as plain CSS, reading their values from [@uncinq/component-tokens](https://github.com/uncinq/component-tokens) and adding none of their own.
 
 ## Where this sits
 
@@ -55,7 +55,7 @@ The failure is silent. No error is raised, the page simply stays at its mobile v
 | --- | --- |
 | Buttons | `.btn` with colour, size and style variants, plus `btn-close`, `btn-menu`, `btn-search`, `btn-filter`, `btn-share`, `btn-toc`, `btn-toggle-video` |
 | Overlays | `modal`, `drawer`, `dropdown`, and the shared panel skeleton |
-| Content | `alert`, `badge`, `banner`, `card`, `items`, `list`, `media`, `push`, `surtitle` |
+| Content | `alert`, `badge`, `banner`, `card`, `items`, `list`, `media`, `push`, `rating`, `surtitle` |
 | Navigation | `nav`, `nav-title`, `nav-accessibility`, `breadcrumb`, `pagination` |
 | Embeds | `embed`, `video`, `map` |
 | Forms | `form`, `form-check` and the layout helpers |
@@ -85,7 +85,7 @@ It is also versioned with the code in [`docs/`](docs/), one page per component, 
 - [Cascade layers](docs/cascade-layers.md) — the two layers, and the `:where()` convention
 - [Buttons](docs/buttons/) — [`.btn`](docs/buttons/btn.md) and the seven specialised buttons
 - [Overlays](docs/overlays/) — [the panel skeleton](docs/overlays/panel.md), [`.modal`](docs/overlays/modal.md), [`.drawer`](docs/overlays/drawer.md), [`.dropdown`](docs/overlays/dropdown.md)
-- [Content](docs/content/) — [`.alert`](docs/content/alert.md), [`.badge`](docs/content/badge.md), [`.banner`](docs/content/banner.md), [`.card`](docs/content/card.md), [`.items`](docs/content/items.md), [`.list`](docs/content/list.md), [`.media`](docs/content/media.md), [`.surtitle`](docs/content/surtitle.md)
+- [Content](docs/content/) — [`.alert`](docs/content/alert.md), [`.badge`](docs/content/badge.md), [`.banner`](docs/content/banner.md), [`.card`](docs/content/card.md), [`.items`](docs/content/items.md), [`.list`](docs/content/list.md), [`.media`](docs/content/media.md), [`.rating`](docs/content/rating.md), [`.surtitle`](docs/content/surtitle.md)
 - [Navigation](docs/navigation/) — [`.nav`](docs/navigation/nav.md), [`.nav-title`](docs/navigation/nav-title.md), [skip links](docs/navigation/nav-accessibility.md), [breadcrumb](docs/navigation/breadcrumb.md), [pagination](docs/navigation/pagination.md)
 - [Embeds](docs/embeds/) — [`.embed`](docs/embeds/embed.md), [`.video`](docs/embeds/video.md), [`.map`](docs/embeds/map.md)
 - [Forms](docs/forms/) — [`.form`](docs/forms/form.md), [`.form-check`](docs/forms/form-check.md)
