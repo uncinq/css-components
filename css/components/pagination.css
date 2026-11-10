@@ -7,11 +7,11 @@
  *     ul.pagination
  *       li[.disabled]
  *         a.first | a.previous | a.next | a.last   (nav controls)
- *       li.item[.item-adjacent][.active]
- *         a                                         (page number)
+ *       li.number[.adjacent][.active]
+ *         a[aria-current="page"]                    (page number)
  *
- * Icon glyphs for .first, .last, .previous, .next are defined by the theme
- * via a::before / a::after content.
+ * Glyphs for .first, .previous, .next and .last are masks on ::after, drawn
+ * from the --pagination-icon-* tokens; .first and .previous rotate theirs.
  */
 @layer components {
   .pagination {
@@ -42,9 +42,11 @@
       padding-inline: var(--spacing-2xs);
       text-decoration: none;
 
-      &:hover {
-        background-color: var(--pagination-item-color-background-hover);
-        color: var(--pagination-item-color-text-hover);
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          background-color: var(--pagination-item-color-background-hover);
+          color: var(--pagination-item-color-text-hover);
+        }
       }
     }
 
@@ -96,7 +98,7 @@
       .last,
       li:has(.first),
       li:has(.last),
-      .item:not(.item-adjacent):not(.active) {
+      .number:not(.adjacent, .active) {
         display: none;
       }
     }

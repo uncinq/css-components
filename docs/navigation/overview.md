@@ -23,7 +23,3 @@ Five components for moving around a site.
 ## None of them supplies the landmark
 
 `<nav>`, `aria-label` and `aria-current` are yours to write. A page with three navigation regions and no labels on them is harder to use with a screen reader than a page with one, which is the usual reason to add them.
-
-## `.item` means two different things
-
-In [pagination](../pagination/), `.item` is a page number. It is unrelated to the `.item` card unit mentioned throughout the [Content](../../content/) section, which is not defined in this package at all.

@@ -13,8 +13,8 @@ A page navigation list.
   <ul class="pagination">
     <li class="disabled"><a class="first">First</a></li>
     <li><a class="previous" href="?page=1">Previous</a></li>
-    <li class="item active"><a href="?page=2">2</a></li>
-    <li class="item item-adjacent"><a href="?page=3">3</a></li>
+    <li class="number active"><a href="?page=2" aria-current="page">2</a></li>
+    <li class="number adjacent"><a href="?page=3">3</a></li>
     <li><a class="next" href="?page=3">Next</a></li>
     <li><a class="last" href="?page=9">Last</a></li>
   </ul>
@@ -24,12 +24,14 @@ A page navigation list.
 | Class | On | Role |
 | --- | --- | --- |
 | `.first`, `.previous`, `.next`, `.last` | the `a` | Navigation controls |
-| `.item` | the `li` | A page number |
-| `.item-adjacent` | the `li` | A page number next to the current one |
+| `.number` | the `li` | A page number |
+| `.adjacent` | the `li` | A page number next to the current one |
 | `.active` | the `li` | The current page |
 | `.disabled` | the `li` | An unavailable control |
 
 `.active` and `.disabled` are both read as ancestors of the link (`.active a`, `.disabled a`), so putting either on the `li` is what the rules expect.
+
+`.number` and `.adjacent` replace `.item` and `.item-adjacent`, which the component no longer reads: with the old names, the page numbers are no longer hidden on a narrow screen.
 
 ## The glyphs are shipped
 
@@ -56,13 +58,13 @@ The text inside the control (`First`, `Previous`) sits beside the glyph. Replace
 @media not (--sm) {
   .first, .last,
   li:has(.first), li:has(.last),
-  .item:not(.item-adjacent):not(.active) { display: none; }
+  .number:not(.adjacent, .active) { display: none; }
 }
 ```
 
 Below 768px the paginator drops to *previous, the current page, its neighbours, next*. You do not need to write that rule, and you do not need a second markup path for mobile: render the full paginator and let CSS thin it out.
 
-This is what `.item-adjacent` is for. It is the only signal the CSS has about which page numbers are near the current one, so a paginator that omits it collapses to the current page alone on a narrow screen.
+This is what `.adjacent` is for. It is the only signal the CSS has about which page numbers are near the current one, so a paginator that omits it collapses to the current page alone on a narrow screen.
 
 The `li:has(...)` selectors are there so the list item goes with the control it contains, rather than leaving an empty `li` contributing a gap.
 
@@ -70,7 +72,7 @@ The `li:has(...)` selectors are there so the list item goes with the control it 
 
 `.active a` and `.disabled a` both get `pointer-events: none`, so neither is clickable regardless of whether you render an `href`. The active page takes the `-active` colour pair, and a disabled control takes `--pagination-disabled-opacity`.
 
-Note that the hover rule here is **not** behind `@media (hover: hover) and (pointer: fine)`, unlike the rest of the package. On a touch device a tapped page number can keep its hover background until the next paint.
+The hover colours only apply under `@media (hover: hover) and (pointer: fine)`, as in the rest of the package, so a tapped page number does not keep them on a touch screen.
 
 ## Accessibility
 
