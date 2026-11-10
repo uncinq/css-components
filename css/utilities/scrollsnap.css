@@ -68,6 +68,12 @@
     overflow-x: auto;
     overflow-y: hidden;
     padding-inline: var(--container-bleed, var(--gutter));
+    /* The row is the containing block of anything absolute inside it.
+       overflow only clips what it contains: without this, an absolute
+       descendant of an unpositioned item (the .visually-hidden label of a
+       .rating, say) anchors to an ancestor outside the row, escapes the clip
+       and widens the whole page by the length of the row. */
+    position: relative;
     scroll-snap-type: x mandatory;
 
     > * {
@@ -89,6 +95,7 @@
       overflow-x: revert-layer;
       overflow-y: revert-layer;
       padding-inline: revert-layer;
+      position: revert-layer;
       scroll-snap-type: revert-layer;
 
       > * {
@@ -107,6 +114,7 @@
       overflow-x: revert-layer;
       overflow-y: revert-layer;
       padding-inline: revert-layer;
+      position: revert-layer;
       scroll-snap-type: revert-layer;
 
       > * {
@@ -125,6 +133,7 @@
       overflow-x: revert-layer;
       overflow-y: revert-layer;
       padding-inline: revert-layer;
+      position: revert-layer;
       scroll-snap-type: revert-layer;
 
       > * {
@@ -143,6 +152,7 @@
       overflow-x: revert-layer;
       overflow-y: revert-layer;
       padding-inline: revert-layer;
+      position: revert-layer;
       scroll-snap-type: revert-layer;
 
       > * {
