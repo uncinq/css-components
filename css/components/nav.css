@@ -29,9 +29,12 @@
     }
 
     /* A dropdown menu pads itself (--dropdown-padding, see dropdown.css).
-       This rule outranks it and would silently zero that padding. */
+       This rule outranks it and would silently zero that padding. The
+       exclusion sits in :where() so it adds no weight: the rule stays at
+       .nav ul, which a context's own nested list rule (.sidebarmenu nav ul ul,
+       for instance) has to keep beating. */
     &,
-    :is(ul, ol):not(.dropdown-menu) {
+    :is(ul, ol):where(:not(.dropdown-menu)) {
       padding-block: var(--nav-padding-block);
       padding-inline: var(--nav-padding-inline, 0);
     }
