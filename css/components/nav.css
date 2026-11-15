@@ -26,6 +26,12 @@
       list-style: var(--nav-list-style, none);
       margin-block: var(--nav-margin-block, 0);
       margin-inline: var(--nav-margin-inline);
+    }
+
+    /* A dropdown menu pads itself (--dropdown-padding, see dropdown.css).
+       This rule outranks it and would silently zero that padding. */
+    &,
+    :is(ul, ol):not(.dropdown-menu) {
       padding-block: var(--nav-padding-block);
       padding-inline: var(--nav-padding-inline, 0);
     }
