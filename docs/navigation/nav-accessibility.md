@@ -3,7 +3,7 @@ isIndex: false
 title: Skip links
 description: Skip navigation for keyboard and assistive technology users, hidden off-screen rather than hidden.
 weight: 4
-icon: universal-access
+icon: accessibility
 ---
 
 Skip links, for keyboard and assistive technology users.

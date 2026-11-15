@@ -3,7 +3,7 @@ isIndex: false
 title: Table of contents button
 description: The table of contents toggle, a modifier on .btn carrying the toc icon.
 weight: 8
-icon: list-nested
+icon: list-tree
 ---
 
 The control that opens a table of contents. **It requires `.btn`.**

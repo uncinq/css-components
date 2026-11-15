@@ -3,7 +3,7 @@ isIndex: false
 title: Form
 description: A responsive grid that is one column or two, never three, plus its layout helpers.
 weight: 2
-icon: columns-gap
+icon: columns-2
 ---
 
 A responsive two-column grid that collapses to one column when there is not enough room.

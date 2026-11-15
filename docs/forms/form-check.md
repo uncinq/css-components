@@ -3,7 +3,7 @@ isIndex: false
 title: Check row
 description: A checkbox or radio laid out beside its label, and why the class is only one declaration.
 weight: 3
-icon: check-square
+icon: square-check
 ---
 
 A checkbox or radio laid out inline with its label.

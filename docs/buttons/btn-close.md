@@ -3,7 +3,7 @@ isIndex: false
 title: Close button
 description: The self-contained close control used inside panels, alerts and dismissible blocks.
 weight: 3
-icon: x-lg
+icon: x
 ---
 
 A close control. It is **self-contained**: `.btn` is not required.

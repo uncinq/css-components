@@ -3,7 +3,7 @@ isIndex: false
 title: Modal
 description: The centred panel configuration, and how it centres and shrinks to its content at once.
 weight: 3
-icon: window
+icon: app-window
 ---
 
 A centred panel. The class is **pure configuration**: `modal.css` declares nothing but `--panel-*` tokens, and [`components/panel.css`](../panel/) owns every rule.

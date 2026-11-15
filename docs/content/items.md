@@ -3,7 +3,7 @@ isIndex: false
 title: Items
 description: A responsive grid whose column count is intrinsic rather than breakpoint-driven.
 weight: 6
-icon: grid-3x2-gap
+icon: grid-3x2
 ---
 
 A responsive grid, and the usual container for [cards](../card/).

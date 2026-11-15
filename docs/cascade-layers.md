@@ -3,7 +3,7 @@ isIndex: false
 title: Cascade layers
 description: The two layers this package owns, why panel.css follows modal and drawer, and how to override a component cleanly.
 weight: 2
-icon: stack
+icon: layers
 ---
 
 This package writes to two layers.

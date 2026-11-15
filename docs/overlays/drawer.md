@@ -3,7 +3,7 @@ isIndex: false
 title: Drawer
 description: The edge-pinned panel configuration and its four position variants.
 weight: 4
-icon: layout-sidebar-reverse
+icon: panel-right
 ---
 
 A panel sliding in from an edge. Like [`.modal`](../modal/), the class is **pure configuration**: `drawer.css` declares nothing but `--panel-*` tokens, and [`components/panel.css`](../panel/) owns every rule.

@@ -3,7 +3,7 @@ isIndex: false
 title: Video
 description: A wrapper for a native video, positioning the optional pause control an autoplaying video needs.
 weight: 3
-icon: camera-video
+icon: video
 ---
 
 A wrapper for a **native** `<video>`, as opposed to an embedded player.

@@ -3,7 +3,7 @@ isIndex: false
 title: Button
 description: The .btn base class, its ten colour variants, five sizes and three style variants.
 weight: 2
-icon: hand-index-thumb
+icon: mouse-pointer-click
 ---
 
 `.btn` is the base class. It works on `<button>`, `<a>` and `<input type="submit">`, and reads `--btn-*` from [@uncinq/component-tokens](../../../component-tokens/reference/).

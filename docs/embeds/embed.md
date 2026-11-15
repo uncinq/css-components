@@ -3,7 +3,7 @@ isIndex: false
 title: Embed
 description: A responsive container for third-party embeds, holding an aspect ratio so the page does not reflow.
 weight: 2
-icon: aspect-ratio
+icon: ratio
 ---
 
 A responsive container for third-party embeds, holding an aspect ratio so the page does not reflow once the iframe loads.

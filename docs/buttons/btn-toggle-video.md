@@ -3,7 +3,7 @@ isIndex: false
 title: Video toggle
 description: The play and pause control overlaid on an autoplaying video, driven by the .is-playing state class.
 weight: 9
-icon: play-circle
+icon: circle-play
 ---
 
 A play and pause control overlaid on a video. **It requires `.btn`**, and it is the one specialised button that ships no icon of its own.

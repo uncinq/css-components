@@ -3,7 +3,7 @@ isIndex: false
 title: Dropdown
 description: A contextual menu positioned against its trigger, with a three-class transition contract.
 weight: 5
-icon: caret-down-square
+icon: square-chevron-down
 ---
 
 A contextual menu. Unlike [`.modal`](../modal/) and [`.drawer`](../drawer/), it is not a panel: it is absolutely positioned against its trigger, stays out of the top layer, and has a tighter JavaScript contract because it animates in both directions.

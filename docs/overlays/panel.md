@@ -3,7 +3,7 @@ isIndex: false
 title: Panel
 description: The shared skeleton behind .modal and .drawer, the two opening strategies, the inline variants and the backdrop.
 weight: 2
-icon: layout-sidebar
+icon: panel-left
 ---
 
 `components/panel.css` is the largest file in the package and the only one with no class of its own. It owns every rule behind [`.modal`](../modal/) and [`.drawer`](../drawer/), which contribute nothing but `--panel-*` values.
