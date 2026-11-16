@@ -135,6 +135,7 @@
     }
 
     .btn::after {
+      background-color: transparent;
       content: '';
       inset: 0;
       position: absolute;
