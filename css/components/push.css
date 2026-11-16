@@ -137,8 +137,10 @@
     .btn::after {
       background-color: transparent;
       content: '';
+      height: 100%;
       inset: 0;
       position: absolute;
+      width: 100%;
     }
   }
 
